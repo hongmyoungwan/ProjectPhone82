@@ -3,9 +3,9 @@
 .left_menu {
 	float: left;
 	font-weight: bold;
-	width: 30%;
+	width: 10%;
 	background-color: gray;
-	color: white;
+	
 }
 
 
@@ -13,5 +13,5 @@
 	float: right;
 	font-weight: bold;
 	text-decoration: none;
-	width: 60%;
+	width: 80%;
 }
