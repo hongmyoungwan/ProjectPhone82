@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.left_menu {
+	float: left;
+	font-weight: bold;
+	width: 30%;
+	background-color: gray;
+	color: white;
+}
+
+
+.content_menu {
+	float: right;
+	font-weight: bold;
+	text-decoration: none;
+	width: 60%;
+}
