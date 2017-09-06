@@ -44,17 +44,22 @@ public class QNAWriteServlet extends HttpServlet {
 		list.add("멍청이");
 
 		try {
-			
-			for(String k: list) {
-				if (content.indexOf(k)>-1) {
-					request.setAttribute("key", k+"를(을) 포함하고있어요");
-					target="qnaWriteForm.jsp";
-					request.setAttribute("dto", dto);
+			if(title!="" && content!="") {
+				for(String k: list) {
+					if (content.indexOf(k)>-1) {
+						request.setAttribute("key", k+"를(을) 포함하고있어요");
+						request.setAttribute("dto", dto);
+						target="boardWriteForm.jsp";
+					}else {
+						service.qnainsert(dto);
+						break;
+					}
 				}
-				else{
-					service.qnainsert(dto);
-					break;
-				}
+			}
+			else {
+				request.setAttribute("writenull", "제목과 내용에 빈칸이 있는지 확인해주세요");
+				request.setAttribute("dto", dto);
+				target="boardWriteForm.jsp";
 			}
 			
 		}catch(MyException e) {
