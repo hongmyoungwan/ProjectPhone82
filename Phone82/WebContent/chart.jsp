@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="favicon.ico">
+<link href="admin.css" type="text/css"rel="stylesheet">
 <title>CartList</title>
 
 </head>
@@ -17,5 +17,6 @@
 <h1>관리자페이지</h1>
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
+<jsp:include page="chart/chart.jsp" flush="true" /><br>
 </body>
 </html>

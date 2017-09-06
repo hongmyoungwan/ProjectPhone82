@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.Admin;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,16 +23,22 @@ public class AdminFormMainServlet extends HttpServlet {
 		
 		String adminid = request.getParameter("userid");
 		String adminpw= request.getParameter("passwd");
-
-		String target ="adminform.jsp";
+		
+		//testversion admin;
+		adminid="master";
+		adminpw="master";
+		
+		String target ="adminForm.jsp";
 		HashMap<String,String>map = new HashMap<>();
 		map.put("adminid", adminid);
 		map.put("adminpw", adminpw);
 		AdminService service =new AdminService();
 		try {
 			AdminDTO dto = service.getAdmin(map);
+			request.setAttribute("masterLogin", dto);
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		RequestDispatcher dis =request.getRequestDispatcher(target);
