@@ -4,12 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Chart</title>
 
-		<style type="text/css">
+<style type="text/css">
 #container, #sliders {
     min-width: 310px; 
     max-width: 800px;
@@ -19,12 +15,11 @@
     height: 400px; 
 }
 		</style>
-	</head>
 	<body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="highcharts.js"></script>
-<script src="highcharts-3d.js"></script>
-<script src="exporting.js"></script>
+<script src="chart/highcharts.js"></script>
+<script src="chart/highcharts-3d.js"></script>
+<script src="chart/exporting.js"></script>
 
 <div id="container"></div>
 <div id="sliders">
@@ -96,5 +91,3 @@ $('#sliders input').on('input change', function () {
 
 showValues();
 		</script>
-	</body>
-</html>

@@ -1,6 +1,7 @@
 package com.controller.Admin;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dto.MonthSales;
 import com.dto.SalesDTO;
 import com.exception.MyException;
 import com.service.AdminService;
@@ -24,12 +26,18 @@ public class ChartFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		AdminService service = new AdminService();
-		List<SalesDTO> list = null;
+		List<MonthSales> list = null;
+		HashMap<String,String>map = new HashMap<>();
+		map.put("start", "2015/11/15");
+		map.put("finish", "2017/12/31");
 		String target= "chart.jsp";
 		try {
-			list=service.getSalesChartDatas();
-			for (SalesDTO salesDTO : list) {
-				System.out.println(salesDTO.toString());
+			list=service.getSalesChartDatas(map);
+			for (MonthSales monthSales : list) {
+				for (SalesDTO s : monthSales.getList()) {
+					System.out.println(s.toString());
+				}
+		
 			}
 			request.setAttribute("charttable", list);
 		} catch (MyException e) {

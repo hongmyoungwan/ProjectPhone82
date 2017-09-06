@@ -14,8 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSalesChartDatas" resultType="SalesDTO" parameterType="hashmap">
 		select telecom_num , sum(PHONE_PRICE),sum(phone_amount) as "PHONE_PRICE"
 		from SALES_STATUS
-		where orderdate between '2017/01/01' and '2017/1/31'
+		<where>
+		 orderdate between '2017/01/01' and '2017/1/31'
 		group by telecom_num
+		</where>
+		
 	</select>
 </mapper>
 
