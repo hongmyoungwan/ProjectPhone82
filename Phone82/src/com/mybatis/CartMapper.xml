@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.CartMapper">
+		
+		<select id="cartAllList" resultType="CartDTO">
+			
+			select num,userid,phone_model_num,phone_name,sprice,scolor,samount,simage
+			from cart
+					
+		</select>
+		
+		<update id="amountUpdate" parameterType="hashmap" >
+			update cart
+			set samount=#{samount}
+			where num=${num}
+		
+		</update>
+		<delete id="deleteItem" parameterType="int">
+			delete from cart
+			where num=#{num}
+		</delete>
+		
+		<select id="orderConfirm" parameterType="int" resultType="CartDTO">
+			select num,userid,phone_model_num,phone_name,sprice,scolor,samount,simage
+			from cart
+			where num=#{num}
+		</select>
+	</mapper>
+
+
+
+
+
