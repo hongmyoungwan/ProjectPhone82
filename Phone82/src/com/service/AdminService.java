@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dao.AdminDAO;
 import com.dto.AdminDTO;
-import com.dto.MonthSales;
 import com.dto.SalesDTO;
 import com.exception.MyException;
 import com.mybatis.MybatisTemplate;
@@ -30,10 +29,10 @@ public class AdminService {
 		}
 		return dto;
 	}
-	public List<MonthSales> getSalesChartDatas(HashMap<String, String> map) throws MyException {
+	public List<SalesDTO> getSalesChartDatas(HashMap<String, String> map) throws MyException {
 		
 		SqlSession session =MybatisTemplate.openSession();
-		List<MonthSales> list=null;
+		List<SalesDTO> list=null;
 		AdminDAO dao= new AdminDAO();
 		try {
 			list= dao.getSalesChartDatas(session,map);

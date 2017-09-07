@@ -6,10 +6,10 @@ public class CartDTO {
 	private String userid;
 	private String phone_model_num;
 	private String phone_name;
-	private String sprice;
-	private String scolor;
-	private String samount;
-	private String simage;
+	private String phone_price;
+	private String phone_color;
+	private String phone_amount;
+	private String phone_image;
 	public CartDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,10 +21,10 @@ public class CartDTO {
 		this.userid = userid;
 		this.phone_model_num = phone_model_num;
 		this.phone_name = phone_name;
-		this.sprice = sprice;
-		this.scolor = scolor;
-		this.samount = samount;
-		this.simage = simage;
+		this.phone_price = sprice;
+		this.phone_color = scolor;
+		this.phone_amount = samount;
+		this.phone_image = simage;
 	}
 	public String getNum() {
 		return num;
@@ -51,28 +51,28 @@ public class CartDTO {
 		this.phone_name = phone_name;
 	}
 	public String getSprice() {
-		return sprice;
+		return phone_price;
 	}
 	public void setSprice(String sprice) {
-		this.sprice = sprice;
+		this.phone_price = sprice;
 	}
 	public String getScolor() {
-		return scolor;
+		return phone_color;
 	}
 	public void setScolor(String scolor) {
-		this.scolor = scolor;
+		this.phone_color = scolor;
 	}
 	public String getSamount() {
-		return samount;
+		return phone_amount;
 	}
 	public void setSamount(String samount) {
-		this.samount = samount;
+		this.phone_amount = samount;
 	}
 	public String getSimage() {
-		return simage;
+		return phone_image;
 	}
 	public void setSimage(String simage) {
-		this.simage = simage;
+		this.phone_image = simage;
 	}
 
 

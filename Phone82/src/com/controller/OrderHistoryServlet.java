@@ -21,7 +21,7 @@ public class OrderHistoryServlet extends HttpServlet {
 
 		String num = request.getParameter("num");
 		String userid = request.getParameter("userid");
-
+		
 		String phone_name = request.getParameter("phone_name");
 		String sprice = request.getParameter("sprice");
 		String scolor = request.getParameter("scolor");
@@ -40,11 +40,11 @@ public class OrderHistoryServlet extends HttpServlet {
 		OrderDTO dto = new OrderDTO();
 		dto.setAddr1(addr1);
 		dto.setAddr2(addr2);
-		dto.setSamount(Integer.parseInt(samount));
+		dto.setPhone_amount(Integer.parseInt(samount));
 		dto.setPhone_model_num(phone_model_num);
-		dto.setScolor(scolor);
-		dto.setsImage(sImage);
-		dto.setSprice(Integer.parseInt(sprice));
+		dto.setPhone_color(scolor);
+		dto.setPhone_image(sImage);
+		dto.setPhone_price(Integer.parseInt(sprice));
 		dto.setPhone_name(phone_name);
 		dto.setPhone(phone);
 		dto.setUserid(userid);

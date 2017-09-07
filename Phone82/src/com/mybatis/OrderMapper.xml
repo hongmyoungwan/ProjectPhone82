@@ -7,12 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addOrder" parameterType="OrderDTO">
 		insert into orderHistory
 		(num, userid, phone_name, phone_model_num,
-		 sprice, scolor, samount, sImage, orderName , post1, post2, addr1, addr2,
-		 phone, payMethod)
-		 values(#{num},#{userid},#{phone_name},#{phone_model_num},#{sprice},#{scolor},
-		 #{samount},#{sImage},#{orderName},#{post1}, #{post2},#{addr1},#{addr2},#{phone},#{payMethod})
+		 phone_price, phone_color, phone_amount, phone_image, orderName , post1, post2, addr1, addr2,
+		 phone, paymethod)
+		 values(#{num},#{userid},#{phone_name},#{phone_model_num},#{phone_price},#{phone_color},
+		 #{phone_amount},#{phone_image},#{orderName},#{post1}, #{post2},#{addr1},#{addr2},#{phone},#{payMethod})
 		 
-		 
+
 	</insert>
 
 

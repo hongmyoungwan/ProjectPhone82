@@ -126,8 +126,8 @@ text-align: right;
 								value="${xxx.sprice * xxx.samount}" type="currency" />
 					</span></td>
 					<td><input type="button" value="주문"
-						onclick="order('${xxx.num}','${xxx.userid}')">
-						<c:out value="${xxx.userid}"></c:out>
+						onclick="order('${xxx.num}','${xxx.userid}')"><br>
+					
 						</td>
 					<td class="td_default" align="center" width="30"
 						style='padding-left: 10px'><input type="button" value="삭제"

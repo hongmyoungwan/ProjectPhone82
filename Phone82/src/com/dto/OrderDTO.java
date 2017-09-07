@@ -1,14 +1,15 @@
 package com.dto;
 
 public class OrderDTO {
+	
 	private int num ;
 	private String userid;
 	private String phone_name ;
 	private String phone_model_num ;
-	private int sprice;
-	private String scolor ;
-	private int samount;
-	private String sImage;
+	private int phone_price;
+	private String phone_color ;
+	private int phone_amount;
+	private String phone_image;
 	private String orderName ;
 	private String post1  ;
 	private String post2;
@@ -20,18 +21,18 @@ public class OrderDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public OrderDTO(int num, String userid, String phone_name, String phone_model_num, int sprice, String scolor,
-			int samount, String sImage, String orderName, String post1, String post2, String addr1, String addr2,
-			String phone, String payMethod) {
+	public OrderDTO(int num, String userid, String phone_name, String phone_model_num, int phone_price,
+			String phone_color, int phone_amount, String phone_image, String orderName, String post1, String post2,
+			String addr1, String addr2, String phone, String payMethod) {
 		super();
 		this.num = num;
 		this.userid = userid;
 		this.phone_name = phone_name;
 		this.phone_model_num = phone_model_num;
-		this.sprice = sprice;
-		this.scolor = scolor;
-		this.samount = samount;
-		this.sImage = sImage;
+		this.phone_price = phone_price;
+		this.phone_color = phone_color;
+		this.phone_amount = phone_amount;
+		this.phone_image = phone_image;
 		this.orderName = orderName;
 		this.post1 = post1;
 		this.post2 = post2;
@@ -64,29 +65,29 @@ public class OrderDTO {
 	public void setPhone_model_num(String phone_model_num) {
 		this.phone_model_num = phone_model_num;
 	}
-	public int getSprice() {
-		return sprice;
+	public int getPhone_price() {
+		return phone_price;
 	}
-	public void setSprice(int sprice) {
-		this.sprice = sprice;
+	public void setPhone_price(int phone_price) {
+		this.phone_price = phone_price;
 	}
-	public String getScolor() {
-		return scolor;
+	public String getPhone_color() {
+		return phone_color;
 	}
-	public void setScolor(String scolor) {
-		this.scolor = scolor;
+	public void setPhone_color(String phone_color) {
+		this.phone_color = phone_color;
 	}
-	public int getSamount() {
-		return samount;
+	public int getPhone_amount() {
+		return phone_amount;
 	}
-	public void setSamount(int samount) {
-		this.samount = samount;
+	public void setPhone_amount(int phone_amount) {
+		this.phone_amount = phone_amount;
 	}
-	public String getsImage() {
-		return sImage;
+	public String getPhone_image() {
+		return phone_image;
 	}
-	public void setsImage(String sImage) {
-		this.sImage = sImage;
+	public void setPhone_image(String phone_image) {
+		this.phone_image = phone_image;
 	}
 	public String getOrderName() {
 		return orderName;
@@ -131,5 +132,4 @@ public class OrderDTO {
 		this.payMethod = payMethod;
 	}
 	
-
 }
