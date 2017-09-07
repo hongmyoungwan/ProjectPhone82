@@ -16,7 +16,12 @@
    .blue{
      border-color:blue;
    }
-   
+   .imgst1 {
+	width : 220px;
+	height : 400px;
+	display : inline-table;
+	border : 0px;
+}
    
 </style>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
@@ -130,13 +135,13 @@
 	<br>
 	<br>
 	<br>
-	<table border="0" align="center" width="600" height="auto">
+	<table border="0" align="center" >
 		<tr>
 			<td rowspan="9">
 				<table border="0">
 					<tr>
 						<td><input type="button" value="<"></td>
-						<td><img id="img" src="images/${dto.phone_image}.jpg" width="220" height="400"></td>
+						<td><img id="img" src="images/${dto.phone_image}.jpg" class="imgst1"></td>
 						<td><input type="button" value=">"></td>
 					</tr>
 				</table>

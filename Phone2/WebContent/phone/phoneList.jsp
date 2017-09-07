@@ -7,13 +7,19 @@
  a:link { color: red; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
  a:hover { color: blue; text-decoration: underline;}
+.imgst {
+	width : 100px;
+	height : 118px;
+	display : inline-table;
+	border : 0px;
+}
 </style>
 
-<table width="100%" cellspacing="0" cellpadding="0">
+<table  cellspacing="0" cellpadding="0">
 
 	<tr>
 		<td>
-			<table align="center" width="800" cellspacing="0" cellpadding="0"
+			<table align="center"  cellspacing="0" cellpadding="0"
 				border="0">
 
 				<tr>
@@ -33,8 +39,7 @@
 							<table style='padding: 15px'>
 								<tr>
 									<td><a href="PhoneRetrieveServlet?telecom_num=${xxx.telecom_num}"  class="no-uline" >
-											<img src="images/${xxx.phone_image}.jpg" border="0"
-											align="center" width="100">
+											<img src="images/${xxx.phone_image}.jpg" class="imgst">
 									</a></td>
 								</tr>
 								<tr>
@@ -64,11 +69,11 @@
 							</table>
 						</td>
 					
-  					<c:if test="${(status.index+1)%5==0}">
+  					<c:if test="${(status.index+1)%4==0}">
 
 
 							<tr>
-								<td height="10">
+								<td height="5">
 							</tr>
 
 						</c:if>

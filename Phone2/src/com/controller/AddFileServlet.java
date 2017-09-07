@@ -91,7 +91,7 @@ public class AddFileServlet extends HttpServlet {
 					PhoneDTO dto = new PhoneDTO(telecom_num, phone_model_num, phone_name, phone_content, Integer.parseInt(phone_price), phone_image);
 					
 					biz.PhoneAdd(map);
-					RequestDispatcher dis = request.getRequestDispatcher("phoneList.jsp");
+					RequestDispatcher dis = request.getRequestDispatcher("PhoneListServlet");
 					dis.forward(request, response);
 					
 					
