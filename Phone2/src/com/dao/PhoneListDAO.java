@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +24,10 @@ public class PhoneListDAO {
 		List<PhoneDTO> list = session.selectList("phoneModelList",phone_model_num);
 		System.out.println(list);
 		return list;
+	}
+	public int PhoneAdd(SqlSession session,HashMap<String, String> map) {
+		int n = session.insert("PhoneAdd",map);
+		return n;
 	}
 	
 }

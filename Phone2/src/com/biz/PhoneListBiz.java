@@ -1,5 +1,6 @@
 package com.biz;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -57,7 +58,19 @@ public class PhoneListBiz {
 		return dto;
 	}//PhoneList()
 	
-	
+	public void PhoneAdd(HashMap<String, String> map) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		PhoneListDAO dao = new PhoneListDAO();
+		try {
+			int n = dao.PhoneAdd(session, map);
+			if(n==1) session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("PhoneAdd 실패");
+		}finally {
+			session.close();
+		}
+	}
 	
 	
 	

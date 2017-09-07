@@ -78,6 +78,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td height="10">
+		<td height="10"><a href="phoneAddForm.jsp">휴대폰 등록하기</a></td>
 	</tr>
 </table>
