@@ -45,7 +45,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	values(#{telecom_num},#{phone_model_num},#{phone_name},#{phone_content},#{phone_price},#{phone_image})
 	
 	</insert>
-
+	<update id="phoneUpdate" parameterType="hashmap">
+	update phones
+	set phone_content = #{phone_content}, phone_price = #{phone_price}
+	where telecom_num = #{telecom_num}
+	
+	</update>
+	<delete id="phoneDelete" parameterType="String">
+	delete from phones
+	where telecom_num=#{telecom_num}
+	</delete>
 
 </mapper>
 

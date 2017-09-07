@@ -225,7 +225,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td colspan="3"><a href="">주문하기</a>  <a href="">장바구니 담기</a></td>
+			<td colspan="3"><a href="">주문하기</a>  <a href="">장바구니 담기</a><br><a href="updateForm.jsp?telecom_num=${dto.telecom_num}">수정</a>    &nbsp; <a href="PhoneDeleteServlet?telecom_num=${dto.telecom_num}">삭제</a></td>
 			
 		</tr>
 	</table>
