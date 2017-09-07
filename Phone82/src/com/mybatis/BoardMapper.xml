@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.BoardMapper">
+
+<select id="boardList" resultType="MyBoardDTO" parameterType="hashmap">
+	select num, userid, title, author, content, to_char(writeday,'YYYY/MM/DD') writeday, readCnt
+	from Myboard
+	<if test="searchName=='title'">
+	where title like '%'||#{searchValue}||'%'
+	</if>
+	<if test="searchName=='author'">
+	where title like '%'||#{searchValue}||'%'
+	</if>
+	order by num desc
+</select>
+
+<select id="totalCount" resultType="int">
+	select count(*) from Myboard
+</select>
+
+<select id="totalCount1" resultType="int" parameterType="hashmap">
+	select count(*) from Myboard
+	<if test="searchName=='title'">
+	where title like '%'||#{searchValue}||'%'
+	</if>
+	<if test="searchName=='author'">
+	where title like '%'||#{searchValue}||'%'
+	</if>
+</select>
+
+<insert id="insertBoard" parameterType="MyBoardDTO">
+	insert into MyBoard(num,userid,title,author,content)
+	values(board_seq.nextval,#{userid},#{title},#{author},#{content})
+</insert>
+
+<select id="selectByNum" parameterType="int" resultType="MyBoardDTO">
+	select num, userid, title,author,content,to_char(writeday,'YYYY/MM/DD') writeday,readCnt 
+	from Myboard
+	where num=#{num}
+</select>
+<update id="readCnt" parameterType="int">
+	update Myboard
+	set readCnt=readCnt+1
+	where num=#{num}
+</update>
+
+<delete id="deleteBoard" parameterType="hashmap">
+	delete from Myboard
+	where num=#{num} and userid=#{userid}
+</delete>
+
+<update id="updateByNum" parameterType="MyBoardDTO">
+	update myboard
+	set title=#{title}, author=#{author}, content=#{content}
+	where num=#{num}
+</update>
+
+</mapper>
