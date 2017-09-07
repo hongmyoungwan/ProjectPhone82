@@ -1,5 +1,6 @@
 package com.biz;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -56,6 +57,54 @@ public class PhoneListBiz {
 		}
 		return dto;
 	}//PhoneList()
+	
+	public void PhoneAdd(HashMap<String, String> map) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		PhoneListDAO dao = new PhoneListDAO();
+		try {
+			int n = dao.PhoneAdd(session, map);
+			if(n==1) session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("PhoneAdd 실패");
+		}finally {
+			session.close();
+		}
+	}
+	
+	
+	public void phoneUpdate(HashMap<String, String> map) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		PhoneListDAO dao = new PhoneListDAO();
+		try {
+			int n = dao.phoneUpdate(session, map);
+			if(n==1) session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("phoneUpdate 실패");
+		}finally {
+			session.close();
+		}
+	}
+	
+	
+	public void phoneDelete(String telecom_num) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		PhoneListDAO dao = new PhoneListDAO();
+		try {
+			int n = dao.phoneDelete(session, telecom_num);
+			if(n==1) session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("phoneDelete 실패");
+		}finally {
+			session.close();
+		}
+	}
+	
+	
+	
+	
 	
 	
 	

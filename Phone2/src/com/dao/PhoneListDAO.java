@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,5 +25,16 @@ public class PhoneListDAO {
 		System.out.println(list);
 		return list;
 	}
-	
+	public int PhoneAdd(SqlSession session,HashMap<String, String> map) {
+		int n = session.insert("PhoneAdd",map);
+		return n;
+	}
+	public int phoneUpdate(SqlSession session, HashMap<String, String> map) {
+		int n = session.update("phoneUpdate",map);
+		return n;
+	}
+	public int phoneDelete(SqlSession session,String telecom_num) {
+		int n = session.delete("phoneDelete",telecom_num);
+		return n;
+	}
 }
