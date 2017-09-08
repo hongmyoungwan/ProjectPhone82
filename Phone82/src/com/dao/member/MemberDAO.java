@@ -1,10 +1,10 @@
-package com.dao;
+package com.dao.member;
 
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dto.MemberDTO;
+import com.dto.member.MemberDTO;
 
 public class MemberDAO {
 	
