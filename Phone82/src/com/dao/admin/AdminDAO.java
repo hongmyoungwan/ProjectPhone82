@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dto.admin.AdminDTO;
 import com.dto.cart.SalesDTO;
+import com.dto.member.MemberDTO;
 
 public class AdminDAO {
 
@@ -21,6 +22,11 @@ public class AdminDAO {
 		List<SalesDTO> list= session.selectList("getSalesChartDatas",map);
 	
 		return list;
+	}
+
+	public List<MemberDTO> getAllMemberData(SqlSession session) {
+		// TODO Auto-generated method stub
+		return session.selectList("getAllMemberData");
 	}
 	
 

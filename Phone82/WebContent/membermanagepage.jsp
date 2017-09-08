@@ -17,5 +17,6 @@
 <h1>관리자페이지</h1>
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
+<jsp:include page="admin/membermanagepage.jsp" flush="true" /><br>
 </body>
 </html>
