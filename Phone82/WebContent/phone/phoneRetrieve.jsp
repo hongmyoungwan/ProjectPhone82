@@ -228,7 +228,7 @@
 		</tr>
 		<tr>
 			<td>단말기 가격</td>
-			<td><input type="text" value="${dto.phone_price}" id="price"></td>
+			<td><input type="text" value="${dto.phone_price}" id="price" readonly="readonly"></td>
 		</tr>
 		<tr>
 			<td></td>
