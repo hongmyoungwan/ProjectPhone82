@@ -21,10 +21,16 @@ public class FAQRetrieveServlet extends HttpServlet {
 		String num=request.getParameter("num");
 		String target="faqRetrieve.jsp";
 		
+		if(num.equals(""))
+		{
+			System.err.println("num is null FAQRetrieveServlet 26 line");
+			return;
+		}
 		FAQService service=new FAQService();
 		try {
 			FAQDTO dto=service.faqretrieve(Integer.parseInt(num));
 			request.setAttribute("retrieve", dto);
+			
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

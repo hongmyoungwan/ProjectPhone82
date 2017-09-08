@@ -29,6 +29,7 @@
 		
 		function faqSearch(f){
 			f.action="FAQListServlet";
+			
 		};
 		
 </script>
@@ -62,7 +63,7 @@
 				<td><b>${dto.title}</b></td>
 			</tr>
 			<tr>
-			<td></td><td id="retrieve${dto.num}" align="center"></td>
+			<td></td><td id="retrieve${dto.num}" align="center" style="display:none;"></td>
 			</tr>
 			</c:forEach>
 		</c:if>
