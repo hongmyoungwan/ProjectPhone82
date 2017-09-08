@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.dto.board.BoardDTO" alias="MyBoardDTO"/>
 		<typeAlias type="com.dto.qna.QNADTO" alias="QNADTO"/>
 		<typeAlias type="com.dto.faq.FAQDTO" alias="FAQDTO"/>
+		
 	</typeAliases>
 
 	<environments default="development">
