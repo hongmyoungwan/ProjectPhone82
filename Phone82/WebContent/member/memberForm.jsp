@@ -239,10 +239,10 @@ $(document).ready(function(){
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/daum.js"></script> 
 <!-- DAUM 주소 라이브러리 끝 -->    
-
+<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
 <form name="myform" action="MemberAddServlet" >
-<p style="font-size:12px; color:blue; margin-top:-2px; margin-left:10px;">*는 필수입력사항입니다.</p>
-<table border=1>
+<p style="font-size:12px; color:blue; margin-top:-2px; margin-left:10px;" align="center">*는 필수입력사항입니다.</p>
+<table border=1 align="center">
  <tr>
   <th>*아이디</th>
   <td colspan="3"><input type="text" name="userid" id="userid" placeholder="*아이디" ><div></div></td>
