@@ -6,10 +6,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("a").on("click",function(){
-			var x=$(this).text();
-			console.log(x);
-			 $.ajax({
+		$("tr").on("click",function(){
+			var x=0; 
+			$.each($(this),function(index,item){
+				x=item.innerText[0];
+				console.log(x);
+			});
+				$.ajax({
 				type:"get",
 				url:"FAQRetrieveServlet",
 				dataType:"text",
@@ -58,9 +61,9 @@
 		</c:if>
 		<c:if test="${list.size()!=0}">
 		<c:forEach var="dto" items="${list}">
-			<tr>
-				<td><a id="a${dto.num}">${dto.num}</a></td>
-				<td>${dto.title}</td>
+			<tr id="a${dto.num}">
+				<td>${dto.num}</td>
+				<td><b>${dto.title}</b></td>
 			</tr>
 			<tr>
 			<td></td><td id="retrieve${dto.num}" align="center"></td>

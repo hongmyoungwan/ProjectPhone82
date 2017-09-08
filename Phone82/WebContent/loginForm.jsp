@@ -11,7 +11,6 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<jsp:include page="home.jsp"/>
 <jsp:include page="login/loginForm.jsp"/>
 
 <c:if test="${! empty requestScope.mesg}">

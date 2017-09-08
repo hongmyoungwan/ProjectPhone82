@@ -65,9 +65,13 @@ function getCookie(cookieName) {
 
 
 <div>
-<p id="title">MEMBER LOGIN</p>
+
+<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+
+<p id="title" align="center">MEMBER LOGIN</p>
 <form action="LoginServlet" method="get">
-<table>
+<table align="center">
+
 <tr>
  <td>ID</td>
  <td><input type="text" name="userid"> <input type="checkbox" name="saveid" id="saveid"> </td>
@@ -89,8 +93,8 @@ function getCookie(cookieName) {
 </table>
 </form>
 </div>
-
+<p align="center">
 <a href="MemberFormServlet" class="a">회원가입 &nbsp;&nbsp;&nbsp;|</a>
 <a href="FindIDFormServlet" class="a">아이디 찾기 &nbsp;&nbsp;&nbsp;|</a>
 <a href="FindPasswdFormServlet" class="a">  비밀번호 찾기</a>
-
+</p>

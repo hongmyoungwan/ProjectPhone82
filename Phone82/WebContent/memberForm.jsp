@@ -11,7 +11,7 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<jsp:include page="home.jsp"/>
+
 <jsp:include page="member/memberForm.jsp"/>
 </body>
 </html>
