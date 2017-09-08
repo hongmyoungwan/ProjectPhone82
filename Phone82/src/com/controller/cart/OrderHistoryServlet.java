@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.OrderDTO;
+import com.dto.cart.OrderDTO;
 import com.exception.MyException;
-import com.service.OrderService;
+import com.service.cart.OrderService;
 
 
 @WebServlet("/OrderHistoryServlet")

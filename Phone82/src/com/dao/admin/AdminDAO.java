@@ -1,4 +1,4 @@
-package com.dao;
+package com.dao.admin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dto.AdminDTO;
-import com.dto.SalesDTO;
+import com.dto.admin.AdminDTO;
+import com.dto.cart.SalesDTO;
 
 public class AdminDAO {
 

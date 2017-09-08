@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exception.MyException;
-import com.service.CartService;
+import com.service.cart.CartService;
 
 /**
  * Servlet implementation class CartAmountUpdateServlet

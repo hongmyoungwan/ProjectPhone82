@@ -1,13 +1,13 @@
-package com.service;
+package com.service.admin;
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dao.AdminDAO;
-import com.dto.AdminDTO;
-import com.dto.SalesDTO;
+import com.dao.admin.AdminDAO;
+import com.dto.admin.AdminDTO;
+import com.dto.cart.SalesDTO;
 import com.exception.MyException;
 import com.mybatis.MybatisTemplate;
 

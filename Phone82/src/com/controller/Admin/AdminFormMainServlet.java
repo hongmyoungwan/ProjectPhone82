@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.AdminDTO;
-import com.service.AdminService;
+import com.dto.admin.AdminDTO;
+import com.service.admin.AdminService;
 
 /**
  * Servlet implementation class AdminFormMainServlet

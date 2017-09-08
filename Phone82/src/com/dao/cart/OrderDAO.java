@@ -1,8 +1,8 @@
-package com.dao;
+package com.dao.cart;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dto.OrderDTO;
+import com.dto.cart.OrderDTO;
 
 public class OrderDAO {
 

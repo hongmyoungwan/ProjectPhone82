@@ -9,25 +9,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dto.cart.CartDTO;
+import com.dto.cart.MemberDTO;
 import com.exception.MyException;
-import com.service.CartService;
+import com.service.cart.CartService;
+import com.service.cart.MemberService;
 
 /**
- * Servlet implementation class CartDeleteServlet
+ * Servlet implementation class PaymentViewServlet
  */
-@WebServlet("/CartDeleteServlet")
-public class CartDeleteServlet extends HttpServlet {
+@WebServlet("/PaymentViewServlet")
+public class PaymentViewServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String num =request.getParameter("num");
+		String userid =request.getParameter("userid");
 		
-		
-		
-		String num= request.getParameter("num");
+		System.out.println("paymentView 29"+ userid);
 		CartService service = new CartService();
-		
-		 String target="CartListView";
+		MemberService mservice= new MemberService();
+		 String target="payment.jsp";
 	    try {
-			service.delItem(Integer.parseInt(num));
+			CartDTO cDto=service.orderConfirm(Integer.parseInt(num));
+			MemberDTO mDto=mservice.getMemberData(userid);
+			
+			
+			request.setAttribute("cDTO", cDto);
+			request.setAttribute("mDTO", mDto);
+			System.out.println(mDto.toString());
+	//	request.setAttribute("cart", "장바구니에"+gName+" 상품이 잘 담겼습니다.");
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,11 +47,10 @@ public class CartDeleteServlet extends HttpServlet {
 		
 	    RequestDispatcher dis = request.getRequestDispatcher(target);
 	    dis.forward(request, response);
-		
-		
-		
-		
+
 	}
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

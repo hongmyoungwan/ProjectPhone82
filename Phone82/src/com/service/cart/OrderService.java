@@ -1,10 +1,10 @@
-package com.service;
+package com.service.cart;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dao.CartDAO;
-import com.dao.OrderDAO;
-import com.dto.OrderDTO;
+import com.dao.cart.CartDAO;
+import com.dao.cart.OrderDAO;
+import com.dto.cart.OrderDTO;
 import com.exception.MyException;
 import com.mybatis.MybatisTemplate;
 

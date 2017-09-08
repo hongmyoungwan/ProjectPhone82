@@ -85,13 +85,13 @@
 						<span class="a_default">${oDTO.phone_name}</span>
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span  id = "price1">${oDTO.sprice}</span>원
+						<span  id = "price1">${oDTO.phone_price}</span>원
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span id = "num1">${oDTO.samount}</span>개
+						<span id = "num1">${oDTO.phone_amount}</span>개
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span>${oDTO.sprice*oDTO.samount}</span>원
+						<span>${oDTO.phone_price*oDTO.phone_amount}</span>원
 					</td>
 				</tr>
 				

@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dto.CartDTO;
-import com.dto.MemberDTO;
+import com.dto.cart.CartDTO;
+import com.dto.cart.MemberDTO;
 import com.exception.MyException;
-import com.service.CartService;
+import com.service.cart.CartService;
 
 /**
  * Servlet implementation class CartListServlet

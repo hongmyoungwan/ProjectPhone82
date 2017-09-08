@@ -1,11 +1,11 @@
-package com.dao;
+package com.dao.cart;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dto.CartDTO;
-import com.dto.MemberDTO;
+import com.dto.cart.CartDTO;
+import com.dto.cart.MemberDTO;
 
 public class MemberDAO {
 

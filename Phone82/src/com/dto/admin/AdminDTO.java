@@ -1,4 +1,4 @@
-package com.dto;
+package com.dto.admin;
 
 public class AdminDTO {
 
