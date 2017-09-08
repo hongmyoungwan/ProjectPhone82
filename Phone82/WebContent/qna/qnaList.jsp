@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		$("tr").on("click",function(){
+		$("[id^='a']").on("click",function(){
 		var x=$(this).children("td").eq(0).text();
 				location.href="QNARetrieveServlet?num="+x; 
 		});
