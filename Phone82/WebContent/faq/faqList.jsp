@@ -17,8 +17,12 @@
 				},
 				success:function(responseData,status,xhr){
 					console.log(responseData);
-					$("#retrieve"+x).text(responseData).toggle();
-					
+					$("#retrieve"+x).text(responseData);
+					if($("#retrieve"+x).style.display=='block'){
+						$("#retrieve"+x).style.display=='none';
+					}else{
+						$("#retrieve"+x).style.display=='block';
+					}	
 				},
 				error:function(xhr,status,e){
 					console.log(status,e);
