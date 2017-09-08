@@ -1,35 +1,59 @@
+<%@page import="com.dto.qna.QNADTO"%>
 <%@page import="com.dto.qna.QNAPageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+	
 	$(document).ready(function(){
-		$("#perPage").on("change",function(){
-			var x=$("#perPage").val();
-			location.href="QNAListServlet?perPage="+x;
-			
+		$("tr").on("click",function(){
+		var x=$(this).children("td").eq(0).text();
+				location.href="QNARetrieveServlet?num="+x; 
 		});
 	});
-	function boardSearch(f){
-		f.action="QNAListServlet";
-	};
-	function boardWrite(){
-		location.href="QNAWriteFormServlet";
-	}
 </script>
 
-<h1>글목록보기</h1>
-<div align="right"><button onclick="boardWrite()">글쓰기</button></div>
-<div align="center">
+<h1>QNA</h1>
 <hr>
-<form name="myForm">
+<c:if test="${!empty requestScope.key}">
+	<script>
+	alert("${requestScope.key}");
+	</script>
+</c:if>
+<c:if test="${!empty requestScope.writeNull}">
+	<script>
+	alert("${requestScope.writeNull}");
+	</script>
+</c:if>
+
+<div align="center">
+<form action="QNAWriteServlet" method="post">
+<input type="hidden" name="author" value="${sessionScope.username}">
+<br>
+<h3 align="left" style="margin-left: 220px">문의하기</h3>
+<table>
+<tr>
+<td bgcolor="silver">문의제목</td><td><input type="text" name="title" value="${dto.title}" size="50"><br></td>
+</tr>
+<tr>
+<td bgcolor="silver">작성자</td><td>${sessionScope.username}</td>
+</tr>
+<tr>
+<td bgcolor="silver">문의내용</td><td><textarea rows="30" cols="100" name="content">${dto.content}</textarea></td>
+</tr>
+</table>
+<input type="submit" value="문의하기">
+<input type="reset" value="취소">
+</form>
+<br><br>
+<h3 align="left" style="margin-left: 220px">나의 문의내역</h3>
 <table>
 	<colgroup>
 	<col width="100"/>
-	<col width="1000"/>
-	<col width="200"/>
-	<col width="200"/>
+	<col width="400"/>
+	<col width="100"/>
+	<col width="100"/>
 	<col width="100"/>
 	</colgroup>
 		<tr bgcolor="silver">
@@ -49,39 +73,23 @@
 		<c:forEach var="dto" items="${list}">
 			<tr>
 				<td>${dto.num}</td>
-				<td><a href="QNARetrieveServlet?num=${dto.num}">${dto.title}</a></td>
+				<td>${dto.title}</td>
 				<td>${dto.author}</td>
 				<td>${dto.writeday}</td>
 				<td>${dto.readCnt}</td>
 			</tr>
+			
 			</c:forEach>
+			
 		</c:if>
 		</table>
-		<hr>
+		
 		<table>
 		<tr>
 		<td colspan="5" align="center"><jsp:include page="/qnapage.jsp"></jsp:include></td>
 		</tr>
 	</table>
+	<hr>
 
-<table>
-	<tr>
-			<td colspan="5"><select name="searchName">
-					<option value="title">제목</option>
-					<option value="author">작성자</option>
-			</select>
-			<input type="text" name="searchValue">
-			<% QNAPageDTO bpage=(QNAPageDTO)request.getAttribute("page");
-				int perPage=bpage.getPerPage();%>
-			
-			<select id="perPage">
-			<option value="10" <%if(perPage==10){ %>selected <% }%>>10</option>
-			<option value="20" <%if(perPage==20){ %>selected <% }%>>20</option>
-			<option value="30" <%if(perPage==30){ %>selected <% }%>>30</option>
-			</select>
-			</td>
-		</tr>
-		
-</table>
-</form>
+	
 </div>

@@ -38,28 +38,14 @@ public class QNAWriteServlet extends HttpServlet {
 		QNAService service=new QNAService();
 		String target="QNAListServlet";
 		
-		
-		ArrayList<String> list=new ArrayList<String>();
-		list.add("바보");
-		list.add("멍청이");
-
 		try {
 			if(title!="" && content!="") {
-				for(String k: list) {
-					if (content.indexOf(k)>-1) {
-						request.setAttribute("key", k+"를(을) 포함하고있어요");
-						request.setAttribute("dto", dto);
-						target="boardWriteForm.jsp";
-					}else {
-						service.qnainsert(dto);
-						break;
-					}
-				}
+				service.qnainsert(dto);
 			}
 			else {
-				request.setAttribute("writenull", "제목과 내용에 빈칸이 있는지 확인해주세요");
+				request.setAttribute("writeNull", "제목과 내용에 빈칸이 있는지 확인해주세요");
 				request.setAttribute("dto", dto);
-				target="boardWriteForm.jsp";
+				target="qnaWriteForm.jsp";
 			}
 			
 		}catch(MyException e) {

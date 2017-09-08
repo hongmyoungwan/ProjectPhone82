@@ -7,11 +7,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("tr").on("click",function(){
-			var x=0; 
-			$.each($(this),function(index,item){
-				x=item.innerText[0];
-				console.log(x);
-			});
+			var x=$(this).children("td").eq(0).text();	
 				$.ajax({
 				type:"get",
 				url:"FAQRetrieveServlet",
