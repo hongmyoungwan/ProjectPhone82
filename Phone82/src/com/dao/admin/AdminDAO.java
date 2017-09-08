@@ -27,6 +27,11 @@ public class AdminDAO {
 		// TODO Auto-generated method stub
 		return session.selectList("getAllMemberData");
 	}
+
+	public int membersDelete(SqlSession session) {
+		
+		return session.delete("membersDelete");
+	}
 	
 
 }

@@ -39,7 +39,7 @@ th, td {
 	<table border="1" style="float: right; width: 80%;" align="center" frame=void>
 
 		<tr class="columhead">
-			<td>No.</td>
+			
 			<td class="checkBoxAll"><input type="checkbox" name="boxAll"
 				id="boxAll"></td>
 			<td>아이디</td>
@@ -50,7 +50,7 @@ th, td {
 		</tr>
 		<c:forEach var="item" items="${membermanagepage}">
 			<tr class="columbody">
-				<td>1</td>
+				
 				<td class="checkBox"><input type="checkbox" name="box" id="box">
 				</td>
 				<td>${item.userid}</td>
@@ -62,11 +62,11 @@ th, td {
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="7"><jsp:include page="../adminmemberpagging.jsp"
+			<td colspan="6"><jsp:include page="../adminmemberpagging.jsp"
 					flush="true"></jsp:include></td>
 		</tr>
 		<tr>
-			<td colspan="7" style="text-align: right; ">
+			<td colspan="6" style="text-align: right; ">
 			<button onclick="deleteMember(this)"> 회원 삭제</button>
 			<button onclick="updateMember(this)"> 수정 삭제</button>
 			</td>
@@ -79,7 +79,7 @@ th, td {
 		  location.href="memberDeleteServlet?userid="+num;
 	}
 
-</script>]
+</script>
 
 
 
