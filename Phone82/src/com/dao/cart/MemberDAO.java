@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.cart.CartDTO;
-import com.dto.cart.MemberDTO;
+import com.dto.member.MemberDTO;
 
 public class MemberDAO {
 

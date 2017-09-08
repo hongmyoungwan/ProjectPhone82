@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.cart.CartDTO;
-import com.dto.cart.MemberDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.cart.CartService;
 
@@ -25,9 +25,9 @@ public class CartListViewServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
-	//	MemberDTO mem = (MemberDTO)session.getAttribute("login"); ·Î±×ÀÎ ¿©ºÎ Àü
-		//ÀÓ½Ã¿ë tester	1	Å×½ºÅÍ	122	121	¿©±â	Àú±â	010	3391	3012	hmga1115	naver.com
-		MemberDTO mem = new MemberDTO("a", "1", "Å×½ºÅÍ", "409", "090", "ÀÌ°÷", "Àú±â", "010", "3391"
+	//	MemberDTO mem = (MemberDTO)session.getAttribute("login"); ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		//ï¿½Ó½Ã¿ï¿½ tester	1	ï¿½×½ï¿½ï¿½ï¿½	122	121	ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½ï¿½	010	3391	3012	hmga1115	naver.com
+		MemberDTO mem = new MemberDTO("a", "1", "ï¿½×½ï¿½ï¿½ï¿½", "409", "090", "ï¿½Ì°ï¿½", "ï¿½ï¿½ï¿½ï¿½", "010", "3391"
 				, "3012", "hmga1115 naver.com");
 		
 		CartService service = new CartService();
