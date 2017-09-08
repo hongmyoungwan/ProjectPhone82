@@ -27,7 +27,10 @@ public class MemberManagementServlet extends HttpServlet {
 		String target ="membermanagepage.jsp";
 		try {
 			List<MemberDTO> dto = service.getAllMemberData();
-			request.setAttribute("masterLogin", dto);
+			for (MemberDTO memberDTO : dto) {
+				System.out.println(dto.toString());
+			}
+			request.setAttribute("membermanagepage", dto);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
