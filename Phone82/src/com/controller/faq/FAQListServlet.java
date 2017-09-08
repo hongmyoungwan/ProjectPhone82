@@ -1,7 +1,6 @@
-package com.controller.qna;
+package com.controller.faq;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -12,13 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dto.qna.QNAPageDTO;
+import com.dto.faq.FAQPageDTO;
 import com.exception.MyException;
-import com.service.qna.QNAService;
+import com.service.faq.FAQService;
 
 
-@WebServlet("/QNAListServlet")
-public class QNAListServlet extends HttpServlet {
+@WebServlet("/FAQListServlet")
+public class FAQListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -28,7 +27,6 @@ public class QNAListServlet extends HttpServlet {
 		session.setAttribute("userid", userid);
 		session.setAttribute("username", "관리자");
 		
-		String searchName=request.getParameter("searchName");
 		String searchValue=request.getParameter("searchValue");
 		String curPage=request.getParameter("curPage");
 		String perPage=request.getParameter("perPage");
@@ -38,14 +36,16 @@ public class QNAListServlet extends HttpServlet {
 		if(perPage==null) {
 			perPage="10";
 		}
-		QNAService service=new QNAService();
+		FAQService service=new FAQService();
+		if(searchValue==null) {
+			searchValue="";
+		}
 		HashMap<String,String> map=new HashMap<>();
-		map.put("searchName", searchName);
 		map.put("searchValue", searchValue);
-		
-		String target="qnaList.jsp";
+		String target="faqList.jsp";
 		try {
-			QNAPageDTO dto=service.qnapage(Integer.parseInt(curPage), Integer.parseInt(perPage), map);
+			System.out.println(">>"+searchValue);
+			FAQPageDTO dto=service.faqpage(Integer.parseInt(curPage), Integer.parseInt(perPage), map);
 			request.setAttribute("page", dto);
 			request.setAttribute("perPage", perPage);
 		} catch (MyException e) {
