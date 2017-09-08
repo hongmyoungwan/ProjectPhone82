@@ -24,7 +24,7 @@
 </script>
 
 <form onsubmit="formchecked">
- <table>
+ <table align="center">
  	<tr>
  	 <td>이름 </td>
  	 <td><input type="text" name="username" id="username"></td>

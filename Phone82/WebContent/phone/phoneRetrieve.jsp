@@ -24,7 +24,7 @@
 }
    
 </style>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -147,7 +147,7 @@
 				</table>
 			</td>
 			<th colspan="2">${dto.phone_name }</th>
-			<td colspan="2">1달 요금 납부금액</td>
+			<td colspan="2"></td>
 		</tr>
 		
 		<tr>

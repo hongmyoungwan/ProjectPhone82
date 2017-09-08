@@ -8,9 +8,8 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<jsp:include page="home.jsp"/><br>
-
-<h3>&nbsp;&nbsp; 비밀번호 찾기</h3>
+<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+<p align="center"><strong> 비밀번호 찾기</strong></p>
 <jsp:include page="login/findPasswdForm.jsp"/>
 </body>
 </html>

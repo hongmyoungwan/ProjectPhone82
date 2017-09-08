@@ -8,9 +8,9 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<jsp:include page="home.jsp"/><br>
 
-<h3>&nbsp;&nbsp; 아이디 찾기</h3>
+<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+<p align="center"><strong> 아이디 찾기</strong></p>
 <jsp:include page="login/findIDForm.jsp"/>
 </body>
 </html>

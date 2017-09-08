@@ -13,7 +13,7 @@
  	font:14px/1.8 Arial,Helvetica, sans-serif;
  }
  .frame{
- 	width:1000px;
+ 	width:800px;
  	margin: 0 auto;
  	border: 1px solid #aaa;
  }
@@ -26,7 +26,7 @@
  .logo{
  	font-size : 2em;
  	font-weight : bold;
- 	background:#5457de;
+ 	background:#eee;
  	color: #fff;
  	display : inline-block;
  	padding : 0 8px;
@@ -80,16 +80,16 @@
 .content{
 	background:#fff;
 }
-a:link { color: red; text-decoration: none;}
+ a:link { color: red; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
  a:hover { color: blue; text-decoration: underline;}
 </style>
 
 </head>
 <body>
-<div class="frame"><a href="">회원가입</a> &nbsp;&nbsp;&nbsp;<a href="">로그인</a>
+<div class="frame"><jsp:include page="menu/top.jsp" flush="true"/>
 <div class="header">
-<div class="logo"><a href="home.html">Phone82</a> </div>
+<div class="logo"><a href="home1.jsp"><img src="images/ddd.png"></a> </div>
 </div>
 	<div class="container">
 		<div class="nav">
