@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import com.dao.list.PhoneListDAO;
 import com.dto.list.PhoneDTO;
 import com.exception.list.MyException;
-import com.mybatis.list.MybatisTemplate;
+import com.mybatis.MybatisTemplate;
+
 
 public class PhoneListBiz {
 
