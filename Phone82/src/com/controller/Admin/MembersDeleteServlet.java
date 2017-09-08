@@ -23,6 +23,7 @@ public class MembersDeleteServlet extends HttpServlet {
 	MemberManagementService service =new MemberManagementService();
 		
 		String target ="membermanagepage.jsp";
+		
 		try {
 			service.membersDelete();
 			
