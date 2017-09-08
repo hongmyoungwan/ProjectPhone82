@@ -4,11 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 
-<c:if test="${!empty result }">
-  <script>
-    alert("회원 가입을 축하합니다.");
-  </script>
-</c:if>
+
 <c:if test="${!empty requestScope.login }">
   <script>
     alert('${requestScope.login}');
