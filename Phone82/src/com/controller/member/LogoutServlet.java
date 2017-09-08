@@ -1,4 +1,4 @@
-package com.member.controller;
+package com.controller.member;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dto.MemberDTO;
+import com.dto.member.MemberDTO;
 
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {

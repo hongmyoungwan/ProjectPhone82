@@ -1,11 +1,11 @@
-package com.service;
+package com.service.member;
 
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dao.MemberDAO;
-import com.dto.MemberDTO;
+import com.dao.member.MemberDAO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.mybatis.MybatisTemplate;
 

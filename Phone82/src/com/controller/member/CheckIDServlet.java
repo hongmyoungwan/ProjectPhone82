@@ -1,4 +1,4 @@
-package com.member.controller;
+package com.controller.member;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exception.MyException;
-import com.service.MemberService;
+import com.service.member.MemberService;
 
 @WebServlet("/CheckIDServlet")
 public class CheckIDServlet extends HttpServlet {

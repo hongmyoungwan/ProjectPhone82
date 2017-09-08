@@ -1,4 +1,4 @@
-package com.member.controller;
+package com.controller.member;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.exception.MyException;
-import com.service.MemberService;
+import com.service.member.MemberService;
 
 /**
  * Servlet implementation class MemberUpdateServlet
