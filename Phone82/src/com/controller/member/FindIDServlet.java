@@ -1,4 +1,4 @@
-package com.member.controller;
+package com.controller.member;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.MemberDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
-import com.service.MemberService;
+import com.service.member.MemberService;
 
 @WebServlet("/FindIDServlet")
 public class FindIDServlet extends HttpServlet {

@@ -4,12 +4,21 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-   <properties resource="com/mybatis/jdbc.properties" />
-   
-   <typeAliases>
-    <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/>
-   </typeAliases>
-   
+	<properties resource="com/mybatis/jdbc.properties" />
+
+	<typeAliases>
+		<typeAlias type="com.dto.CartDTO" alias="CartDTO" />
+		<typeAlias type="com.dto.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="com.dto.OrderDTO" alias="OrderDTO" />
+		<typeAlias type="com.dto.AdminDTO" alias="AdminDTO" />
+		<typeAlias type="com.dto.SalesDTO" alias="SalesDTO" />
+		<typeAlias type="com.dto.board.BoardDTO" alias="MyBoardDTO" />
+		<typeAlias type="com.dto.qna.QNADTO" alias="QNADTO" />
+		<typeAlias type="com.dto.faq.FAQDTO" alias="FAQDTO" />
+
+	</typeAliases>
+
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -23,6 +32,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 		<mapper resource="com/mybatis/MemberMapper.xml" />
+		<mapper resource="com/mybatis/FAQMapper.xml" />
+			<mapper resource="com/mybatis/QNAMapper.xml" />
+		<mapper resource="com/mybatis/AdminMapper.xml" />
+		<mapper resource="com/mybatis/BoardMapper.xml" />
+		<mapper resource="com/mybatis/CartMapper.xml" />
+		<mapper resource="com/mybatis/AdminMapper.xml" />
 	</mappers>
 </configuration>
 

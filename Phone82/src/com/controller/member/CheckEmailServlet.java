@@ -1,4 +1,4 @@
-package com.member.controller;
+package com.controller.member;
 
 import java.io.IOException;
 
@@ -8,36 +8,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.dto.MemberDTO;
 import com.exception.MyException;
-import com.service.MemberService;
+import com.service.member.MemberService;
 
-@WebServlet("/MyPageServlet")
-public class MyPageServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/CheckEmailServlet")
+public class CheckEmailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		MemberDTO dto = (MemberDTO)session.getAttribute("login"); 
+		String email = request.getParameter("email");
 		
 		MemberService service = new MemberService();
-		String target = null;
-		
-		if(dto != null) {
-			target = "myPage.jsp";
-			try {
-				MemberDTO xxx = service.mypage(dto.getUserid());
-				session.setAttribute("login", xxx);
-			} catch (MyException e) {
-				e.printStackTrace();
+		String target="checkEmail.jsp";
+		try {
+			String str = service.checkEmail(email);
+			if(email.equals(str)) {
+				request.setAttribute("mesg", "등록된 이메일입니다.");
+			} else if(email != " " || email.length() != 0 ) {
+				request.setAttribute("mesg", email+"는 사용 가능한 이메일입니다.");
 			}
-		} else { 
-			target = "LoginFormServlet";
+		} catch (MyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("mesg", "오류");
 		}
-		
 		
 		RequestDispatcher dis = request.getRequestDispatcher(target);
 		dis.forward(request, response);
