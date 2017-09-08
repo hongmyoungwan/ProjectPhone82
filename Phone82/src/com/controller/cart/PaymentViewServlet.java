@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dto.cart.CartDTO;
-import com.dto.cart.MemberDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.cart.CartService;
-import com.service.cart.MemberService;
+import com.service.member.MemberService;
 
 /**
  * Servlet implementation class PaymentViewServlet
@@ -32,13 +32,13 @@ public class PaymentViewServlet extends HttpServlet {
 		 String target="payment.jsp";
 	    try {
 			CartDTO cDto=service.orderConfirm(Integer.parseInt(num));
-			MemberDTO mDto=mservice.getMemberData(userid);
+			MemberDTO mDto=mservice.mypage(userid);
 			
 			
 			request.setAttribute("cDTO", cDto);
 			request.setAttribute("mDTO", mDto);
 			System.out.println(mDto.toString());
-	//	request.setAttribute("cart", "Àå¹Ù±¸´Ï¿¡"+gName+" »óÇ°ÀÌ Àß ´ã°å½À´Ï´Ù.");
+	//	request.setAttribute("cart", "ï¿½ï¿½Ù±ï¿½ï¿½Ï¿ï¿½"+gName+" ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
