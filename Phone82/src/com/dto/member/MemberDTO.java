@@ -92,6 +92,12 @@ public class MemberDTO {
 	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
 	}
+	@Override
+	public String toString() {
+		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", post1=" + post1
+				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
+				+ phone2 + ", phone3=" + phone3 + ", email=" + email + "]";
+	}
 	public String getEmail() {
 		return email;
 	}

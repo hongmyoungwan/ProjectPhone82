@@ -12,16 +12,18 @@ a:hover{color:#242424}
 <c:if test="${empty sessionScope.login}">
 <a href="LoginFormServlet"> login </a>
 <a href="MemberFormServlet"> join </a>
-<a href=""> 게시판 </a>
-<a href=""> Q&A </a>
+<a href=BoardListServlet> 게시판 </a>
+<a href="QNAListServlet"> Q&A </a>
+<a href="FAQListServlet"> FAQ </a>
 </c:if>
 
 <c:if test="${! empty sessionScope.login}">
 ${sessionScope.login.username}님 &nbsp;
 <a href="MyPageServlet"> mypage </a> 
 <a href="LogoutServlet"> logout</a> 
-<a href=""> 게시판 </a>
-<a href=""> Q&A </a>
+<a href="BoardListServlet"> 게시판 </a>
+<a href="QNAListServlet"> Q&A </a>
+<a href="FAQListServlet"> FAQ </a>
 </c:if>
 
 <hr style="color=#cecece">
