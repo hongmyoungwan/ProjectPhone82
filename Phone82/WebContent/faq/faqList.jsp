@@ -63,7 +63,7 @@
 		<c:forEach var="dto" items="${list}">
 			<tr id="a${dto.num}">
 				<td>${dto.num}</td>
-				<td>${dto.title}</td>
+				<td><b>${dto.title}</b></td>
 			</tr>
 			<tr>
 			<td></td><td id="retrieve${dto.num}" align="center"></td>
