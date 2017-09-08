@@ -19,6 +19,7 @@ public class MemberManagementService {
 		
 		try {
 			 dtolist = dao.getAllMemberData(session);
+			 
 		}catch(Exception e) {
 			
 			throw new MyException("getAllMemberData error");
@@ -30,6 +31,26 @@ public class MemberManagementService {
 		}
 		return dtolist;
 		
+	}
+
+	public void membersDelete() throws MyException {
+		SqlSession session = MybatisTemplate.openSession();
+		AdminDAO dao = new AdminDAO();
+		int n = 0;
+		
+		try {
+			 n = dao.membersDelete(session);
+			 if(n==0)
+				 session.commit();
+		}catch(Exception e) {
+			session.rollback();
+			throw new MyException("membersDelete error");
+		}
+		finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
 	}
 
 }
