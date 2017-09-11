@@ -25,11 +25,11 @@ public class CartListViewServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
-//		MemberDTO mem = (MemberDTO)session.getAttribute("login"); 
-//		if(mem==null) {
-//			
-//		}
-		MemberDTO mem = new MemberDTO("test","1","tester","444","555","요기","죠기","010","1111","2222","dfsfs");
+		MemberDTO mem = (MemberDTO)session.getAttribute("login"); 
+		if(mem==null) {
+			// mem = new MemberDTO("test","1","tester","444","555","요기","죠기","010","1111","2222","dfsfs");
+		}
+		
 		CartService service = new CartService();
 		String target ="cartList.jsp";
 		try {

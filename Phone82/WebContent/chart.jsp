@@ -21,17 +21,18 @@
 					start:$("#start").val(),
 					finish:$("#finish").val()
 				};
+			var result="";
 		$.ajax({
 			type:"get",
-			url:"ChartFormServlet",
+			url:"ChartDefaultServlet",
 			dataType:"text",
 			data:dataa,
 			success:(responseData,status,xhr)=>{
 			
-				
+				$("#result").html(responseData);
 			},
 			error:(xhr,status,e)=>{
-				
+				console.log("bbbbbbbbb");
 				console.log(e);
 				
 			}// httpxml,errorState, message
@@ -45,8 +46,8 @@
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
 <input type="text" name="start" id="start" value="2017/01/01">~<input type="text" name="finish" id="finish" value="2017/12/31">
-<div>
-<jsp:include page="chart/chart.jsp" flush="true" />
+<div id="result">
+
 </div>
 </body>
 </html>

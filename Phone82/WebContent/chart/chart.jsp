@@ -7,7 +7,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
-
 <style type="text/css">
 #container, #sliders {
 	min-width: 310px;
@@ -20,10 +19,10 @@
 }
 </style>
 <body>
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="chart/highcharts.js"></script>
-	<script src="chart/highcharts-3d.js"></script>
-	<script src="chart/exporting.js"></script>
+
 
 	<div id="container"></div>
 	<div id="sliders">

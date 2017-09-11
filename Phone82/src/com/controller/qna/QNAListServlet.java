@@ -24,10 +24,6 @@ public class QNAListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		String userid="admin";
-		HttpSession session=request.getSession();
-		session.setAttribute("userid", userid);
-		session.setAttribute("username", "관리자");
 		
 		String searchName=request.getParameter("searchName");
 		String searchValue=request.getParameter("searchValue");

@@ -20,7 +20,7 @@ public class CartService {
 			dto = dao.cartAllList(session, userid);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("cartAllList 실패");
+			throw new MyException("cartAllList error");
 		} finally {
 			if (session != null)
 				session.close();
@@ -37,7 +37,7 @@ public class CartService {
 				session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("amountUpdate 실패");
+			throw new MyException("amountUpdate error");
 		} finally {
 			session.close();
 		}
@@ -53,7 +53,7 @@ public class CartService {
 				session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("delCart 실패");
+			throw new MyException("delCart error");
 		} finally {
 			session.close();
 		}
@@ -67,11 +67,29 @@ public class CartService {
 			dto = dao.orderConfirm(session, num);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("orderConfirm 실패");
+			throw new MyException("orderConfirm error");
 		} finally {
 			session.close();
 		}
 		return dto;
+	}
+
+	public void insertItem(CartDTO dto) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		CartDAO dao = new CartDAO();
+		int n=0;
+		try {
+			n = dao.insertItem(session, dto);
+			if(n==1)
+				session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+			throw new MyException("insertItem error");
+		} finally {
+			session.close();
+		}
+		
 	}
 
 }

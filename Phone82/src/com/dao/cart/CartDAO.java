@@ -17,19 +17,24 @@ public class CartDAO {
 		return session.selectList("cartAllList",userid);
 	}
 
-	public int amountUpdate(SqlSession session, HashMap<String, Integer> map) { // ¼ö·® update
+	public int amountUpdate(SqlSession session, HashMap<String, Integer> map) { // ï¿½ï¿½ï¿½ï¿½ update
 		
 		return session.update("amountUpdate", map);
 	}
 
-	public int delItem(SqlSession session, int num) {	//¾ÆÀÌÅÛ Á¦°Å
+	public int delItem(SqlSession session, int num) {	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		// TODO Auto-generated method stub
 		
 		return session.delete("deleteItem", num);
 	}
 
-	public CartDTO orderConfirm(SqlSession session, int num) { //ÁÖ¹® È®ÀÎÃ¢
+	public CartDTO orderConfirm(SqlSession session, int num) { //ï¿½Ö¹ï¿½ È®ï¿½ï¿½Ã¢
 
 		return session.selectOne("orderConfirm",num);
+	}
+
+	public int insertItem(SqlSession session, CartDTO dto) {
+		// TODO Auto-generated method stub
+		return session.selectOne("insertItem",dto);
 	}
 }

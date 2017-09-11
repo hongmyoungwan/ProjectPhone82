@@ -21,8 +21,8 @@ import com.service.admin.AdminService;
 /**
  * Servlet implementation class ChartFormServlet
  */
-@WebServlet("/ChartFormServlet")
-public class ChartFormServlet extends HttpServlet {
+@WebServlet("/ChartDefaultServlet")
+public class ChartDefaultServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +40,7 @@ public class ChartFormServlet extends HttpServlet {
 		System.out.println("start :"+ start +"finish"+ finish);
 		map.put("start", start);
 		map.put("finish", finish);
-		String target= "chart.jsp";
+		String target= "chart/chart.jsp";
 		
 		try {
 			list=service.getSalesChartDatas(map);

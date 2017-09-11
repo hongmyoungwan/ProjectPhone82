@@ -13,13 +13,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="amountUpdate" parameterType="hashmap">
 		update cart
-		set phone_amount=#{phone_amount}
+		set
+		phone_amount=#{phone_amount}
 		where num=${num}
 
 	</update>
 	<delete id="deleteItem" parameterType="int">
 		delete from cart
-		where num=#{num} 
+		where
+		num=#{num}
 	</delete>
 
 	<select id="orderConfirm" parameterType="int" resultType="CartDTO">
@@ -28,6 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from cart
 		where num=#{num}
 	</select>
+
+	<insert id="insertItem" parameterType="CartDTO">
+		insert into cart(num,userid,phone_model_num,phone_name,phone_price,phone_amount,phone_image)
+		values(seq_cart.nextval,#{userid},#{phone_model_num},#{phone_name},#{phone_price},#{phone_amount},#{phone_image})
+	</insert>
 </mapper>
 
 

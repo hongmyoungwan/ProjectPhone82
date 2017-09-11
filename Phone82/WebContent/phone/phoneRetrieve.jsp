@@ -120,6 +120,7 @@
 				}
 			});
 		});
+		
 	});
 	$(document).ready(function(){
 		$("#img_black").on("click", function(){
@@ -236,7 +237,12 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td colspan="3"><a href="">주문하기</a>  <a href="">장바구니 담기</a><br><a href="updateForm.jsp?telecom_num=${dto.telecom_num}">수정</a>    &nbsp; <a href="PhoneDeleteServlet?telecom_num=${dto.telecom_num}">삭제</a></td>
+			<td colspan="3"><a href="">주문하기</a>  
+			<a href="CartInsertServlet?phone_model_num=${dto.phone_model_num}
+			&phone_name=${dto.phone_name}&phone_price=${dto.phone_price}&phone_image=${dto.phone_image}
+			">장바구니 담기</a>
+			<br><a href="updateForm.jsp?telecom_num=${dto.telecom_num}">수정</a>    &nbsp;
+			 <a href="PhoneDeleteServlet?telecom_num=${dto.telecom_num}">삭제</a></td>
 			
 		</tr>
 	</table>
