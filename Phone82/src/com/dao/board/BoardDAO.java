@@ -55,8 +55,8 @@ public class BoardDAO {
 		return dto;
 	}
 	
-	public int readCnt(SqlSession session,int num) {
-		int n=session.update("readCnt",num);
+	public int boardreadCnt(SqlSession session,int num) {
+		int n=session.update("boardreadCnt",num);
 		return n;
 	}
 	

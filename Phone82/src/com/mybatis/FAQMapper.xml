@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from faq
 	where num=#{num}
 </select>
-<update id="readCnt" parameterType="int">
+<update id="faqreadCnt" parameterType="int">
 	update faq
 	set readCnt=readCnt+1
 	where num=#{num}
