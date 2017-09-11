@@ -20,11 +20,13 @@ public class QNARetrieveServlet extends HttpServlet {
 		
 		String num=request.getParameter("num");
 		String target="qnaRetrieve.jsp";
-		
+		System.out.println(">>>"+num);
 		QNAService service=new QNAService();
 		try {
 			QNADTO dto=service.qnaretrieve(Integer.parseInt(num));
 			request.setAttribute("retrieve", dto);
+			System.out.println(target);
+			System.out.println(dto);
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

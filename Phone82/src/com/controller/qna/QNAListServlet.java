@@ -17,6 +17,7 @@ import com.exception.MyException;
 import com.service.qna.QNAService;
 
 
+
 @WebServlet("/QNAListServlet")
 public class QNAListServlet extends HttpServlet {
 
@@ -28,7 +29,6 @@ public class QNAListServlet extends HttpServlet {
 		session.setAttribute("userid", userid);
 		session.setAttribute("username", "관리자");
 		
-		
 		String searchName=request.getParameter("searchName");
 		String searchValue=request.getParameter("searchValue");
 		String curPage=request.getParameter("curPage");
@@ -37,7 +37,7 @@ public class QNAListServlet extends HttpServlet {
 			curPage="1";
 		}
 		if(perPage==null) {
-			perPage="10";
+			perPage="3";
 		}
 		QNAService service=new QNAService();
 		HashMap<String,String> map=new HashMap<>();
