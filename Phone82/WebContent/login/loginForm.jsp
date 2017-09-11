@@ -74,16 +74,18 @@ function getCookie(cookieName) {
 
 <tr>
  <td>ID</td>
- <td><input type="text" name="userid"> <input type="checkbox" name="saveid" id="saveid"> </td>
+ <td><input type="text" name="userid"> </td>
 </tr>
 <tr>
  <td>PASSWORD</td>
  <td><input type="password" name="passwd"></td>
 </tr>
 <tr>
+ <td>아이디저장<input type="checkbox" name="saveid" id="saveid"> </td>
+</tr>
+<tr>
  <td colspan="2" align="center"><input type="submit" value="로그인" class="button"></td>
 </tr>
-
 
 
 

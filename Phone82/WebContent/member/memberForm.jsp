@@ -9,7 +9,7 @@
 <script>
 $(document).ready(function(){
 	//정규식 
-	var re_id = /^[A-Za-z0-9_]{4,16}$/; // 아이디 검사식
+	var re_id = /^[a-z]+[a-z0-9]{4,14}$/;; // 아이디 검사식
 	var re_pw = /^[A-Za-z0-9_]{6,18}$/; // 비밀번호 검사식
 	var re_name = /^[A-Za-z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,16}$/; // 이름 검사식
 	var re_nums = /^[0-9]{3,4}$/; //숫자 검사식
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		if(userid =='' || userid.length ==0){
 			$("#userid").next().text('필수 입력 사항입니다.').css({"color":"red", "font-size":"12px"});
 		} else if(!re_id.test(userid)){
-			$("#userid").next().text('4자리 이상 15자리 이하 영문과 숫자를 입력하세요.').css({"color":"red", "font-size":"12px"});
+			$("#userid").next().text('아이디는 영문자로 시작하는 5~15자 영문자 또는 숫자이어야 합니다.').css({"color":"red", "font-size":"12px"});
 		} else {
 			$("#userid").next($("div")).empty();
 		}
@@ -122,7 +122,7 @@ $(document).ready(function(){
 		 		event.preventDefault();
 		 		//result=false;
 		 } else if(!re_id.test($("#userid").val())){
-		 		alert("아이디에 6자리 이상 15자리 이하 영문과 숫자를 입력하세요.");    
+		 		alert("아이디는 영문자로 시작하는 5~15자 영문자 또는 숫자이어야 합니다.");    
 		 		$("#userid").focus();
 		 		event.preventDefault();
 		 		//result=false;
@@ -168,7 +168,7 @@ $(document).ready(function(){
 		 		$("#phone1").focus();
 		 		event.preventDefault();
 		 } else if(!re_nums.test($("#phone2").val())){
-		 		alert("전화번호를 확인하세요.(0~9까지 정수를 입력하세요.)");
+		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
 		 		console.log($("#phone2").val());
 		 		$("#phone2").val()="";
 		 		$("#phone2").focus();
@@ -182,7 +182,7 @@ $(document).ready(function(){
 		 		$("#phone3").focus();
 		 		event.preventDefault();
 		 } else if(! re_nums.test($("#phone3").val())){
-			 	alert("전화번호를 확인하세요.(0~9까지 정수를 입력하세요.)");
+			 	alert("휴대전화 항목이 숫자 형식이 아닙니다");
 		 		console.log($("#phone3").val());
 		 		//$("#phone3").val()="";
 		 		$("#phone3").focus();
