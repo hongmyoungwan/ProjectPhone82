@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.board.BoardDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.board.BoardService;
 
@@ -23,7 +24,8 @@ public class BoardDeleteServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		String num=request.getParameter("num");
-		String userid=(String)session.getAttribute("userid");
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String userid=mdto.getUserid();
 		BoardService service = new BoardService();
 		HashMap<String,String> map=new HashMap<>();
 		map.put("num",num);
