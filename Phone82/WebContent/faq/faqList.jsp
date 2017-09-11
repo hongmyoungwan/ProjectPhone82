@@ -18,7 +18,6 @@
 				success:function(responseData,status,xhr){
 					console.log(responseData);
 					$("#retrieve"+x).text(responseData).toggle();
-					$("#retrieve"+x).text(responseData).toggle(-1);
 				},
 				error:function(xhr,status,e){
 					console.log(status,e);
