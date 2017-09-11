@@ -76,7 +76,7 @@ public class BoardService {
 		BoardDAO dao=new BoardDAO();
 		BoardDTO dto=null;
 		try {
-			int n=dao.readCnt(session, num);
+			int n=dao.boardreadCnt(session, num);
 			if(n==1) {
 				session.commit();	
 			}

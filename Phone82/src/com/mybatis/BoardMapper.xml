@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from Myboard
 	where num=#{num}
 </select>
-<update id="readCnt" parameterType="int">
+<update id="boardreadCnt" parameterType="int">
 	update Myboard
 	set readCnt=readCnt+1
 	where num=#{num}

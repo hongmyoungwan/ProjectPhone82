@@ -228,7 +228,11 @@
 		</tr>
 		<tr>
 			<td>단말기 가격</td>
+<<<<<<< HEAD
 			<td><input type="text" value="${dto.phone_price}" id="price"></td>
+=======
+			<td><input type="text" value="${dto.phone_price}" id="price" readonly="readonly"></td>
+>>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 		</tr>
 		<tr>
 			<td></td>

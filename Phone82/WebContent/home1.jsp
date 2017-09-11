@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 
+<<<<<<< HEAD
 
 
 <c:if test="${!empty requestScope.login }">
@@ -34,6 +35,34 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 </style>
+=======
+
+<c:if test="${!empty requestScope.login }">
+  <script>
+    alert('${requestScope.login}');
+  </script>
+</c:if>
+<c:if test="${!empty requestScope.logout }">
+  <script>
+    alert('${requestScope.logout}');
+  </script>
+</c:if>
+<c:if test="${!empty requestScope.update }">
+  <script>
+    alert('${requestScope.update}');
+  </script>
+</c:if>
+<c:if test="${!empty requestScope.delete }">
+  <script>
+    alert('${requestScope.delete}');
+  </script>
+</c:if>
+<c:if test="${! empty requestScope.result}">
+ <script>
+  alert('${requestScope.result}');
+ </script>
+</c:if>
+>>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

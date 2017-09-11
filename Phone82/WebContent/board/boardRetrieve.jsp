@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <h1>상세보기</h1>
 <div id="div" align="center">
@@ -32,10 +34,28 @@
 </form>
 <button id="List" onclick="boardList()">목록</button>
 <button id="Delete" onclick="boardDelete()">삭제</button>
-
-
+<br>
+댓글 ${comment.size()}
+<table border="1">
+<c:if test="${comment.size()!=0}">
+<c:forEach var="comment" items="${comment}">
+<tr>
+<td>${comment.username}</td>
+<td>${comment.commentday}</td>
+</tr>
+<tr>
+<td colspan="2">${comment.content}</td>
+</tr>
+</c:forEach>
+</c:if>
+<tr>
+<td><textarea rows="5" cols="80" id="comment">xx</textarea>
+<td><button onclick="boardComment(event)">comment</button></td>
+</tr>
+</table>
 
 </div>
+
 
 <script>
 	function boardReply(){
@@ -48,5 +68,17 @@
 	
 	function boardDelete(){
 		location.href="BoardDeleteServlet?num=${retrieve.num}";
+	}
+	function boardComment(e){
+		console.log($("textarea:last").text());
+		if($("textarea:last").text()==null){
+			e.preventDefault();
+		}
+		else{
+			var x=$("textarea:last").text();
+			console.log(x);
+			location.href="BoardCommentServlet?boardnum=${retrieve.num}&content="+x;
+		}
+		
 	}
 </script>
