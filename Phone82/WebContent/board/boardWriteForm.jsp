@@ -27,7 +27,7 @@
 <h1>글쓰기</h1>
 <hr>
 <div align="center">
-<form action="BoardWriteServlet" method="post">
+<form action="BoardWriteServlet" method="post" enctype="multipart/form-data">
 <input type="hidden" name="author" value="${sessionScope.login.username}">
 <table>
 <tr>
@@ -37,11 +37,13 @@
 <td bgcolor="silver">작성자</td><td>${sessionScope.login.username}</td>
 </tr>
 <tr>
-<td bgcolor="silver">이미지 등록</td><td><input type="file" name="image" id="image" /><div id="image_preview">
+	<td bgcolor="silver">이미지 등록</td><td><input type="file" name="image" id="image" />
+		<div id="image_preview">
         <img src="#" />
         <br />
         <a href="#">Remove</a>
-    </div></td>
+    </div>
+    </td>
 </tr>
 <tr>
 <td bgcolor="silver">내용</td><td><textarea rows="30" cols="100" name="content">${dto.content}</textarea></td>

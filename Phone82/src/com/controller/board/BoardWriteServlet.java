@@ -34,9 +34,6 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		
 
-		HttpSession session=request.getSession();
-		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
-		String userid=mdto.getUserid();
 
 		
 		// Create a factory for disk-based file items
@@ -88,19 +85,19 @@ public class BoardWriteServlet extends HttpServlet {
 					
 					request.setCharacterEncoding("UTF-8");
 					
-					
-					String userid1 = (String)session.getAttribute("userid");
+					HttpSession session=request.getSession();
+					MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+					String userid=mdto.getUserid();
 					
 					String title=map.get("title");
 					String author=map.get("author");
 					String content=map.get("content");
 					System.out.println(title+"\t"+author+"\t"+content);
-						
 					BoardDTO dto=new BoardDTO();
 					dto.setAuthor(author);
 					dto.setTitle(title);
 					dto.setContent(content);
-					dto.setUserid(userid1);
+					dto.setUserid(userid);
 					BoardService service=new BoardService();
 					String target="BoardListServlet";
 					
