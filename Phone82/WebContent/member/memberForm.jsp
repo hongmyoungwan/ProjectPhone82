@@ -21,7 +21,7 @@ $(document).ready(function(){
 		if(userid =='' || userid.length ==0){
 			$("#userid").next().text('필수 입력 사항입니다.').css({"color":"red", "font-size":"12px"});
 		} else if(!re_id.test(userid)){
-			$("#userid").next().text('4자리 이상 16자리 이하 영문과 숫자를 입력하세요.').css({"color":"red", "font-size":"12px"});
+			$("#userid").next().text('4자리 이상 15자리 이하 영문과 숫자를 입력하세요.').css({"color":"red", "font-size":"12px"});
 		} else {
 			$("#userid").next($("div")).empty();
 		}
@@ -122,7 +122,7 @@ $(document).ready(function(){
 		 		event.preventDefault();
 		 		//result=false;
 		 } else if(!re_id.test($("#userid").val())){
-		 		alert("아이디에 6자리 이상 18자리 이하 영문과 숫자를 입력하세요.");    
+		 		alert("아이디에 6자리 이상 15자리 이하 영문과 숫자를 입력하세요.");    
 		 		$("#userid").focus();
 		 		event.preventDefault();
 		 		//result=false;
@@ -131,7 +131,7 @@ $(document).ready(function(){
 		 		$("#passwd").focus();
 		 		event.preventDefault();
 		 } else if(!re_pw.test($("#passwd").val())){
-			 alert("비밀번호에 6자리 이상 18자리 이하 영문과 숫자를 입력하세요.");    
+			 alert("비밀번호에 6자리 이상 17자리 이하 영문과 숫자를 입력하세요.");    
 		 		$("#passwd").focus();
 		 		event.preventDefault();
 		 } else if($("#passwd").val() != $("#passwd2").val()){
@@ -143,7 +143,7 @@ $(document).ready(function(){
 		 		$("#username").focus();
 		 		event.preventDefault();
 		 } else if(!re_name.test($("#username").val())){
-				alert("이름에 2자리 이상 16자리 이하 영문과 숫자를 입력하세요.");    
+				alert("이름에 2자리 이상 15자리 이하 영문과 숫자를 입력하세요.");    
 		 		$("#username").focus();
 		 		event.preventDefault();
 		 } 
