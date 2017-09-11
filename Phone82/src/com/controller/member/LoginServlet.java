@@ -28,6 +28,16 @@ public class LoginServlet extends HttpServlet {
 		map.put("passwd", passwd);
 		
 		MemberService service = new MemberService();
+<<<<<<< HEAD
+		String target = "home.jsp";
+		try {
+			MemberDTO dto = service.login(map);
+			if(dto==null) {
+				target="LoginFormServlet";
+				request.setAttribute("mesg", "아이디와 비밀번호가 일치하지 않습니다.");
+			} else {
+				target="home.jsp";
+=======
 		String target = "home1.jsp";
 		try {
 			MemberDTO dto = service.login(map);
@@ -36,6 +46,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("mesg", "아이디와 비밀번호가 일치하지 않습니다.");
 			} else {
 				target="home1.jsp";
+>>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 				HttpSession session = request.getSession();
 				session.setAttribute("login", dto);
 				//request.setAttribute("result", "로그인 성공");

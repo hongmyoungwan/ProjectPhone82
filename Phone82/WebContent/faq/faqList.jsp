@@ -17,7 +17,11 @@
 				},
 				success:function(responseData,status,xhr){
 					console.log(responseData);
+<<<<<<< HEAD
+					$("#retrieve"+x).text(responseData).toggle();
+=======
 					$("#retrieve"+x).text(responseData).toggle(-1);
+>>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 					
 				},
 				error:function(xhr,status,e){
