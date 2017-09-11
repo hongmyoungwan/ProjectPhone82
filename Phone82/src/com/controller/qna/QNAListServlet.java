@@ -27,8 +27,9 @@ public class QNAListServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		
-		String searchName=request.getParameter("searchName");
-		String searchValue=request.getParameter("searchValue");
+		//String searchName=request.getParameter("searchName");
+		//String searchValue=request.getParameter("searchValue");
+
 		String curPage=request.getParameter("curPage");
 		String perPage=request.getParameter("perPage");
 		if(curPage==null) {
@@ -38,9 +39,6 @@ public class QNAListServlet extends HttpServlet {
 			perPage="3";
 		}
 		QNAService service=new QNAService();
-		HashMap<String,String> map=new HashMap<>();
-		map.put("searchName", searchName);
-		map.put("searchValue", searchValue);
 		
 		String target="qnaList.jsp";
 		try {
@@ -49,6 +47,10 @@ public class QNAListServlet extends HttpServlet {
 				request.setAttribute("QNA", "로그인이 필요한 서비스입니다.");
 			}
 			else {
+				String userid=mdto.getUserid();
+				HashMap<String,String> map=new HashMap<>();
+				map.put("userid", userid);
+				
 				QNAPageDTO dto=service.qnapage(Integer.parseInt(curPage), Integer.parseInt(perPage), map);
 				request.setAttribute("page", dto);
 				request.setAttribute("perPage", perPage);
