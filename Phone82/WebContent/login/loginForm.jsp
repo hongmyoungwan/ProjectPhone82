@@ -85,12 +85,7 @@ function getCookie(cookieName) {
 </tr>
 
 
-<!-- <tr>
-<td>
-<span><p class="cookie">아이디 저장<p><input type="checkbox" name="saveid" id="saveid"></span>&nbsp; 
-<span><p class="cookie">로그인상태유지</p><input type="checkbox" name="idcoockie" id="idcookie"></span>
-</td>
-</tr> -->
+
 
 </table>
 </form>
