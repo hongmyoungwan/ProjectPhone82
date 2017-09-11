@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberDTO dto =(MemberDTO)session.getAttribute("login");
 		
-		String target= "home.jsp";
+		String target= "home1.jsp";
 		if(dto==null) {
 			target="LoginFormServlet";
 			request.setAttribute("mesg", "로그인 하세요");
