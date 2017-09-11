@@ -8,7 +8,23 @@ public class BoardDTO {
 	private String writeday;
 	private String content;
 	private int readCnt;
-	
+	private String board_image;
+	public BoardDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public BoardDTO(int num, String userid, String title, String author, String writeday, String content, int readCnt,
+			String board_image) {
+		super();
+		this.num = num;
+		this.userid = userid;
+		this.title = title;
+		this.author = author;
+		this.writeday = writeday;
+		this.content = content;
+		this.readCnt = readCnt;
+		this.board_image = board_image;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -51,25 +67,19 @@ public class BoardDTO {
 	public void setReadCnt(int readCnt) {
 		this.readCnt = readCnt;
 	}
-	public BoardDTO() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getBoard_image() {
+		return board_image;
 	}
-	public BoardDTO(int num, String userid, String title, String author, String writeday, String content, int readCnt) {
-		super();
-		this.num = num;
-		this.userid = userid;
-		this.title = title;
-		this.author = author;
-		this.writeday = writeday;
-		this.content = content;
-		this.readCnt = readCnt;
+	public void setBoard_image(String board_image) {
+		this.board_image = board_image;
 	}
 	@Override
 	public String toString() {
 		return "BoardDTO [num=" + num + ", userid=" + userid + ", title=" + title + ", author=" + author + ", writeday="
-				+ writeday + ", content=" + content + ", readCnt=" + readCnt + "]";
+				+ writeday + ", content=" + content + ", readCnt=" + readCnt + ", board_image=" + board_image + "]";
 	}
+	
+	
 	
 	
 }

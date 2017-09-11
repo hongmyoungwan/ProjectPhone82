@@ -1,8 +1,6 @@
 package com.controller.qna;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.member.MemberDTO;
 import com.dto.qna.QNADTO;
 import com.exception.MyException;
 import com.service.qna.QNAService;
@@ -24,7 +23,8 @@ public class QNAWriteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session=request.getSession();
-		String userid=(String)session.getAttribute("userid");
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String userid=mdto.getUserid();
 		
 		String title=request.getParameter("title");
 		String author=request.getParameter("author");

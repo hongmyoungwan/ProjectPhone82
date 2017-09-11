@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.mybatis.BoardMapper">
 
 <select id="boardList" resultType="MyBoardDTO" parameterType="hashmap">
-	select num, userid, title, author, content, to_char(writeday,'YYYY/MM/DD') writeday, readCnt
+	select num, userid, title, author, content, to_char(writeday,'YYYY/MM/DD') writeday, readCnt,board_image
 	from Myboard
 	<if test="searchName=='title'">
 	where title like '%'||#{searchValue}||'%'
@@ -32,12 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <insert id="insertBoard" parameterType="MyBoardDTO">
-	insert into MyBoard(num,userid,title,author,content)
-	values(board_seq.nextval,#{userid},#{title},#{author},#{content})
+	insert into MyBoard(num,userid,title,author,content,board_image)
+	values(board_seq.nextval,#{userid},#{title},#{author},#{content},#{board_image})
 </insert>
 
 <select id="selectByNum" parameterType="int" resultType="MyBoardDTO">
-	select num, userid, title,author,content,to_char(writeday,'YYYY/MM/DD') writeday,readCnt 
+	select num, userid, title,author,content,to_char(writeday,'YYYY/MM/DD') writeday,readCnt ,board_image
 	from Myboard
 	where num=#{num}
 </select>

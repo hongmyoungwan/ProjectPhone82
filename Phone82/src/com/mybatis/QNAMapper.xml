@@ -8,12 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="qnaList" resultType="QNADTO" parameterType="hashmap">
 	select num, userid, title, author, content, to_char(writeday,'YYYY/MM/DD') writeday, readCnt
 	from qna
-	<if test="searchName=='title'">
-	where title like '%'||#{searchValue}||'%'
-	</if>
-	<if test="searchName=='author'">
-	where title like '%'||#{searchValue}||'%'
-	</if>
+	where userid=#{userid}
 	order by num desc
 </select>
 
