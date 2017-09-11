@@ -18,13 +18,13 @@
 <hr>
 <div align="center">
 <form action="BoardWriteServlet" method="post">
-<input type="hidden" name="author" value="${sessionScope.username}">
+<input type="hidden" name="author" value="${sessionScope.login.username}">
 <table>
 <tr>
 <td bgcolor="silver">제목</td><td><input type="text" name="title" value="${dto.title}" size="50"><br></td>
 </tr>
 <tr>
-<td bgcolor="silver">작성자</td><td>${sessionScope.username}</td>
+<td bgcolor="silver">작성자</td><td>${sessionScope.login.username}</td>
 </tr>
 <tr>
 <td bgcolor="silver">내용</td><td><textarea rows="30" cols="100" name="content">${dto.content}</textarea></td>

@@ -23,10 +23,7 @@ public class BoardListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		String userid="aaa";
-		HttpSession session=request.getSession();
-		session.setAttribute("userid", userid);
-		session.setAttribute("username", "name");
+		
 		
 		String searchName=request.getParameter("searchName");
 		String searchValue=request.getParameter("searchValue");

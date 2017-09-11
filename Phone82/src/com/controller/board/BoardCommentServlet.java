@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.board.CommentDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.board.CommentService;
 
@@ -24,8 +25,8 @@ public class BoardCommentServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session=request.getSession();
-		String userid=(String)session.getAttribute("userid");
-		String username=(String)session.getAttribute("username");
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String username=mdto.getUsername();
 		
 		String boardnum=request.getParameter("boardnum");
 		String content=request.getParameter("content");

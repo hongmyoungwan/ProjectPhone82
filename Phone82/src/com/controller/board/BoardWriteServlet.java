@@ -2,7 +2,6 @@ package com.controller.board;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.board.BoardDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.board.BoardService;
 
@@ -24,7 +24,8 @@ public class BoardWriteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session=request.getSession();
-		String userid=(String)session.getAttribute("userid");
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String userid=mdto.getUserid();
 		
 		String title=request.getParameter("title");
 		String author=request.getParameter("author");
