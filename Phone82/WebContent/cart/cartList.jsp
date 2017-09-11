@@ -108,22 +108,22 @@ text-align: right;
 					</td>
 					<td class="td_default" width="80">${xxx.num}</td>
 					<td class="td_default" width="80"><img
-						src="images/items/${xxx.simage}.jpg" border="0" align="center"
+						src="images/${xxx.phone_image}.jpg" border="0" align="center"
 						width="80" /></td>
-					<td class="td_default" width="300" style='padding-left: 30px'>${xxx.phone_name}
+					<td class="td_default" width="300" >${xxx.phone_name}
 						<br>
 					</td>
 					<td class="td_default" align="center" width="110"><fmt:formatNumber
-							value="${xxx.sprice}" type="currency" /></td>
+							value="${xxx.phone_price}" type="currency" /></td>
 					<td class="td_default" align="center" width="90"><input
 						class="input_default" type="text" name="CART_AMOUNT"
 						id="CART_AMOUNT${xxx.num}" style="text-align: right" maxlength="3"
-						size="2" value="${xxx.samount}"></input></td>
+						size="2" value="${xxx.phone_amount}"></input></td>
 					<td><input type="button" value="수정"
 						onclick="amountUpdate('${xxx.num}')" /></td>
 					<td class="td_default" align="center" width="80"
 						style='padding-left: 5px'><span id="sum${xxx.num}"> <fmt:formatNumber
-								value="${xxx.sprice * xxx.samount}" type="currency" />
+								value="${xxx.phone_price * xxx.phone_amount}" type="currency" />
 					</span></td>
 					<td><input type="button" value="주문"
 						onclick="order('${xxx.num}','${xxx.userid}')"><br>
@@ -163,8 +163,7 @@ text-align: right;
 
 	function amountUpdate(num) {
 		var amount = document.getElementById("CART_AMOUNT" + num).value;
-		location.href = "CartAmountUpdateServlet?num=" + num + "&amount="
-				+ amount;
+		location.href = "CartAmountUpdateServlet?num=" + num + "&amount="+ amount;
 	}
 	function delCart(num) {
 		location.href = "CartDeleteServlet?num="+num;

@@ -24,7 +24,7 @@ public class CartAmountUpdateServlet extends HttpServlet {
 		String amount= request.getParameter("amount");
 
 	    HashMap<String, Integer> map = new HashMap<>();
-	    map.put("samount", Integer.parseInt(amount));
+	    map.put("phone_amount", Integer.parseInt(amount));
 	    map.put("num", Integer.parseInt(num));
 		
 		CartService service = new CartService();
@@ -32,7 +32,7 @@ public class CartAmountUpdateServlet extends HttpServlet {
 		 String target="CartListView";
 	    try {
 			service.amountUpdate(map);
-			request.setAttribute("amountUpdate", "¼ö·® º¯°æ ¼º°ø");
+			request.setAttribute("amountUpdate", "ìˆ˜ëŸ‰ìˆ˜ì •ì´ ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
