@@ -2,34 +2,32 @@ package com.dto.cart;
 
 public class CartDTO {
 	
-	private String num;
+	private int num;
 	private String userid;
 	private String phone_model_num;
 	private String phone_name;
-	private String phone_price;
-	private String phone_color;
-	private String phone_amount;
+	private int phone_price;
+	private int phone_amount;
 	private String phone_image;
 	public CartDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CartDTO(String num, String userid, String phone_model_num, String phone_name, String sprice, String scolor,
-			String samount, String simage) {
+	public CartDTO(int num, String userid, String phone_model_num, String phone_name, int phone_price, int phone_amount,
+			String phone_image) {
 		super();
 		this.num = num;
 		this.userid = userid;
 		this.phone_model_num = phone_model_num;
 		this.phone_name = phone_name;
-		this.phone_price = sprice;
-		this.phone_color = scolor;
-		this.phone_amount = samount;
-		this.phone_image = simage;
+		this.phone_price = phone_price;
+		this.phone_amount = phone_amount;
+		this.phone_image = phone_image;
 	}
-	public String getNum() {
+	public int getNum() {
 		return num;
 	}
-	public void setNum(String num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	public String getUserid() {
@@ -50,31 +48,30 @@ public class CartDTO {
 	public void setPhone_name(String phone_name) {
 		this.phone_name = phone_name;
 	}
-	public String getSprice() {
+	public int getPhone_price() {
 		return phone_price;
 	}
-	public void setSprice(String sprice) {
-		this.phone_price = sprice;
+	public void setPhone_price(int phone_price) {
+		this.phone_price = phone_price;
 	}
-	public String getScolor() {
-		return phone_color;
-	}
-	public void setScolor(String scolor) {
-		this.phone_color = scolor;
-	}
-	public String getSamount() {
+	public int getPhone_amount() {
 		return phone_amount;
 	}
-	public void setSamount(String samount) {
-		this.phone_amount = samount;
+	public void setPhone_amount(int phone_amount) {
+		this.phone_amount = phone_amount;
 	}
-	public String getSimage() {
+	public String getPhone_image() {
 		return phone_image;
 	}
-	public void setSimage(String simage) {
-		this.phone_image = simage;
+	public void setPhone_image(String phone_image) {
+		this.phone_image = phone_image;
 	}
-
+	@Override
+	public String toString() {
+		return "CartDTO [num=" + num + ", userid=" + userid + ", phone_model_num=" + phone_model_num + ", phone_name="
+				+ phone_name + ", phone_price=" + phone_price + ", phone_amount=" + phone_amount + ", phone_image="
+				+ phone_image + "]";
+	}
 
 	
 	

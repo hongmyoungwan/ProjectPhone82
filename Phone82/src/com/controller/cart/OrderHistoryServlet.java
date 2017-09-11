@@ -23,11 +23,10 @@ public class OrderHistoryServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		
 		String phone_name = request.getParameter("phone_name");
-		String sprice = request.getParameter("sprice");
-		String scolor = request.getParameter("scolor");
-		String samount = request.getParameter("samount");
+		String sprice = request.getParameter("phone_price");
+		String samount = request.getParameter("phone_amount");
 		String phone_model_num = request.getParameter("phone_model_num");
-		String sImage = request.getParameter("simage");
+		String sImage = request.getParameter("phone_image");
 
 		String orderName = request.getParameter("orderName");
 		String post1 = request.getParameter("post1");
@@ -42,7 +41,6 @@ public class OrderHistoryServlet extends HttpServlet {
 		dto.setAddr2(addr2);
 		dto.setPhone_amount(Integer.parseInt(samount));
 		dto.setPhone_model_num(phone_model_num);
-		dto.setPhone_color(scolor);
 		dto.setPhone_image(sImage);
 		dto.setPhone_price(Integer.parseInt(sprice));
 		dto.setPhone_name(phone_name);
@@ -65,7 +63,7 @@ public class OrderHistoryServlet extends HttpServlet {
 	
 		 request.setAttribute("oDTO", dto);
 	
-		 // request.setAttribute("cart", "Àå¹Ù±¸´Ï¿¡"+gName+" »óÇ°ÀÌ Àß ´ã°å½À´Ï´Ù.");
+		 // request.setAttribute("cart", "ï¿½ï¿½Ù±ï¿½ï¿½Ï¿ï¿½"+gName+" ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		 } catch (MyException e) {
 		 // TODO Auto-generated catch block
 		 e.printStackTrace();
