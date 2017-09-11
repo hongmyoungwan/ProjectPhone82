@@ -8,11 +8,9 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<<<<<<< HEAD
-<jsp:include page="home.jsp"/>
-=======
 
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
+
+
 <jsp:include page="member/myPage.jsp"/>
 </body>
 </html>
