@@ -11,12 +11,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.dto.member.MemberDTO" alias="MemberDTO" />
 		<typeAlias type="com.dto.cart.OrderDTO" alias="OrderDTO" />
 		<typeAlias type="com.dto.admin.AdminDTO" alias="AdminDTO" />
-		<typeAlias type="com.dto.cart.SalesDTO" alias="SalesDTO" />
-		<typeAlias type="com.dto.board.BoardDTO" alias="MyBoardDTO" />
-<<<<<<< HEAD
-=======
-		<typeAlias type="com.dto.board.CommentDTO" alias="CommentDTO" />
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
+		<typeAlias type="com.dto.cart.SalesDTO" alias="SalesDTO"/>
+		<typeAlias type="com.dto.board.BoardDTO" alias="MyBoardDTO"/>
+		<typeAlias type="com.dto.board.CommentDTO" alias="CommentDTO"/>
 		<typeAlias type="com.dto.qna.QNADTO" alias="QNADTO" />
 		<typeAlias type="com.dto.faq.FAQDTO" alias="FAQDTO" />
 		<typeAlias type="com.dto.list.PhoneDTO" alias="PhoneDTO"/>
@@ -40,10 +37,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/mybatis/QNAMapper.xml" />
 		<mapper resource="com/mybatis/AdminMapper.xml" />
 		<mapper resource="com/mybatis/BoardMapper.xml" />
-<<<<<<< HEAD
-=======
 		<mapper resource="com/mybatis/CommentMapper.xml" />
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 		<mapper resource="com/mybatis/CartMapper.xml" />
 		<mapper resource="com/mybatis/AdminMapper.xml" />
 		<mapper resource="com/mybatis/PhoneMapper.xml" />
