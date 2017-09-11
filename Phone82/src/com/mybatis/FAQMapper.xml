@@ -31,11 +31,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from faq
 	where num=#{num}
 </select>
-<<<<<<< HEAD
-<update id="readCnt" parameterType="int">
-=======
+
+
 <update id="faqreadCnt" parameterType="int">
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 	update faq
 	set readCnt=readCnt+1
 	where num=#{num}
