@@ -34,11 +34,10 @@ public class PaymentViewServlet extends HttpServlet {
 			CartDTO cDto=service.orderConfirm(Integer.parseInt(num));
 			MemberDTO mDto=mservice.mypage(userid);
 			
-			
+			System.out.println(cDto.toString());
 			request.setAttribute("cDTO", cDto);
 			request.setAttribute("mDTO", mDto);
 			System.out.println(mDto.toString());
-	//	request.setAttribute("cart", "��ٱ��Ͽ�"+gName+" ��ǰ�� �� �����ϴ�.");
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

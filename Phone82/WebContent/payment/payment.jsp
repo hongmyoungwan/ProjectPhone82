@@ -11,10 +11,9 @@
 <input type="hidden" name="userid" value="${mDTO.userid}" />
 <input type="hidden" name="phone_model_num" value="${cDTO.phone_model_num}" />
 <input type="hidden" name="phone_name" value="${cDTO.phone_name}" />
-<input type="hidden" name="sprice" value="${cDTO.sprice}" />
-<input type="hidden" name="scolor" value="${cDTO.scolor}" />
-<input type="hidden" name="samount" value="${cDTO.samount}" />
-<input type="hidden" name="simage" value="${cDTO.simage}" />
+<input type="hidden" name="phone_price" value="${cDTO.phone_price}" />
+<input type="hidden" name="phone_amount" value="${cDTO.phone_amount}" />
+<input type="hidden" name="phone_image" value="${cDTO.phone_image}" />
 
 	<table width="80%" cellspacing="0" cellpadding="0">
 
@@ -60,23 +59,21 @@
 					<tr>
 						<td class="td_default" width="80">${cDTO.num}</td>
 						<td class="td_default" width="80"><img
-							src="images/items/${cDTO.simage}.jpg" border="0" align="center"
+							src="images/${cDTO.phone_image}.jpg" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.phone_name}
 						</td>
 						<td class="td_default" align="center" width="110">
-						<fmt:formatNumber value="${cDTO.sprice}" type="currency" />
+						<fmt:formatNumber value="${cDTO.phone_price}" type="currency" />
 						</td>
-						<td class="td_default" align="center" width="90">${cDTO.samount}</td>
+						<td class="td_default" align="center" width="90">${cDTO.phone_amount}</td>
 
 					</tr>
 
 
 					<tr>
 						<td height="30"></td>
-						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>
-						<fmt:formatNumber value="${cDTO.sprice * cDTO.samount}" type="currency" />원</td>
+						<td class="td_default" align="right">총 결제 금액 :	<fmt:formatNumber value="${cDTO.phone_price * cDTO.phone_amount}" type="currency" />원</td>
 					</tr>
 				</table> <tr>
 			<td>

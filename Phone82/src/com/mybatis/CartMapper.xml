@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="cartAllList" resultType="CartDTO">
 
 		select
-		num,userid,phone_model_num,phone_name,phone_price,phone_color,phone_amount,phone_image
+		num,userid,phone_model_num,phone_name,phone_price,phone_amount,phone_image
 		from cart
 	</select>
 
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="orderConfirm" parameterType="int" resultType="CartDTO">
 		select
-		num,userid,phone_model_num,phone_name,phone_price,phone_color,phone_amount,phone_image
+		num,userid,phone_model_num,phone_name,phone_price,phone_amount,phone_image
 		from cart
 		where num=#{num}
 	</select>

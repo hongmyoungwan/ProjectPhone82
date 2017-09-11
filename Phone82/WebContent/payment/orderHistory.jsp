@@ -120,7 +120,7 @@
 				<tr>
 					<td class="td_default" width="150" height="35"> 결제금액</td>
 					<td class="td_default" height="35" align = 'right'> 
-					<input type = 'text' id = 'total' value = '${oDTO.sprice*oDTO.samount}' readonly>원
+					<input type = 'text' id = 'total' value = '${oDTO.phone_price*oDTO.phone_amount}' readonly>원
 					</td>
 				</tr>
 				<tr>
@@ -145,7 +145,7 @@
 
 	<tr>
 		<td class="td_default" align="center"><a class="a_default"
-			href="OrderListDetailServlet?mem_id=guest">주문조회 페이지로 이동</a></td>
+			href="PhoneListServlet">더 둘러보기</a></td>
 	</tr>
 
 	<tr>
