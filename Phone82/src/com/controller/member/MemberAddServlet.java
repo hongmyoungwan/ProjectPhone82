@@ -33,11 +33,7 @@ public class MemberAddServlet extends HttpServlet {
 		MemberDTO dto = new MemberDTO(userid, passwd, username, post1, post2, addr1, addr2, phone1, phone2, phone3, email);
 		
 		MemberService service = new MemberService();
-<<<<<<< HEAD
-		String target = "home.jsp";
-=======
 		String target = "home1.jsp";
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 		
 		try {
 			service.insertMember(dto);
