@@ -19,12 +19,8 @@ public class LogoutServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		MemberDTO dto =(MemberDTO)session.getAttribute("login");
-		
-<<<<<<< HEAD
-		String target= "home.jsp";
-=======
+
 		String target= "home1.jsp";
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
 		if(dto==null) {
 			target="LoginFormServlet";
 			request.setAttribute("mesg", "로그인 하세요");
