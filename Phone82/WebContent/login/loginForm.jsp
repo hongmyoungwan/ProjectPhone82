@@ -84,16 +84,9 @@ function getCookie(cookieName) {
  <td colspan="2" align="center"><input type="submit" value="로그인" class="button"></td>
 </tr>
 
-<<<<<<< HEAD
 
-=======
-<!-- <tr>
-<td>
-<span><p class="cookie">아이디 저장<p><input type="checkbox" name="saveid" id="saveid"></span>&nbsp; 
-<span><p class="cookie">로그인상태유지</p><input type="checkbox" name="idcoockie" id="idcookie"></span>
-</td>
-</tr> -->
->>>>>>> branch 'master' of https://github.com/hongmyoungwan/ProjectPhone82.git
+
+
 </table>
 </form>
 </div>
