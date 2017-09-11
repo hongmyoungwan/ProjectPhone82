@@ -1,7 +1,6 @@
 package com.controller.qna;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.member.MemberDTO;
 import com.dto.qna.QNAPageDTO;
 import com.exception.MyException;
 import com.service.qna.QNAService;
@@ -24,6 +24,8 @@ public class QNAListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		
 		String searchName=request.getParameter("searchName");
 		String searchValue=request.getParameter("searchValue");
@@ -42,9 +44,16 @@ public class QNAListServlet extends HttpServlet {
 		
 		String target="qnaList.jsp";
 		try {
-			QNAPageDTO dto=service.qnapage(Integer.parseInt(curPage), Integer.parseInt(perPage), map);
-			request.setAttribute("page", dto);
-			request.setAttribute("perPage", perPage);
+			if(mdto==null) {
+				target="home1.jsp";
+				request.setAttribute("QNA", "로그인이 필요한 서비스입니다.");
+			}
+			else {
+				QNAPageDTO dto=service.qnapage(Integer.parseInt(curPage), Integer.parseInt(perPage), map);
+				request.setAttribute("page", dto);
+				request.setAttribute("perPage", perPage);
+			}
+			
 		} catch (MyException e) {
 			target="error.jsp";
 			

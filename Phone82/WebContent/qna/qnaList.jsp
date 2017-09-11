@@ -71,7 +71,7 @@
 		</c:if>
 		<c:if test="${list.size()!=0}">
 		<c:forEach var="dto" items="${list}">
-			<tr>
+			<tr id="a${dto.num}">
 				<td>${dto.num}</td>
 				<td>${dto.title}</td>
 				<td>${dto.author}</td>

@@ -32,6 +32,11 @@
   alert('${requestScope.result}');
  </script>
 </c:if>
+<c:if test="${! empty requestScope.QNA}">
+ <script>
+  alert('${requestScope.QNA}');
+ </script>
+</c:if>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 </style>
