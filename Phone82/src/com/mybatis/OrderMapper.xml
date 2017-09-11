@@ -8,13 +8,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into orderHistory
 		(num, userid, phone_name, phone_model_num,
 		 phone_price, phone_amount, phone_image, orderName , post1, post2, addr1, addr2,
-		 phone, paymethod)
+		 phone, paymethod,telecom_num)
 		 values(#{num},#{userid},#{phone_name},#{phone_model_num},#{phone_price},
-		 #{phone_amount},#{phone_image},#{orderName},#{post1}, #{post2},#{addr1},#{addr2},#{phone},#{payMethod})
-		 
+		 #{phone_amount},#{phone_image},#{orderName},#{post1}, #{post2},#{addr1},#{addr2},#{phone},#{payMethod},#{telecom_num})
 
 	</insert>
 
+	<insert id="addSales" parameterType="SalesDTO">
+		insert into sales_status
+		(ordername,telecom_num,phone_model_num,phone_price,phone_amount,orderdate)
+		values(#{ordername},#{telecom_num},#{phone_model_num},
+		#{phone_price},#phone_amount},#{orderdate})
+	</insert>
 
 </mapper>
 

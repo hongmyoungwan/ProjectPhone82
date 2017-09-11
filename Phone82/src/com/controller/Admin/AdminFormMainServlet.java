@@ -25,17 +25,25 @@ public class AdminFormMainServlet extends HttpServlet {
 		String adminpw= request.getParameter("passwd");
 		
 		//testversion admin;
-		adminid="master";
-		adminpw="master";
+		
 		
 		String target ="adminForm.jsp";
 		HashMap<String,String>map = new HashMap<>();
 		map.put("adminid", adminid);
 		map.put("adminpw", adminpw);
 		AdminService service =new AdminService();
+		System.out.println("admin 통과");
 		try {
 			AdminDTO dto = service.getAdmin(map);
-			request.setAttribute("masterLogin", dto);
+			if(dto==null) {
+				target="LoginServlet";
+				request.setAttribute("admin", false);
+			}else
+			{
+				target="adminForm.jsp";
+				request.setAttribute("admin", true);
+			
+			}
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

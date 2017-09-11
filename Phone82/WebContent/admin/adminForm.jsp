@@ -6,8 +6,8 @@
 
 
    안녕하세요 ${sessionScope.login.username}<br>
-  <a href="">판매현황</a>
-  <a href="ChartFormServlet">핸드폰 관리</a>
+  <a href="ChartFormServlet">판매현황</a>
+  <a href="">핸드폰 관리</a>
   <a href="">회원 관리</a>
   <a href="LogoutServlet">로그아웃</a>
   

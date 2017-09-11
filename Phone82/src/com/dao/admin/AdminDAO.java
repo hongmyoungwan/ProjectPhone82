@@ -22,7 +22,7 @@ public class AdminDAO {
 	
 		return list;
 	}
-
+	
 	public List<MemberDTO> getAllMemberData(SqlSession session) {
 		// TODO Auto-generated method stub
 		return session.selectList("getAllMemberData");

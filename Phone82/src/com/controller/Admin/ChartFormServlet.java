@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import com.dto.cart.SalesDTO;
 import com.exception.MyException;
@@ -26,9 +27,17 @@ public class ChartFormServlet extends HttpServlet {
 			
 		AdminService service = new AdminService();
 		List<SalesDTO> list = null;
+		String start= request.getParameter("start");
+		String finish=request.getParameter("finish");
+		System.out.println("start&&&&&&&&&& :"+ start +"finish"+ finish);
+		if(start==null)
+			start="2017/01/01";
+		if(finish==null)
+			finish="2017/12/31";
 		HashMap<String,String>map = new HashMap<>();
-		map.put("start", "2017/01/01");
-		map.put("finish", "2017/12/31");
+		System.out.println("start :"+ start +"finish"+ finish);
+		map.put("start", start);
+		map.put("finish", finish);
 		String target= "chart.jsp";
 		try {
 			list=service.getSalesChartDatas(map);

@@ -4,7 +4,7 @@ public class SalesDTO {
 
 		
 	private String ordername;
-	private int telecom_num;
+	private String telecom_num;
 	private String phone_model_num;
 	private int phone_price;
 	private int phone_amount;
@@ -13,26 +13,16 @@ public class SalesDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SalesDTO(String ordername, int telecom_num, String phone_model_num, int phone_price, int phone_amount,
-			String orderdate) {
-		super();
-		this.ordername = ordername;
-		this.telecom_num = telecom_num;
-		this.phone_model_num = phone_model_num;
-		this.phone_price = phone_price;
-		this.phone_amount = phone_amount;
-		this.orderdate = orderdate;
-	}
 	public String getOrdername() {
 		return ordername;
 	}
 	public void setOrdername(String ordername) {
 		this.ordername = ordername;
 	}
-	public int getTelecom_num() {
+	public String getTelecom_num() {
 		return telecom_num;
 	}
-	public void setTelecom_num(int telecom_num) {
+	public void setTelecom_num(String telecom_num) {
 		this.telecom_num = telecom_num;
 	}
 	public String getPhone_model_num() {
@@ -59,10 +49,21 @@ public class SalesDTO {
 	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
+	public SalesDTO(String ordername, String telecom_num, String phone_model_num, int phone_price, int phone_amount,
+			String orderdate) {
+		super();
+		this.ordername = ordername;
+		this.telecom_num = telecom_num;
+		this.phone_model_num = phone_model_num;
+		this.phone_price = phone_price;
+		this.phone_amount = phone_amount;
+		this.orderdate = orderdate;
+	}
 	@Override
 	public String toString() {
 		return "SalesDTO [ordername=" + ordername + ", telecom_num=" + telecom_num + ", phone_model_num="
 				+ phone_model_num + ", phone_price=" + phone_price + ", phone_amount=" + phone_amount + ", orderdate="
 				+ orderdate + "]";
 	}
+	
 }

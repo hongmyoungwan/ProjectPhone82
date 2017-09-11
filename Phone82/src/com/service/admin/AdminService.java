@@ -13,7 +13,7 @@ import com.mybatis.MybatisTemplate;
 
 public class AdminService {
 		
-	public AdminDTO getAdmin(HashMap<String, String> map) throws MyException {
+	public AdminDTO getAdmin(HashMap<String, String> map)  {
 		SqlSession session = MybatisTemplate.openSession();
 		AdminDTO dto=null;
 		AdminDAO dao = new AdminDAO();
@@ -21,7 +21,7 @@ public class AdminService {
 			dto=dao.getAdminData(session, map);
 		}catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("어드민 계정 갖고 오기 실패");
+			
 		}
 		finally {
 			if(session!=null)
@@ -35,11 +35,13 @@ public class AdminService {
 		List<SalesDTO> list=null;
 		AdminDAO dao= new AdminDAO();
 		try {
+			
 			list= dao.getSalesChartDatas(session,map);
+			
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-			throw new MyException("getSalesChartDatas 실패");
+			throw new MyException("getSalesChartDatas ddds");
 		}
 		finally {
 			if(session!=null)

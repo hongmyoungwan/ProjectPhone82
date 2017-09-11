@@ -22,6 +22,12 @@ public class LoginServlet extends HttpServlet {
 		
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
+		if(request.getAttribute("admin")==null) {
+			
+			RequestDispatcher dis = request.getRequestDispatcher("AdminFormMainServlet");
+			dis.forward(request, response);
+			return;
+		}
 		
 		HashMap<String, String> map = new HashMap<>();
 		map.put("userid", userid);

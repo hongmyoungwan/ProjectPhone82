@@ -9,14 +9,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="admin.css" type="text/css"rel="stylesheet">
 <title>CartList</title>
-
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(document).ready(()=>{
+		$("#start,#finish").on("keyup",(event)=>{
+			console.log($("#start").val());
+			var dataa ={
+				/* 	start:encodeURI($("#start").val()),
+					finish:encodeURI($("#finish").val()) */
+					start:$("#start").val(),
+					finish:$("#finish").val()
+				};
+		$.ajax({
+			type:"get",
+			url:"ChartFormServlet",
+			dataType:"text",
+			data:dataa,
+			success:(responseData,status,xhr)=>{
+			
+				
+			},
+			error:(xhr,status,e)=>{
+				
+				console.log(e);
+				
+			}// httpxml,errorState, message
+			});
+		});
+	});
+</script>
 </head>
 <body>
 <h1>관리자페이지</h1>
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
-<jsp:include page="chart/chart.jsp" flush="true" /><br>
+<input type="text" name="start" id="start" value="2017/01/01">~<input type="text" name="finish" id="finish" value="2017/12/31">
+<div>
+<jsp:include page="chart/chart.jsp" flush="true" />
+</div>
 </body>
 </html>
