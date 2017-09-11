@@ -17,11 +17,12 @@ public class OrderService {
 		try {
 			int n = dao.orderHistory(session, dto);
 			int n2= cdao.delItem(session,Integer.parseInt(num));
+			System.out.println("orderDAO :"+n+":"+n2);
 			if(n+n2==2) session.commit();
 		}catch(Exception e) {
 			e.printStackTrace();
 			session.rollback();
-			throw new MyException("orderDone ½ÇÆÐ");
+			throw new MyException("orderDone ì‹¤íŒ¨");
 		}finally {
 			session.close();
 		}

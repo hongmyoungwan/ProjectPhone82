@@ -27,14 +27,14 @@
 <h1>글쓰기</h1>
 <hr>
 <div align="center">
-<form action="BoardWriteServlet" method="post" enctype="multipart/form-data" >
-<input type="hidden" name="author" value="${sessionScope.username}">
-<table >
+<form action="BoardWriteServlet" method="post">
+<input type="hidden" name="author" value="${sessionScope.login.username}">
+<table>
 <tr>
 <td bgcolor="silver">제목</td><td><input type="text" name="title" value="${dto.title}" size="50"><br></td>
 </tr>
 <tr>
-<td bgcolor="silver">작성자</td><td>${sessionScope.username}</td>
+<td bgcolor="silver">작성자</td><td>${sessionScope.login.username}</td>
 </tr>
 <tr>
 <td bgcolor="silver">이미지 등록</td><td><input type="file" name="image" id="image" /><div id="image_preview">

@@ -21,7 +21,11 @@
 		}
 </script>
 
-
+<c:if test="${!empty requestScope.write}">
+  <script>
+    alert('${requestScope.write}');
+  </script>
+</c:if>
 <h1>글목록보기</h1>
 <div align="right"><button onclick="boardWrite()">글쓰기</button></div>
 <div align="center">

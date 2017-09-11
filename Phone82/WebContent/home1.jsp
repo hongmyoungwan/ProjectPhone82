@@ -37,31 +37,6 @@
 </style>
 
 
-<c:if test="${!empty requestScope.login }">
-  <script>
-    alert('${requestScope.login}');
-  </script>
-</c:if>
-<c:if test="${!empty requestScope.logout }">
-  <script>
-    alert('${requestScope.logout}');
-  </script>
-</c:if>
-<c:if test="${!empty requestScope.update }">
-  <script>
-    alert('${requestScope.update}');
-  </script>
-</c:if>
-<c:if test="${!empty requestScope.delete }">
-  <script>
-    alert('${requestScope.delete}');
-  </script>
-</c:if>
-<c:if test="${! empty requestScope.result}">
- <script>
-  alert('${requestScope.result}');
- </script>
-</c:if>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

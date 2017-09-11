@@ -21,13 +21,12 @@ public class BoardUpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session=request.getSession();
 		
 		String num=request.getParameter("num");
 		String title=request.getParameter("title");
 		String author=request.getParameter("author");
 		String content=request.getParameter("content");
-		
+		System.out.println("#####"+author);
 		BoardDTO dto=new BoardDTO();
 		dto.setNum(Integer.parseInt(num));
 		dto.setTitle(title);

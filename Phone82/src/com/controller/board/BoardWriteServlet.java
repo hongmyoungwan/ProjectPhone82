@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.dto.board.BoardDTO;
+import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.board.BoardService;
 
@@ -31,6 +33,11 @@ public class BoardWriteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+
+		HttpSession session=request.getSession();
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String userid=mdto.getUserid();
+
 		
 		// Create a factory for disk-based file items
 				DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -81,8 +88,8 @@ public class BoardWriteServlet extends HttpServlet {
 					
 					request.setCharacterEncoding("UTF-8");
 					
-					HttpSession session=request.getSession();
-					String userid=(String)session.getAttribute("userid");
+					
+					String userid1 = (String)session.getAttribute("userid");
 					
 					String title=map.get("title");
 					String author=map.get("author");
@@ -93,7 +100,7 @@ public class BoardWriteServlet extends HttpServlet {
 					dto.setAuthor(author);
 					dto.setTitle(title);
 					dto.setContent(content);
-					dto.setUserid(userid);
+					dto.setUserid(userid1);
 					BoardService service=new BoardService();
 					String target="BoardListServlet";
 					

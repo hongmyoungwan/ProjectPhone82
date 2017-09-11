@@ -6,7 +6,7 @@
 <h1>상세보기</h1>
 <div id="div" align="center">
 <hr>
-<form action="BoardUpdateServlet" method="post">
+<form action="BoardUpdateServlet" method="get">
 <input type="hidden" name="num" value="${retrieve.num}">
 <input type="hidden" name="author" value="${retrieve.author}">
 <table>
@@ -49,7 +49,7 @@
 </c:forEach>
 </c:if>
 <tr>
-<td><textarea rows="5" cols="80" id="comment">xx</textarea>
+<td><textarea rows="5" cols="80" id="comment"></textarea></td>
 <td><button onclick="boardComment(event)">comment</button></td>
 </tr>
 </table>
@@ -70,15 +70,14 @@
 		location.href="BoardDeleteServlet?num=${retrieve.num}";
 	}
 	function boardComment(e){
-		console.log($("textarea:last").text());
-		if($("textarea:last").text()==null){
+		console.log($("textarea:last").val());
+		if($("textarea:last").val()==''){
 			e.preventDefault();
 		}
 		else{
-			var x=$("textarea:last").text();
+			var x=$("textarea:last").val();
 			console.log(x);
 			location.href="BoardCommentServlet?boardnum=${retrieve.num}&content="+x;
 		}
-		
 	}
 </script>
