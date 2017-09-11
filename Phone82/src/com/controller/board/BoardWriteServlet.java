@@ -75,9 +75,10 @@ public class BoardWriteServlet extends HttpServlet {
 					    	// type="file"
 					    	
 					    	fileName = item.getName();
+					    	map.put("board_image", fileName.substring(0,fileName.length()-4));
 					    	contentType = item.getContentType();
 					    	sizeInBytes = item.getSize();
-					    	 File uploadedFile = new File("c:\\upload",fileName);
+					    	 File uploadedFile = new File("C:\\upload",fileName);
 					    	 item.write(uploadedFile);
 					    	
 					    }
@@ -92,12 +93,15 @@ public class BoardWriteServlet extends HttpServlet {
 					String title=map.get("title");
 					String author=map.get("author");
 					String content=map.get("content");
-					System.out.println(title+"\t"+author+"\t"+content);
+					String board_image = map.get("board_image");
+					
+					
 					BoardDTO dto=new BoardDTO();
 					dto.setAuthor(author);
 					dto.setTitle(title);
 					dto.setContent(content);
 					dto.setUserid(userid);
+					dto.setBoard_image(board_image);
 					BoardService service=new BoardService();
 					String target="BoardListServlet";
 					
