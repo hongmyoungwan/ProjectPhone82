@@ -40,10 +40,7 @@ public class BoardDAO {
 		int n=session.insert("insertBoard",dto);
 		return n;
 	}
-	public int insertBoard2(SqlSession session,BoardDTO dto) {
-		int n=session.insert("insertBoard2",dto);
-		return n;
-	}
+	
 	
 	public int deleteBoard(SqlSession session,HashMap<String,String> map) {
 		int n=session.delete("deleteBoard",map);

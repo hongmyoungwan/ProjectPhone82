@@ -183,7 +183,7 @@ public class BoardWriteServlet extends HttpServlet {
 									target="boardWriteForm.jsp";
 								}else {
 									
-									service.insertBoard2(dto);
+									service.insertBoard(dto);
 									
 									break;
 								}
