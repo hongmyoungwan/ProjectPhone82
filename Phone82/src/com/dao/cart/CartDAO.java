@@ -35,6 +35,14 @@ public class CartDAO {
 
 	public int insertItem(SqlSession session, CartDTO dto) {
 		// TODO Auto-generated method stub
-		return session.selectOne("insertItem",dto);
+		int n=0;
+		try {
+		 n=session.insert("insertItem",dto);
+		}
+		catch(Exception e) {
+			System.out.println("CartDAO Error");
+			e.printStackTrace();
+		}
+		 return n;
 	}
 }

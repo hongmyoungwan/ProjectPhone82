@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertMember" parameterType="MemberDTO">
-		insert into member(userid, passwd, username, phone1,phone2,phone3, post1,post2, addr1, addr2, email)
-		values(#{userid},#{passwd},#{username},#{phone1},#{phone2},#{phone3},#{post1},#{post2},#{addr1},#{addr2},#{email})
+		insert into member(userid, passwd, username, phone1,phone2,phone3, post1,post2, addr1, addr2, email,member_num)
+		values(#{userid},#{passwd},#{username},#{phone1},#{phone2},#{phone3},#{post1},#{post2},#{addr1},#{addr2},#{email},s1.next_val)
 	</insert>
 	
 	<select id="mypage" parameterType="string" resultType="MemberDTO"> 

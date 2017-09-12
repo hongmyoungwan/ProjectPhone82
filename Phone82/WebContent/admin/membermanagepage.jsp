@@ -4,36 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<style>
-<!--
-.columhead {
-	background-color: #eee;
-	text-align: center;
-	font-weight: bold;
-}
 
-.columbody {
-	background-color: #DDDDFF;
-	text-align: center;
-	font-weight: normal;
-}
-
-table {
-	width: 80%;
-	
-	border-collapse:collapse;
-	border-right:none;
-	border-left:none;
-	border-top:none;
-	border-bottom:none;
-}
-
-th, td {
-	
-	padding: 10px;
-}
--->
-</style>
 
 <form name=memManageform>
 	<table border="1" style="float: right; width: 80%;" align="center" frame=void>
@@ -48,10 +19,11 @@ th, td {
 			<td>전화번호</td>
 			<td>주소</td>
 		</tr>
-		<c:forEach var="item" items="${membermanagepage}">
+		<c:set var="count" value="0"/>
+		<c:forEach var="item" items="${membermanagepage}" varStatus="status">
 			<tr class="columbody">
 				
-				<td class="checkBox"><input type="checkbox" name="box" id="box">
+				<td class="checkBox"><input type="checkbox" name="box" class="box" id="box${item.member_num}" value="${item.member_num}"/>
 				</td>
 				<td>${item.userid}</td>
 				<td>${item.username}</td>
@@ -67,18 +39,25 @@ th, td {
 		</tr>
 		<tr>
 			<td colspan="6" style="text-align: right; ">
-			<button onclick="deleteMember(this)"> 회원 삭제</button>
-			<button onclick="updateMember(this)"> 수정 삭제</button>
+			<input id="deleteMember" value="회원 삭제" type="button"> 
+			<button onclick="updateMember(this)"> 수정 </button>
 			</td>
 		</tr>
 	</table>
 
 </form>
 <script>
-	function deleteMember(f){
-		  location.href="memberDeleteServlet?userid="+num;
+/* 	function deleteMember(f){
+		 var checkbox= document.querySelectorAll(".box");
+	 
+		   console.log(checkbox.length);
+	 	   for(i=0;i<checkbox.length;i++){
+	 		
+	 		   if(checkbox[i].checked)
+	 			   console.log(checkbox[i].value);
+	 	   }
 	}
-
+ */
 </script>
 
 

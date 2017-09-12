@@ -28,9 +28,9 @@ public class AdminDAO {
 		return session.selectList("getAllMemberData");
 	}
 
-	public int membersDelete(SqlSession session) {
+	public int membersDelete(SqlSession session,int num ) {
 		
-		return session.delete("membersDelete");
+		return session.delete("membersDelete",num);
 	}
 	
 

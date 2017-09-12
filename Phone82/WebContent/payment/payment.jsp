@@ -14,7 +14,7 @@
 <input type="hidden" name="phone_price" value="${cDTO.phone_price}" />
 <input type="hidden" name="phone_amount" value="${cDTO.phone_amount}" />
 <input type="hidden" name="phone_image" value="${cDTO.phone_image}" />
-
+<input type="hidden" name="telecom_num" value="${cDTO.telecom_num}" />
 	<table width="80%" cellspacing="0" cellpadding="0">
 
 		<tr>

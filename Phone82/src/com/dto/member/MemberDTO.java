@@ -13,6 +13,7 @@ public class MemberDTO {
 	private String phone2;
 	private String phone3;
 	private String email;
+	private int member_num;
 	public MemberDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -92,18 +93,23 @@ public class MemberDTO {
 	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
 	}
-	@Override
-	public String toString() {
-		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", post1=" + post1
-				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
-				+ phone2 + ", phone3=" + phone3 + ", email=" + email + "]";
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public int getMember_num() {
+		return member_num;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", post1=" + post1
+				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
+				+ phone2 + ", phone3=" + phone3 + ", email=" + email + ", member_num=" + member_num + "]";
+	}
+	
 	
 	
 }
