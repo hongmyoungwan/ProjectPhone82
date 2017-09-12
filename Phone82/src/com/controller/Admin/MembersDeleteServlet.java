@@ -31,7 +31,7 @@ public class MembersDeleteServlet extends HttpServlet {
 		
 		if(num!=null) {
 			
-				System.out.println(num);
+				System.out.println(num.split(""));
 				return;
 		}
 		

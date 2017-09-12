@@ -116,6 +116,7 @@ $(document).ready(function(){
 	}); */
 	
 	 $("form").on("submit",function(event){
+		 this.action="MemberAddServlet";
 		 if($("#userid").val() == '' || $("#userid").val().length == 0){
 		 		alert("아이디를 입력하세요");    
 		 		$("#userid").focus();
@@ -167,21 +168,22 @@ $(document).ready(function(){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone1").focus();
 		 		event.preventDefault();
-		 } else if(!re_nums.test($("#phone2").val())){
-		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
-		 		console.log($("#phone2").val());
-		 		$("#phone2").val()="";
-		 		$("#phone2").focus();
-		 		event.preventDefault();
-		 } else if($("#phone2").val() == '' || $("#phone2").val().length == 0){
+		 }else if($("#phone2").val() == '' || $("#phone2").val().length == 0){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone2").focus();
 		 		event.preventDefault();
+		 }  else if(! re_nums.test($("#phone3").val())){
+		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
+		 		console.log($("#phone2").val());
+		 	//	$("#phone2").val()="";
+		 		$("#phone2").focus();
+		 		event.preventDefault();
+		 	
 		 } else if($("#phone3").val() == '' || $("#phone3").val().length == 0){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone3").focus();
 		 		event.preventDefault();
-		 } else if(! re_nums.test($("#phone3").val())){
+		 } else if(! re_nums.test($("#phone2").val())){
 			 	alert("휴대전화 항목이 숫자 형식이 아닙니다");
 		 		console.log($("#phone3").val());
 		 		//$("#phone3").val()="";
@@ -206,13 +208,16 @@ $(document).ready(function(){
 			 	$("#email").focus();
 		 		event.preventDefault();
 		 } 
+		 else{
+			 this.action="MemberAddServlet";
+		 }
 		 
 		 
 		 
 			 //submit();
 			 //location.href="MemberAddServlet";
 			 //console.log($(this));
-			 this.action="MemberAddServlet";
+
 			 
 		   
 	 });
