@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<style>
+.b {
+	font-size: 12px;
+	color: #363636
+}
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -82,12 +88,15 @@
 
 			<tr>
 				<td>ID</td>
-				<td><input type="text" name="userid" id="userid"> <input
-					type="checkbox" name="saveid" id="saveid"></td>
+				<td><input type="text" name="userid" id="userid"></td>
 			</tr>
 			<tr>
 				<td>PASSWORD</td>
 				<td><input type="password" name="passwd" id="passwd"></td>
+			</tr>
+			<tr>
+				<td class="b"><input type="checkbox" name="saveid" id="saveid">아이디
+					저장</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="로그인"
