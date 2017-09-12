@@ -229,7 +229,7 @@ $(document).ready(function(){
 
 <style>
  table {border: 2px solid gray;
-    border-collapse: collapse;}
+    /* border-collapse: collapse; */}
   th, td { padding: 15px;}
   th{background-color: #F6F6F6; text-align: left;} 
 
@@ -239,7 +239,7 @@ $(document).ready(function(){
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/daum.js"></script> 
 <!-- DAUM 주소 라이브러리 끝 -->    
-<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+<p align="center"><a href="home.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
 <form name="myform" action="MemberAddServlet" >
 <p style="font-size:12px; color:blue; margin-top:-2px; margin-left:10px;" align="center">*는 필수입력사항입니다.</p>
 <table align="center">
