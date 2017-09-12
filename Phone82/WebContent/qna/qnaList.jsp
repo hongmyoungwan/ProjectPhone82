@@ -13,8 +13,6 @@
 		});
 	});
 </script>
-
-<h1>QNA</h1>
 <hr>
 <c:if test="${!empty requestScope.key}">
 	<script>
@@ -31,7 +29,7 @@
 <form action="QNAWriteServlet" method="post">
 <input type="hidden" name="author" value="${sessionScope.login.username}">
 <br>
-<h3 align="left" style="margin-left: 220px">문의하기</h3>
+<h3 align="left">문의하기</h3>
 <table>
 <tr>
 <td bgcolor="silver">문의제목</td><td><input type="text" name="title" value="${dto.title}" size="50"><br></td>
@@ -47,7 +45,7 @@
 <input type="reset" value="취소">
 </form>
 <br><br>
-<h3 align="left" style="margin-left: 220px">나의 문의내역</h3>
+<h3 align="left">나의 문의내역</h3>
 <table>
 	<colgroup>
 	<col width="100"/>

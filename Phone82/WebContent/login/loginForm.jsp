@@ -77,7 +77,7 @@
 <div>
 
 	<p align="center">
-		<a href="home1.jsp"><img src="images/ddd.png" height="50"
+		<a href="home.jsp"><img src="images/ddd.png" height="50"
 			width="50"></a>
 	</p>
 

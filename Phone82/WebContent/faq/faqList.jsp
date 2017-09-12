@@ -34,7 +34,6 @@
 </script>
 
 
-<h1>FAQ</h1>
 게시물수: ${page.totalCount}<br>
 <div align="center">
 <hr>

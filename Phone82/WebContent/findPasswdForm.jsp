@@ -8,7 +8,7 @@
 <link rel= "stylesheet" type="text/css" href="form.css">
 </head>
 <body>
-<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+<p align="center"><a href="home.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
 <p align="center"><strong> 비밀번호 찾기</strong></p>
 <jsp:include page="login/findPasswdForm.jsp"/>
 </body>

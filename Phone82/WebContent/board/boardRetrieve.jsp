@@ -3,8 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<h1>상세보기</h1>
 <div id="div" align="center">
+
+
+<div align="right" style="padding-right: 20px">
+<button id="List" onclick="boardList()">목록</button>
+<button id="Delete" onclick="boardDelete()">삭제</button>
+</div>
 <hr>
 <form action="BoardUpdateServlet" method="get">
 <input type="hidden" name="num" value="${retrieve.num}">
@@ -32,11 +37,10 @@
 <hr>
 <input type="submit" value="수정">
 </form>
-<button id="List" onclick="boardList()">목록</button>
-<button id="Delete" onclick="boardDelete()">삭제</button>
+
 <br>
 댓글 ${comment.size()}
-<table border="1">
+<table>
 <c:if test="${comment.size()!=0}">
 <c:forEach var="comment" items="${comment}">
 <tr>

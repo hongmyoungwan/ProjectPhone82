@@ -128,7 +128,7 @@ $("#passwd2").on("keyup",function(event){
 
 <style>
  table {border: 2px solid gray;
-    border-collapse: collapse;}
+    /* border-collapse: collapse; */}
   th, td { padding: 15px;}
   th{background-color: #F6F6F6; text-align: left;} 
 
@@ -142,10 +142,10 @@ $("#passwd2").on("keyup",function(event){
 
 
 
-<p align="center"><a href="home1.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
+<p align="center"><a href="home.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
 <form name="myform" action="MemberAddServlet" >
 <p style="font-size:12px; color:blue; margin-top:-2px; margin-left:10px;" align="center">*는 필수입력사항입니다.</p>
-<table border=1 align="center">
+<table align="center">
 
  <tr>
   <th>*아이디</th>
@@ -164,7 +164,7 @@ $("#passwd2").on("keyup",function(event){
   <td colspan="3">${login.username}</td>
  </tr>
  <tr>
-  <th>주소</th>
+  <th>*주소</th>
   <td colspan="3">
  <!-- 다음주소 시작:다음에서 제공한것->id,name값 수정x-->
 	<input name="post1" id="post1" size="5" readonly="" value="${login.post1}"> -

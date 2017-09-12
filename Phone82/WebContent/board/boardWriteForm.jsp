@@ -24,7 +24,6 @@
 	</script>
 </c:if>
 
-<h1>글쓰기</h1>
 <hr>
 <div align="center">
 <form action="BoardWriteServlet" method="post" enctype="multipart/form-data">
