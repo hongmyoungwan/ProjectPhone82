@@ -129,7 +129,7 @@
 <body>
 <div class="frame"><jsp:include page="menu/top.jsp" flush="true"/>
 <div class="header">
-<div class="logo"><a href="home1.jsp"><img src="images/ddd.png"></a> </div>
+<div class="logo"><a href="home.jsp"><img src="images/ddd.png"></a> </div>
 </div>
 	<div class="container">
 		<div class="nav">
