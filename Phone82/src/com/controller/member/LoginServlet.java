@@ -35,14 +35,14 @@ public class LoginServlet extends HttpServlet {
 		
 		MemberService service = new MemberService();
 		
-		String target = "home1.jsp";
+		String target = "home.jsp";
 		try {
 			MemberDTO dto = service.login(map);
 			if(dto==null) {
 				target="LoginFormServlet";
 				request.setAttribute("mesg", "아이디와 비밀번호가 일치하지 않습니다.");
 			} else {
-				target="home1.jsp";
+				target="home.jsp";
 				HttpSession session = request.getSession();
 				session.setAttribute("login", dto);
 				//request.setAttribute("result", "로그인 성공");

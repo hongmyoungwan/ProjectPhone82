@@ -33,7 +33,7 @@ public class MemberAddServlet extends HttpServlet {
 		MemberDTO dto = new MemberDTO(userid, passwd, username, post1, post2, addr1, addr2, phone1, phone2, phone3, email);
 		
 		MemberService service = new MemberService();
-		String target = "home1.jsp";
+		String target = "home.jsp";
 		
 		try {
 			service.insertMember(dto);

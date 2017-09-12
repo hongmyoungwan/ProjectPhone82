@@ -43,7 +43,7 @@ public class QNAListServlet extends HttpServlet {
 		String target="qnaList.jsp";
 		try {
 			if(mdto==null) {
-				target="home1.jsp";
+				target="home.jsp";
 				request.setAttribute("QNA", "로그인이 필요한 서비스입니다.");
 			}
 			else {
