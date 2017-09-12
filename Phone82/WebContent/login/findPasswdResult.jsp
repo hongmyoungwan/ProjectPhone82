@@ -18,15 +18,48 @@ $(document).ready(function(){
 });
 </script>
 
+<p align="center">
+		<a href="home.jsp"><img src="images/ddd.png" height="50"
+			width="50"></a>
+	</p>
+	<p align="center"><strong>비밀번호 찾기 결과</strong></p>
+
+<!--  -->
 <<c:if test="${! empty mesg}">
-<div>${mesg}</div><br>
-<button id="login"  class="button">로그인</button> &nbsp;
+
+	<table align="center">
+	 <tr>
+	  <td>
+	   <p align="center">${mesg}</p><br>
+	  </td>
+	 </tr>
+	 <tr>
+	  <td align="center">
+	   	<button id="login" class="button">로그인</button> &nbsp;
+	  </td>
+	 </tr>
+	</table>
+	
 </c:if>
 
-<c:if test="${! empty mesg2}">
-${mesg2}&nbsp;><br>
 
-<button id="memberform"  class="button">회원가입</button> &nbsp;
+
+<!--  -->
+<c:if test="${! empty mesg2}">
+
+<table align="center">
+	 <tr>
+	  <td>
+	   <p align="center">${mesg2}</p><br>
+	  </td>
+	 </tr>
+	 <tr>
+	  <td align="center">
+	   	<button id="memberform"  class="button">회원가입</button> &nbsp;
+	  </td>
+	 </tr>
+	</table>
+
 </c:if>
 
 
