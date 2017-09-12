@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.dao.admin.AdminDAO;
+import com.dao.cart.MemberDAO;
 import com.dto.member.MemberDTO;
 import com.exception.list.MyException;
 import com.mybatis.MybatisTemplate;
@@ -33,15 +34,18 @@ public class MemberManagementService {
 		
 	}
 
-	public void membersDelete() throws MyException {
+	public List<MemberDTO> membersDelete(int num) throws MyException {
 		SqlSession session = MybatisTemplate.openSession();
 		AdminDAO dao = new AdminDAO();
+		List<MemberDTO> list=null;
 		int n = 0;
 		
 		try {
-			 n = dao.membersDelete(session);
-			 if(n==0)
+			 n = dao.membersDelete(session, num);
+			 if(n==0) {
+				 list= getAllMemberData();
 				 session.commit();
+			 }
 		}catch(Exception e) {
 			session.rollback();
 			throw new MyException("membersDelete error");
@@ -51,6 +55,7 @@ public class MemberManagementService {
 				session.close();
 			}
 		}
+		return list;
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.controller.Admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dto.member.MemberDTO;
 import com.service.admin.MemberManagementService;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 /**
  * Servlet implementation class MembersDeleteServlet
@@ -22,12 +26,19 @@ public class MembersDeleteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	MemberManagementService service =new MemberManagementService();
 		
-		String target ="membermanagepage.jsp";
+		String target ="admin/membermanagepage.jsp";
+		String num =request.getParameter("num");
+		
+		if(num!=null) {
+			
+				System.out.println(num.split(""));
+				return;
+		}
 		
 		try {
-			service.membersDelete();
+			List<MemberDTO> list= service.membersDelete(Integer.parseInt(num));
 			
-			request.setAttribute("mseg", "delete success");
+			request.setAttribute("list", list);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -116,6 +116,7 @@ $(document).ready(function(){
 	}); */
 	
 	 $("form").on("submit",function(event){
+		 this.action="MemberAddServlet";
 		 if($("#userid").val() == '' || $("#userid").val().length == 0){
 		 		alert("아이디를 입력하세요");    
 		 		$("#userid").focus();
@@ -167,16 +168,17 @@ $(document).ready(function(){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone1").focus();
 		 		event.preventDefault();
-		 } else if(!re_nums.test($("#phone2").val())){
-		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
-		 		console.log($("#phone2").val());
-		 		$("#phone2").val()="";
-		 		$("#phone2").focus();
-		 		event.preventDefault();
-		 } else if($("#phone2").val() == '' || $("#phone2").val().length == 0){
+		 }else if($("#phone2").val() == '' || $("#phone2").val().length == 0){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone2").focus();
 		 		event.preventDefault();
+		 }  else if(! re_nums.test($("#phone2").val())){
+		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
+		 		console.log($("#phone2").val());
+		 	//	$("#phone2").val()="";
+		 		$("#phone2").focus();
+		 		event.preventDefault();
+		 	
 		 } else if($("#phone3").val() == '' || $("#phone3").val().length == 0){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone3").focus();
@@ -206,13 +208,16 @@ $(document).ready(function(){
 			 	$("#email").focus();
 		 		event.preventDefault();
 		 } 
+		 else{
+			 this.action="MemberAddServlet";
+		 }
 		 
 		 
 		 
 			 //submit();
 			 //location.href="MemberAddServlet";
 			 //console.log($(this));
-			 this.action="MemberAddServlet";
+
 			 
 		   
 	 });
@@ -283,7 +288,7 @@ $(document).ready(function(){
   			<option value="010">017</option>
   	</select>
   
-  - <input type="text" name="phone2" id="phone2" placeholder="" SIZE="3" placeholder="*" >
+  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*" >
   - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" ></td>
  </tr>
  <tr>

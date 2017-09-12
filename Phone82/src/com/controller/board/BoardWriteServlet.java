@@ -34,7 +34,7 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		
 
-
+		HashMap<String, String> map = new HashMap<>();
 		
 		// Create a factory for disk-based file items
 				DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -57,7 +57,7 @@ public class BoardWriteServlet extends HttpServlet {
 				try {
 					List<FileItem> items = upload.parseRequest(request);
 					Iterator<FileItem> iter = items.iterator();
-					HashMap<String, String> map = new HashMap<>();
+					
 					while (iter.hasNext()) {
 					    FileItem item = iter.next();
 
@@ -73,13 +73,14 @@ public class BoardWriteServlet extends HttpServlet {
 					    	System.out.println(contentType+"\t"+isInMemory+"\t"+sizeInBytes);
 					    } else {
 					    	// type="file"
-					    	
+					    	if(item!=null) {
 					    	fileName = item.getName();
-					    	map.put("board_image", fileName.substring(0,fileName.length()-4));
+					    	map.put("board_image", fileName);
 					    	contentType = item.getContentType();
 					    	sizeInBytes = item.getSize();
 					    	 File uploadedFile = new File("C:\\upload",fileName);
 					    	 item.write(uploadedFile);
+					    	}
 					    	
 					    }
 					}//
@@ -94,7 +95,9 @@ public class BoardWriteServlet extends HttpServlet {
 					String author=map.get("author");
 					String content=map.get("content");
 					String board_image = map.get("board_image");
-					
+					/*if(board_image==null) {
+						board_image=null;
+					}*/
 					
 					BoardDTO dto=new BoardDTO();
 					dto.setAuthor(author);
@@ -142,7 +145,64 @@ public class BoardWriteServlet extends HttpServlet {
 					e.printStackTrace();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+//					e.printStackTrace();
+					request.setCharacterEncoding("UTF-8");
+					
+					HttpSession session=request.getSession();
+					MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+					String userid=mdto.getUserid();
+					
+					String title= map.get("title");
+					String author=map.get("author");
+					String content=map.get("content");
+					String board_image = map.get("board_image");
+					if(board_image=="") {
+						board_image="1234";
+					}
+					System.out.println(">>>>>>>>"+title+"\t"+author+"\t"+content+"\t"+board_image);
+					
+					BoardDTO dto=new BoardDTO();
+					dto.setAuthor(author);
+					dto.setTitle(title);
+					dto.setContent(content);
+					dto.setUserid(userid);
+					dto.setBoard_image(board_image);
+					BoardService service=new BoardService();
+					String target="BoardListServlet";
+					
+					ArrayList<String> list=new ArrayList<String>();
+					list.add("바보");
+					list.add("멍청이");
+
+					try {
+						if(title!="" && content!="") {
+							for(String k: list) {
+								if (content.indexOf(k)>-1) {
+									request.setAttribute("key", k+"를(을) 포함하고있어요");
+									request.setAttribute("dto", dto);
+									target="boardWriteForm.jsp";
+								}else {
+									
+									service.insertBoard2(dto);
+									
+									break;
+								}
+							}
+						}
+						else {
+							request.setAttribute("writenull", "제목과 내용에 빈칸이 있는지 확인해주세요");
+							request.setAttribute("dto", dto);
+							target="boardWriteForm.jsp";
+						}
+						
+					}catch(MyException me) {
+						target="error.jsp";
+						me.printStackTrace();
+						System.out.println("1");
+					}
+					
+					RequestDispatcher dis=request.getRequestDispatcher(target);
+					dis.forward(request, response);
 				}
 		
 		

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dto.cart.CartDTO;
 import com.dto.member.MemberDTO;
@@ -28,12 +29,15 @@ public class CartInsertServlet extends HttpServlet {
 		String phone_price=request.getParameter("phone_price");
 		String phone_image=request.getParameter("phone_image");
 		int phone_amount=1;
-		String target="CartListServlet";
+		String target="CartListView";
 		CartService service = new CartService();
 		CartDTO dto = new CartDTO();
 		MemberDTO mem = new MemberDTO();
+		HttpSession session = request.getSession();
 		if(userid==null) {
-		//	userid= (MemberDTO)request.getAttribute("login");
+			mem= (MemberDTO)session.getAttribute("login");
+			System.out.println(mem);
+			userid =mem.getUserid();
 		}
 		dto.setPhone_amount(phone_amount);
 		dto.setPhone_image(phone_image);

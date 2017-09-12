@@ -35,7 +35,7 @@ public class OrderHistoryServlet extends HttpServlet {
 		String addr2 = request.getParameter("addr2");
 		String phone = request.getParameter("phone");
 		String payMethod = request.getParameter("payMethod");
-		
+		String telecom_num = request.getParameter("telecom_num");
 		OrderDTO dto = new OrderDTO();
 		dto.setAddr1(addr1);
 		dto.setAddr2(addr2);
@@ -51,6 +51,8 @@ public class OrderHistoryServlet extends HttpServlet {
 		dto.setPayMethod(payMethod);
 		dto.setOrderName(orderName);
 		dto.setNum(Integer.parseInt(num));
+		System.out.println("telecom_num"+telecom_num );
+		dto.setTelecom_num(telecom_num);
 		
 		
 		

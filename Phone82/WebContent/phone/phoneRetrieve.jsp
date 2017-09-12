@@ -142,7 +142,7 @@
 				<table border="0">
 					<tr>
 						<td><input type="button" value="<"></td>
-						<td><img id="img" src="images/${dto.phone_image}.jpg" class="imgst1"></td>
+						<td><img id="img" src="images/${dto.phone_image}" class="imgst1"></td>
 						<td><input type="button" value=">"></td>
 					</tr>
 				</table>

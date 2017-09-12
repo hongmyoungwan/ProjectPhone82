@@ -69,7 +69,7 @@ public class AddFileServlet extends HttpServlet {
 					    	// type="file"
 					    	
 					    	fileName = item.getName();
-					    	map.put("phone_image", fileName.substring(0,fileName.length()-4));
+					    	map.put("phone_image", fileName);
 					    	contentType = item.getContentType();
 					    	sizeInBytes = item.getSize();
 					    	 File uploadedFile = new File("C:\\upload",fileName);

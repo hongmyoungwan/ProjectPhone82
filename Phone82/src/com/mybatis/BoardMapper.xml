@@ -35,6 +35,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into MyBoard(num,userid,title,author,content,board_image)
 	values(board_seq.nextval,#{userid},#{title},#{author},#{content},#{board_image})
 </insert>
+<insert id="insertBoard2" parameterType="MyBoardDTO">
+	insert into MyBoard(num,userid,title,author,content,board_image)
+	values(board_seq.nextval,#{userid},#{title},#{author},#{content},#{board_image})
+</insert>
 
 <select id="selectByNum" parameterType="int" resultType="MyBoardDTO">
 	select num, userid, title,author,content,to_char(writeday,'YYYY/MM/DD') writeday,readCnt ,board_image
