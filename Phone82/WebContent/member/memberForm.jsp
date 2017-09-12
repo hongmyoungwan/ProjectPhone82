@@ -172,7 +172,7 @@ $(document).ready(function(){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone2").focus();
 		 		event.preventDefault();
-		 }  else if(! re_nums.test($("#phone3").val())){
+		 }  else if(! re_nums.test($("#phone2").val())){
 		 		alert("휴대전화 항목이 숫자 형식이 아닙니다");
 		 		console.log($("#phone2").val());
 		 	//	$("#phone2").val()="";
@@ -183,7 +183,7 @@ $(document).ready(function(){
 		 		alert("전화번호을 다시 입력하세요");
 		 		$("#phone3").focus();
 		 		event.preventDefault();
-		 } else if(! re_nums.test($("#phone2").val())){
+		 } else if(! re_nums.test($("#phone3").val())){
 			 	alert("휴대전화 항목이 숫자 형식이 아닙니다");
 		 		console.log($("#phone3").val());
 		 		//$("#phone3").val()="";
@@ -288,7 +288,7 @@ $(document).ready(function(){
   			<option value="010">017</option>
   	</select>
   
-  - <input type="text" name="phone2" id="phone2" placeholder="" SIZE="3" placeholder="*" >
+  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*" >
   - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" ></td>
  </tr>
  <tr>
