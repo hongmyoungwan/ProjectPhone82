@@ -10,6 +10,10 @@
 			location.href="BoardListServlet?perPage="+x;
 			
 		});
+		$("[id^='a']").on("click",function(){
+			var x=$(this).children("td").eq(0).text();
+					location.href="BoardRetrieveServlet?num="+x; 
+			});
 	});
 		
 		function boardSearch(f){
@@ -26,7 +30,6 @@
     alert('${requestScope.write}');
   </script>
 </c:if>
-<h1>글목록보기</h1>
 <div align="right"><button onclick="boardWrite()">글쓰기</button></div>
 <div align="center">
 <hr>
@@ -56,9 +59,9 @@
 		</c:if>
 		<c:if test="${list.size()!=0}">
 		<c:forEach var="dto" items="${list}">
-			<tr>
+			<tr id="a${dto.num}">
 				<td>${dto.num}</td>
-				<td><a href="BoardRetrieveServlet?num=${dto.num}">${dto.title}</a></td>
+				<td>${dto.title}</td>
 				<td>${dto.author}</td>
 				<td>${dto.writeday}</td>
 				<td>${dto.readCnt}</td>
