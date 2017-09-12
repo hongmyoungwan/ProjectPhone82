@@ -31,7 +31,7 @@
 <td bgcolor="silver">작성자</td><td>${retrieve.author}<br></td>
 </tr>
 <tr>
-<td bgcolor="silver">내용</td><td><div><img src="images/${retrieve.board_image }.jpg" width="50" height="50"><br>${retrieve.content}</div></td>
+<td bgcolor="silver">내용</td><td><div><c:if test="${retrieve.board_image != '1234' }"><img src="images/${retrieve.board_image }" width="50" height="50"></c:if><br>${retrieve.content}</div></td>
 </tr>
 </table>
 <hr>

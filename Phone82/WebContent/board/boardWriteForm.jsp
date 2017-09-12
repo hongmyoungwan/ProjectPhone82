@@ -35,6 +35,10 @@
 <tr>
 <td bgcolor="silver">작성자</td><td>${sessionScope.login.username}</td>
 </tr>
+
+<tr>
+<td bgcolor="silver">내용</td><td><textarea rows="30" cols="100" name="content">${dto.content}</textarea></td>
+</tr>
 <tr>
 	<td bgcolor="silver">이미지 등록</td><td><input type="file" name="image" id="image" />
 		<div id="image_preview">
@@ -43,9 +47,6 @@
         <a href="#">Remove</a>
     </div>
     </td>
-</tr>
-<tr>
-<td bgcolor="silver">내용</td><td><textarea rows="30" cols="100" name="content">${dto.content}</textarea></td>
 </tr>
 </table>
 <input type="submit" value="쓰기">

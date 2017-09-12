@@ -39,7 +39,7 @@
 							<table style='padding: 15px'>
 								<tr>
 									<td><a href="PhoneRetrieveServlet?telecom_num=${xxx.telecom_num}"  class="no-uline" >
-											<img src="images/${xxx.phone_image}.jpg" class="imgst">
+											<img src="images/${xxx.phone_image}" class="imgst">
 									</a></td>
 								</tr>
 								<tr>
