@@ -1,4 +1,4 @@
-package com.dao.qna;
+package com.dao.admin;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.dto.qna.QNADTO;
 import com.dto.qna.QNAPageDTO;
 
-public class QNADAO {
-	
+public class QNAResponseDAO {
 	public List<QNADTO> qnaList(SqlSession session,HashMap<String, String> map){
 		List<QNADTO> list=session.selectOne("qnaList",map);
 		return list;
@@ -19,14 +18,13 @@ public class QNADAO {
 	public QNAPageDTO qnapage(SqlSession session, int curPage, int perPage, HashMap<String,String> map) {
 		QNAPageDTO dto=new QNAPageDTO();
 		int index=(curPage-1)*perPage;
-		List<QNADTO> list=session.selectList("qnaList",map, new RowBounds(index, perPage));
+		List<QNADTO> list=session.selectList("AdminQNAboardList",map, new RowBounds(index, perPage));
 		int totalCount=0;
 		if(map.get("searchValue")==null) {
-			totalCount=session.selectOne("qnatotalCount");
-			System.out.println("this SearchValue null");
+			totalCount=session.selectOne("AdminQNAtotalCount");
 		}
 		else {
-			totalCount=session.selectOne("qnatotalCount1",map);
+			totalCount=session.selectOne("AdminQNAtotalCount1",map);
 		}
 		
 		dto.setList(list);
@@ -52,7 +50,7 @@ public class QNADAO {
 	}
 	
 	public QNADTO qnaselectByNum(SqlSession session,int num) {
-		QNADTO dto=session.selectOne("qnaselectByNum",num);
+		QNADTO dto=session.selectOne("AdminQNAselectByNum",num);
 		return dto;
 	}
 	

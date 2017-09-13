@@ -13,17 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.dto.member.MemberDTO;
 import com.service.admin.MemberManagementService;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 /**
- * Servlet implementation class MembersDeleteServlet
+ * Servlet implementation class MembersUpdateServlet
  */
-@WebServlet("/MembersDeleteServlet")
-public class MembersDeleteServlet extends HttpServlet {
+@WebServlet("/MembersUpdateServlet")
+public class MembersUpdateServlet extends HttpServlet {
 	
-  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	MemberManagementService service =new MemberManagementService();
 		
 		String target ="admin/membermanagepage.jsp";
@@ -55,12 +52,8 @@ public class MembersDeleteServlet extends HttpServlet {
 		RequestDispatcher dis =request.getRequestDispatcher(target);
 		dis.forward(request, response);
 		
-		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

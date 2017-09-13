@@ -1,5 +1,6 @@
 package com.dao.admin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,28 +12,32 @@ import com.dto.member.MemberDTO;
 
 public class AdminDAO {
 
-	
-	public AdminDTO getAdminData(SqlSession session ,HashMap<String,String> map) {
-		return session.selectOne("getAdminData",map);
+	public AdminDTO getAdminData(SqlSession session, HashMap<String, String> map) {
+		return session.selectOne("getAdminData", map);
 	}
 
 	public List<SalesDTO> getSalesChartDatas(SqlSession session, HashMap<String, String> map) {
-			
-		List<SalesDTO> list= session.selectList("getSalesChartDatas",map);
-	
+
+		List<SalesDTO> list = session.selectList("getSalesChartDatas", map);
+
 		return list;
 	}
-	
+
 	public List<MemberDTO> getAllMemberData(SqlSession session) {
 		// TODO Auto-generated method stub
 		return session.selectList("getAllMemberData");
 	}
 
-	public int membersDelete(SqlSession session,int num ) {
-		
-		return session.delete("membersDelete",num);
+	public int membersDelete(SqlSession session, ArrayList<String> num) {
+		int n = 0;
+		try {
+			n = session.delete("membersDelete", num);
+		} catch (Exception ex) {
+			System.out.println("dberror");
+			ex.printStackTrace();
+		}
+		System.out.println(n);
+		return n;
 	}
-	
 
 }
-

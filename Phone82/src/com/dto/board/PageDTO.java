@@ -2,8 +2,11 @@ package com.dto.board;
 
 import java.util.List;
 
+
+
 public class PageDTO {
 	private List<BoardDTO> list;
+
 	private int curPage;
 	private int perPage;
 	private int totalCount;
@@ -49,8 +52,8 @@ public class PageDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PageDTO(List<BoardDTO> list, int curPage, int perPage, int totalCount, String searchName,
-			String searchValue) {
+	public PageDTO(List<BoardDTO> list, int curPage, int perPage, int totalCount,
+			String searchName, String searchValue) {
 		super();
 		this.list = list;
 		this.curPage = curPage;
@@ -59,11 +62,6 @@ public class PageDTO {
 		this.searchName = searchName;
 		this.searchValue = searchValue;
 	}
-	@Override
-	public String toString() {
-		return "PageDTO [list=" + list + ", curPage=" + curPage + ", perPage=" + perPage + ", totalCount=" + totalCount
-				+ ", searchName=" + searchName + ", searchValue=" + searchValue + "]";
-	}
-	
+
 	
 }

@@ -25,11 +25,11 @@
 				
 				<td class="checkBox"><input type="checkbox" name="box" class="box" id="box${item.member_num}" value="${item.member_num}"/>
 				</td>
-				<td>${item.userid}</td>
-				<td>${item.username}</td>
-				<td>${item.email}</td>
-				<td>${item.phone1+item.phone2+item.phone3}</td>
-				<td>${item.post1}${item.post2}${item.addr1}${item.addr2}</td>
+				<td><input type="text" id="userid${item.member_num}" value="${item.userid}"></td>
+				<td><input type="text" id="username${item.member_num}" value="${item.username}"></td>
+				<td><input type="text" id="email${item.member_num}" value="${item.email}"></td>
+				<td><input type="text" id="phone${item.member_num}" value="${item.phone1+item.phone2+item.phone3}"></td>
+				<td><input type="text" id="addr${item.member_num}" value="${item.post1}${item.post2}${item.addr1}${item.addr2}"></td>
 
 			</tr>
 		</c:forEach>
@@ -40,7 +40,8 @@
 		<tr>
 			<td colspan="6" style="text-align: right; ">
 			<input id="deleteMember" value="회원 삭제" type="button"> 
-			<button onclick="updateMember(this)"> 수정 </button>
+			<input id="updateMember" value="회원 수정" type="button"> 
+
 			</td>
 		</tr>
 	</table>

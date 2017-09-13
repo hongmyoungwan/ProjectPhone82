@@ -25,9 +25,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select userid, passwd, username, phone1,phone2,phone3, post1,post2, addr1, addr2, email,member_num
 		from member
 	</select>
-	<delete id="membersDelete" parameterType="int">
+	<delete id="membersDelete" parameterType="arraylist">
 		delete from member
-		where member_num=#{num}
+		<where> 
+		member_num in
+		<foreach collection="list"  index="index" item="item" open="("
+			separator="," close=")">
+				#{item}
+		</foreach>
+		</where>
 		
 	</delete>
 </mapper>

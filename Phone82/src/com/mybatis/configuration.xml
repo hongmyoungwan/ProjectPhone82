@@ -35,6 +35,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/mybatis/MemberMapper.xml" />
 		<mapper resource="com/mybatis/FAQMapper.xml" />
 		<mapper resource="com/mybatis/QNAMapper.xml" />
+		<mapper resource="com/mybatis/QNAResponseMapper.xml" />
 		<mapper resource="com/mybatis/AdminMapper.xml" />
 		<mapper resource="com/mybatis/BoardMapper.xml" />
 		<mapper resource="com/mybatis/CommentMapper.xml" />

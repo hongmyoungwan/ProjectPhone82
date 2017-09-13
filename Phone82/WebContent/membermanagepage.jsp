@@ -25,18 +25,25 @@
 	font-weight: normal;
 }
 
+.columbody input {
+	border: none;
+	border-right: 0px;
+	border-top: 0px;
+	boder-left: 0px;
+	boder-bottom: 0px;
+	background-color: #DDDDFF;
+}
+
 table {
 	width: 80%;
-	
-	border-collapse:collapse;
-	border-right:none;
-	border-left:none;
-	border-top:none;
-	border-bottom:none;
+	border-collapse: collapse;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: none;
 }
 
 th, td {
-	
 	padding: 10px;
 }
 -->
@@ -46,30 +53,30 @@ th, td {
 	$(document).ready(()=>{
 		$("#deleteMember").on("click",()=>{
 			var checkbox= document.querySelectorAll(".box");
-			var checkboxList=[];
+			var checkboxList="";
 		 	   for(i=0;i<checkbox.length;i++){
 		 		
 		 		   if(checkbox[i].checked){
-		 			  checkboxList.push('{"num":'+checkbox[i].value+'}');
+		 			  checkboxList+=checkbox[i].value+"/";
 		 			  
 		 		   }
 		 			  
 		 	   }
 		 	  console.log(checkboxList);
-		 	 var aaa= checkboxList.join('');
+	
 		 	
 		 	  $.ajax({
 		 		 type:"get",
 					url:"MembersDeleteServlet",
 					dataType:"text",
 					data:{
-						num:aaa
+						num:checkboxList
 					},
 					success:(responseData,status,xhr)=>{
 						
-					
-						$("#result").html(responseData);
-						$("div#initView").empty();
+						console.log(responseData);
+						$("#result").append(responseData);
+						$("#initView").empty();
 					},
 					error:(xhr,status,e)=>{
 						
@@ -78,6 +85,44 @@ th, td {
 					}
 		 	  });
 		});
+
+		/* 
+		$("#updateMember").on("click",()=>{
+			var checkbox= document.querySelectorAll(".box");
+			var checkboxList="";
+		 	   for(i=0;i<checkbox.length;i++){
+		 		
+		 		   if(checkbox[i].checked){
+		 			  checkboxList+=checkbox[i].value+"/";
+		 			  
+		 		   }
+		 			  
+		 	   }
+		 	  console.log(checkboxList);
+	
+		 	
+		 	  $.ajax({
+		 		 type:"get",
+					url:"MembersUpdateServlet",
+					dataType:"text",
+					data:{
+						num:checkboxList
+					},
+					success:(responseData,status,xhr)=>{
+						
+						console.log(responseData);
+						$("#result").append(responseData);
+						$("#initView").empty();
+					},
+					error:(xhr,status,e)=>{
+						
+						console.log(e);
+						
+					}
+		 	  });
+		}); */
+		
+		
 	});
 </script>
 </head>
@@ -85,9 +130,10 @@ th, td {
 <h1>관리자페이지</h1>
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
-<div id="#result">
+<div id="result">
+
 </div>
-<div id="#initView">
+<div id="initView">
 <jsp:include page="admin/membermanagepage.jsp" flush="true" /><br>
 </div>
 </body>

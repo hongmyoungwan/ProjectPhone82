@@ -1,5 +1,6 @@
 package com.service.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,17 +35,22 @@ public class MemberManagementService {
 		
 	}
 
-	public List<MemberDTO> membersDelete(int num) throws MyException {
+	public List<MemberDTO> membersDelete(String[] num) throws MyException {
 		SqlSession session = MybatisTemplate.openSession();
 		AdminDAO dao = new AdminDAO();
 		List<MemberDTO> list=null;
 		int n = 0;
+		ArrayList<String>numlist= new ArrayList<>();
+		for (String string : num) {
+			numlist.add(string);
+		}
 		
 		try {
-			 n = dao.membersDelete(session, num);
-			 if(n==0) {
-				 list= getAllMemberData();
+			 n = dao.membersDelete(session, numlist);
+			 if(n<=1) {
+		
 				 session.commit();
+				 list= getAllMemberData();
 			 }
 		}catch(Exception e) {
 			session.rollback();

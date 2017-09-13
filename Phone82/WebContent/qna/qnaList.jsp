@@ -8,8 +8,36 @@
 	
 	$(document).ready(function(){
 		$("[id^='a']").on("click",function(){
-		var x=$(this).children("td").eq(0).text();
-				location.href="QNARetrieveServlet?num="+x; 
+		/* var x=$(this).children("td").eq(0).text();
+				location.href="QNARetrieveServlet?num="+x;  */
+			var x=$(this).children("td").eq(0).text();
+				$.ajax({
+					type:"get",
+					url:"QNAReqeustServlet",
+					dataType:"text",
+					data:{
+						num:x
+					},
+					success:function(responseData,status,xhr){
+						console.log(responseData);
+					
+						var answer ="";
+						var result="";
+						/* answer=responseData.split("-");
+						
+						for(i=0;i<answer.length;i++){
+						
+							result="<td>"+answer[i]+"</td>";
+						}
+						 */
+						 $("#retrieve"+x).html(responseData).toggle();
+						
+					},
+					error:function(xhr,status,e){
+						console.log(status,e);
+					}
+				});
+			
 		});
 	});
 </script>
@@ -75,6 +103,8 @@
 				<td>${dto.author}</td>
 				<td>${dto.writeday}</td>
 				<td>${dto.readCnt}</td>
+			</tr>
+			<tr id="retrieve${dto.num}" style="display:none;">
 			</tr>
 			
 			</c:forEach>
