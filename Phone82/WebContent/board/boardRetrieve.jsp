@@ -11,7 +11,7 @@
 <button id="Delete" onclick="boardDelete()">삭제</button>
 </div>
 <hr>
-<form action="BoardUpdateServlet" method="get">
+
 <input type="hidden" name="num" value="${retrieve.num}">
 <input type="hidden" name="author" value="${retrieve.author}">
 <table>
@@ -35,8 +35,8 @@
 </tr>
 </table>
 <hr>
-<input type="submit" value="수정">
-</form>
+<a href="board/boardUpdateForm.jsp?title=${retrieve.title}&content=${retrieve.content}&board_image=${retrieve.board_image}&num=${retrieve.num}">수정</a>
+
 
 <br>
 댓글 ${comment.size()}
