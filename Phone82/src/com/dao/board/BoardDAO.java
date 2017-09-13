@@ -65,5 +65,8 @@ public class BoardDAO {
 		int n=session.update("updateByNum",dto);
 		return n;
 	}
-	
+	public int updateByNum2(SqlSession session,BoardDTO dto) {
+		int n=session.update("updateByNum2",dto);
+		return n;
+	}
 }
