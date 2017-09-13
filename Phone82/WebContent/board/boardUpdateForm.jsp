@@ -26,6 +26,7 @@
 <%
 	String title= request.getParameter("title");
 	String content = request.getParameter("content");
+	content = content.replace("<br>","\r\n");
 	String board_image = request.getParameter("board_image");
 	String num = request.getParameter("num");
 %>

@@ -93,6 +93,7 @@ HashMap<String, String> map = new HashMap<>();
 					String title=map.get("title");
 					String author=map.get("author");
 					String content=map.get("content");
+					content = content.replace("\r\n","<br>");
 					String board_image = map.get("board_image");
 					/*if(board_image==null) {
 						board_image=null;
@@ -152,6 +153,7 @@ HashMap<String, String> map = new HashMap<>();
 					String title=map.get("title");
 					String author=map.get("author");
 					String content=map.get("content");
+					content = content.replace("\r\n","<br>");
 					
 					System.out.println(">>>>>>>>"+title+"\t"+author+"\t"+content);
 					
