@@ -149,19 +149,19 @@ $(document).ready(function(){
 		 		event.preventDefault();
 		 } 
 		 else if($("#post1").val() == '' || $("#post1").val().length == 0){
-		 		alert("옳바른 우편번호를 입력하세요");
+		 		alert("올바른 우편번호를 입력하세요");
 		 		$("#post1").focus();
 		 		event.preventDefault();
 		 }  else if($("#post2").val() == null || $("#post2").val().length == 0){
-		 		alert("옳바른 우편번호를 입력하세요");
+		 		alert("올바른 우편번호를 입력하세요");
 		 		$("#post2").focus();
 		 		event.preventDefault();
 		 } else if($("#addr1").val() == '' || $("#addr1").val().length == 0){
-		 		alert("옳바른 주소를 입력하세요");
+		 		alert("올바른 주소를 입력하세요");
 		 		$("#addr1").focus();
 		 		event.preventDefault();
 		 } else if($("#addr2").val() == '' || $("#addr2").val().length == 0){
-		 		alert("옳바른 주소를 입력하세요");
+		 		alert("올바른 주소를 입력하세요");
 		 		$("#addr2").focus();
 		 		event.preventDefault();
 		 } else if($("#phone1").val() == '' || $("#phone1").val().length == 0){
@@ -194,7 +194,7 @@ $(document).ready(function(){
 		 		$("#email").focus();
 		 		event.preventDefault();
 		 } else if(!re_mail.test($("#email").val())){
-		 		alert("email을 옳바르게 입력하세요");
+		 		alert("email을 올바르게 입력하세요");
 		 		$("#email").focus();
 		 		event.preventDefault();
 		 } 
