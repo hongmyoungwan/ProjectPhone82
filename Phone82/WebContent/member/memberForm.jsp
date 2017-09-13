@@ -213,13 +213,6 @@ $(document).ready(function(){
 		 }
 		 
 		 
-		 
-			 //submit();
-			 //location.href="MemberAddServlet";
-			 //console.log($(this));
-
-			 
-		   
 	 });
 	
 
@@ -288,8 +281,8 @@ $(document).ready(function(){
   			<option value="010">017</option>
   	</select>
   
-  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*" >
-  - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" ></td>
+  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*"  maxlength="4">
+  - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" maxlength="4"></td>
  </tr>
  <tr>
   <th>*이메일</th>
