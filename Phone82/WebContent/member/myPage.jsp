@@ -101,19 +101,7 @@ $("#passwd2").on("keyup",function(event){
 	 		//$("#phone3").val()="";
 	 		$("#phone3").focus();
 	 		event.preventDefault();
-	 } else if($("#email").val() == '' || $("#email").val().length == 0){
-	 		alert("email을 입력하세요");
-	 		$("#email").focus();
-	 		event.preventDefault();
-	 }  else if(!re_mail.test($("#email").val())){
-	 		alert("email을 옳바르게 입력하세요");
-	 		$("#email").focus();
-	 		event.preventDefault();
-	 } else if($('div:contains("등록된")').length >0){
-		 alert("등록된 이메일입니다.");
-		 	$("#email").focus();
-	 		event.preventDefault();
-	 } else {
+	 }  else {
 		 
 		this.action="MemberUpdateServlet";
 	 }
@@ -148,7 +136,7 @@ $("#passwd2").on("keyup",function(event){
 
  <tr>
   <th>*아이디</th>
-  <td colspan="3" >${login.userid}<input type="hidden" name="userid" value="${login.userid}"></td>
+  <td colspan="3" ><input type="text" name="userid" id="userid" value="${login.userid}" readonly></td>
  </tr>
  <tr>
   <th>*비밀번호</th>
@@ -160,7 +148,7 @@ $("#passwd2").on("keyup",function(event){
  </tr>
  <tr>
   <th>*이름</th>
-  <td colspan="3">${login.username}</td>
+  <td colspan="3"><input type="text" name="username" id="username" value="${login.username}" readonly></td>
  </tr>
  <tr>
   <th>*주소</th>
@@ -208,7 +196,7 @@ $("#passwd2").on("keyup",function(event){
  <tr>
   <th>*이메일</th>
   <%-- <td colspan="3"><input type="email" name="email" id="email" placeholder="*이메일"  value="${login.email}"  readonly="readonly"><div id="resultCheckEmail"></div></td> --%>
-  <td colspan="3">${login.email}</td>
+  <td colspan="3"><input type="text" name="email" id="email" value="${login.email}" readonly></td>
  </tr>
  <tr>
   <td colspan="2" align="center" nowrap>
