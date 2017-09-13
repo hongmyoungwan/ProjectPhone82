@@ -101,10 +101,7 @@ $("#passwd2").on("keyup",function(event){
 	 		//$("#phone3").val()="";
 	 		$("#phone3").focus();
 	 		event.preventDefault();
-	 }  else {
-		 
-		this.action="MemberUpdateServlet";
-	 }
+	 } 
 	  
 		
  });
@@ -130,13 +127,13 @@ $("#passwd2").on("keyup",function(event){
 
 
 <p align="center"><a href="home.jsp"><img src="images/ddd.png" height="50" width="50"></a></p>
-<form name="myform" action="MemberAddServlet" >
+<form name="myform" action="MemberUpdateServlet">
 <p style="font-size:12px; color:blue; margin-top:-2px; margin-left:10px;" align="center">*는 필수입력사항입니다.</p>
 <table align="center">
 
  <tr>
   <th>*아이디</th>
-  <td colspan="3" ><input type="text" name="userid" id="userid" value="${login.userid}" readonly></td>
+  <td colspan="3" >${login.userid}<input type="hidden" name="userid" id="userid" value="${login.userid}"></td>
  </tr>
  <tr>
   <th>*비밀번호</th>
@@ -148,7 +145,7 @@ $("#passwd2").on("keyup",function(event){
  </tr>
  <tr>
   <th>*이름</th>
-  <td colspan="3"><input type="text" name="username" id="username" value="${login.username}" readonly></td>
+  <td colspan="3">${login.username}<input type="hidden" name="username" id="username" value="${login.username}"></td>
  </tr>
  <tr>
   <th>*주소</th>

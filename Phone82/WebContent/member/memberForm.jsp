@@ -41,10 +41,8 @@ $(document).ready(function(){
 					},
 					dataType :"text",
 					success : function(responseData, status, xhr){
-						console.log(responseData);
-						//$("#resultCheckID").text(responseData).css({"color":"blue", "font-size":"12px"});
 						$("#userid").next($("div")).text(responseData).css({"color":"blue", "font-size":"12px"});
-						console.log("<<",$("#userid").val().length);
+						//console.log("<<",$("#userid").val().length);
 						if($("#userid").val().length < 0){$("#resultCheckID").empty();}
 						// $("#resultCheckID").hide(800);
 						

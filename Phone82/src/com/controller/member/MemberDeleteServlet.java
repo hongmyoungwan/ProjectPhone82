@@ -39,7 +39,7 @@ public class MemberDeleteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			target="MyPageServlet";
-			request.setAttribute("mesg", "옳바른 정보를 입력해주세요.");
+			request.setAttribute("mesg", "올바른 정보를 입력해주세요.");
 		}
 
 	

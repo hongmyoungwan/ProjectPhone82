@@ -58,7 +58,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		} catch(MyException e) {
 			e.printStackTrace();
 			target="error.jsp";
-			request.setAttribute("mesg", "옳바른 정보를 입력해주세요.");
+			request.setAttribute("mesg", "올바른 정보를 입력해주세요.");
 		}
 			
 			RequestDispatcher dis = request.getRequestDispatcher(target);
