@@ -9,8 +9,8 @@
 <script>
 $(document).ready(function(){
 	//정규식 
-	var re_id = /^[a-z]+[a-z0-9]{4,14}$/;; // 아이디 검사식
-	var re_pw = /^[A-Za-z0-9_]{6,18}$/; // 비밀번호 검사식
+	var re_id = /^[A-Za-z]+[A-Za-z0-9]{4,14}$/;; // 아이디 검사식
+	var re_pw = /^[A-Za-z0-9_]{5,15}$/; // 비밀번호 검사식
 	var re_name = /^[A-Za-z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,16}$/; // 이름 검사식
 	var re_nums = /^[0-9]{3,4}$/; //숫자 검사식
 	var re_mail = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
@@ -41,10 +41,8 @@ $(document).ready(function(){
 					},
 					dataType :"text",
 					success : function(responseData, status, xhr){
-						console.log(responseData);
-						//$("#resultCheckID").text(responseData).css({"color":"blue", "font-size":"12px"});
 						$("#userid").next($("div")).text(responseData).css({"color":"blue", "font-size":"12px"});
-						console.log("<<",$("#userid").val().length);
+						//console.log("<<",$("#userid").val().length);
 						if($("#userid").val().length < 0){$("#resultCheckID").empty();}
 						// $("#resultCheckID").hide(800);
 						
@@ -58,16 +56,16 @@ $(document).ready(function(){
 	
 	
 	
-	/* $("#passwd").on("keyup",function(event){
+	 $("#passwd").on("keyup",function(event){
 		var passwd = $("#passwd").val();
 		if(passwd =='' || passwd.length ==0){
 			$("#passwd").next().text('필수 입력 사항입니다.').css({"color":"blue", "font-size":"12px"});
 		} else if(!re_pw.test(passwd)){
-			$("#passwd").next().text('6자리 이상 18자리 이하 영문과 숫자를 입력하세요.').css({"color":"red", "font-size":"12px"});
+			$("#passwd").next().text('5자리 이상 15자리 이하 영문과 숫자를 입력하세요.').css({"color":"red", "font-size":"12px"});
 		}  else {
 			$("#passwd").next().text('사용가능').css({"color":"blue", "font-size":"12px"});
 		}
-	}); */
+	});
 	
 	//비밀번호 일치여부
 	$("#passwd2").on("keyup",function(event){
@@ -132,7 +130,7 @@ $(document).ready(function(){
 		 		$("#passwd").focus();
 		 		event.preventDefault();
 		 } else if(!re_pw.test($("#passwd").val())){
-			 alert("비밀번호에 6자리 이상 17자리 이하 영문과 숫자를 입력하세요.");    
+			 alert("비밀번호에 5자리 이상 15자리 이하 영문과 숫자를 입력하세요.");    
 		 		$("#passwd").focus();
 		 		event.preventDefault();
 		 } else if($("#passwd").val() != $("#passwd2").val()){
@@ -149,19 +147,19 @@ $(document).ready(function(){
 		 		event.preventDefault();
 		 } 
 		 else if($("#post1").val() == '' || $("#post1").val().length == 0){
-		 		alert("옳바른 우편번호를 입력하세요");
+		 		alert("올바른 우편번호를 입력하세요");
 		 		$("#post1").focus();
 		 		event.preventDefault();
 		 }  else if($("#post2").val() == null || $("#post2").val().length == 0){
-		 		alert("옳바른 우편번호를 입력하세요");
+		 		alert("올바른 우편번호를 입력하세요");
 		 		$("#post2").focus();
 		 		event.preventDefault();
 		 } else if($("#addr1").val() == '' || $("#addr1").val().length == 0){
-		 		alert("옳바른 주소를 입력하세요");
+		 		alert("올바른 주소를 입력하세요");
 		 		$("#addr1").focus();
 		 		event.preventDefault();
 		 } else if($("#addr2").val() == '' || $("#addr2").val().length == 0){
-		 		alert("옳바른 주소를 입력하세요");
+		 		alert("올바른 주소를 입력하세요");
 		 		$("#addr2").focus();
 		 		event.preventDefault();
 		 } else if($("#phone1").val() == '' || $("#phone1").val().length == 0){
@@ -194,7 +192,7 @@ $(document).ready(function(){
 		 		$("#email").focus();
 		 		event.preventDefault();
 		 } else if(!re_mail.test($("#email").val())){
-		 		alert("email을 옳바르게 입력하세요");
+		 		alert("email을 올바르게 입력하세요");
 		 		$("#email").focus();
 		 		event.preventDefault();
 		 } 
@@ -213,13 +211,6 @@ $(document).ready(function(){
 		 }
 		 
 		 
-		 
-			 //submit();
-			 //location.href="MemberAddServlet";
-			 //console.log($(this));
-
-			 
-		   
 	 });
 	
 
@@ -233,7 +224,7 @@ $(document).ready(function(){
 </script>
 
 <style>
- table {border: 2px solid gray;
+ table {border: 2px solid gray; width: 650px; table-layout: fixed;
     /* border-collapse: collapse; */}
   th, td { padding: 15px;}
   th{background-color: #F6F6F6; text-align: left;} 
@@ -254,7 +245,7 @@ $(document).ready(function(){
  </tr>
  <tr>
   <th>*비밀번호</th>
-  <td colspan="3"><input type="password" name="passwd" id="passwd" placeholder="*비밀번호" ><div></div></td>
+  <td colspan="3"><input type="password" name="passwd" id="passwd" placeholder="비밀번호" ><div></div></td>
  </tr>
  <tr> 
   <th>*비밀번호 재확인</th>
@@ -282,21 +273,21 @@ $(document).ready(function(){
  </tr>
   <tr>
    <th>*전화번호</th>
-  <td SIZE=	"3"><select name="phone1" id="phone1">
+  <td SIZE=	"3" nowrap><select name="phone1" id="phone1">
   			<option value="010" >010</option>
   			<option value="010">011</option>
   			<option value="010">017</option>
   	</select>
   
-  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*" >
-  - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" ></td>
+  - <input type="text" name="phone2" id="phone2"  SIZE="3" placeholder="*"  maxlength="4">
+  - <input type="text" name="phone3" id="phone3" SIZE="3" placeholder="*" maxlength="4"></td>
  </tr>
  <tr>
   <th>*이메일</th>
   <td colspan="3"><input type="email" name="email" id="email" placeholder="*이메일" ><div id="resultCheckEmail"></div></td>
  </tr>
  <tr>
-  <td colspan="2" align="center">
+  <td colspan="2" align="center" nowrap>
   <span><input type="submit" value="회원가입" class="button">&nbsp;<input type="reset" value="취소" class="button"></span>
   </td>
  </tr> 

@@ -35,10 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into MyBoard(num,userid,title,author,content,board_image)
 	values(board_seq.nextval,#{userid},#{title},#{author},#{content},#{board_image})
 </insert>
-<insert id="insertBoard2" parameterType="MyBoardDTO">
-	insert into MyBoard(num,userid,title,author,content,board_image)
-	values(board_seq.nextval,#{userid},#{title},#{author},#{content},#{board_image})
-</insert>
+
 
 <select id="selectByNum" parameterType="int" resultType="MyBoardDTO">
 	select num, userid, title,author,content,to_char(writeday,'YYYY/MM/DD') writeday,readCnt ,board_image
@@ -59,6 +56,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <update id="updateByNum" parameterType="MyBoardDTO">
 	update myboard
 	set title=#{title}, author=#{author}, content=#{content}
+	where num=#{num}
+</update>
+
+<update id="updateByNum2" parameterType="MyBoardDTO">
+	update myboard
+	set title=#{title}, author=#{author}, content=#{content}, board_image=#{board_image}
 	where num=#{num}
 </update>
 

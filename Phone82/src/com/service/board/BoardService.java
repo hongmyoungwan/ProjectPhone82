@@ -56,19 +56,7 @@ public class BoardService {
 			session.close();
 		}
 	}
-	public void insertBoard2(BoardDTO dto) throws MyException{
-		SqlSession session=MybatisTemplate.openSession();
-		BoardDAO dao=new BoardDAO();
-		try {
-			int n=dao.insertBoard(session,dto);
-			if(n==1) session.commit();
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new MyException("insertBoard 실패"); 
-		}finally {
-			session.close();
-		}
-	}
+	
 	
 	public void deleteBoard(HashMap<String,String> map) throws MyException{
 		SqlSession session=MybatisTemplate.openSession();
@@ -120,4 +108,23 @@ public class BoardService {
 			session.close();
 		}
 	}
+	
+	
+	public void updateByNum2(BoardDTO dto) throws MyException {
+		SqlSession session=MybatisTemplate.openSession();
+		BoardDAO dao=new BoardDAO();
+		try {
+			int n=dao.updateByNum2(session, dto);
+			if(n==1) {
+				session.commit();	
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new MyException("update예외");
+		}finally {
+			session.close();
+		}
+	}
+	
 }

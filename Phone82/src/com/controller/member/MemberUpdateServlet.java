@@ -37,8 +37,18 @@ public class MemberUpdateServlet extends HttpServlet {
 		String phone3 = request.getParameter("phone3");
 		String email = request.getParameter("email");
 		
-		MemberDTO dto = new MemberDTO(userid, passwd, username, post1, post2, addr1,
-				addr2,  phone1,  phone2, phone3, email);
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(userid);
+		dto.setPasswd(passwd);
+		dto.setUsername(username);
+		dto.setPost1(post1);
+		dto.setPost2(post2);
+		dto.setAddr1(addr1);
+		dto.setAddr2(addr2);
+		dto.setPhone1(phone1);
+		dto.setPhone2(phone2);
+		dto.setPhone3(phone3);
+		dto.setEmail(email);
 		
 		MemberService service = new MemberService();
 		String target = "home.jsp";
@@ -48,7 +58,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		} catch(MyException e) {
 			e.printStackTrace();
 			target="error.jsp";
-			request.setAttribute("mesg", "옳바른 정보를 입력해주세요.");
+			request.setAttribute("mesg", "올바른 정보를 입력해주세요.");
 		}
 			
 			RequestDispatcher dis = request.getRequestDispatcher(target);

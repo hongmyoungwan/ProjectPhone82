@@ -43,7 +43,7 @@ public class MemberAddServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			target = "error.jsp";
-			request.setAttribute("mesg", "옳바른 정보를 입력해주세요");
+			request.setAttribute("mesg", "올바른 정보를 입력해주세요");
 		}
 		
 		RequestDispatcher dis = request.getRequestDispatcher(target);

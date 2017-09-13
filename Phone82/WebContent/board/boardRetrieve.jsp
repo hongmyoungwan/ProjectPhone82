@@ -11,7 +11,7 @@
 <button id="Delete" onclick="boardDelete()">삭제</button>
 </div>
 <hr>
-<form action="BoardUpdateServlet" method="get">
+
 <input type="hidden" name="num" value="${retrieve.num}">
 <input type="hidden" name="author" value="${retrieve.author}">
 <table>
@@ -31,12 +31,12 @@
 <td bgcolor="silver">작성자</td><td>${retrieve.author}<br></td>
 </tr>
 <tr>
-<td bgcolor="silver">내용</td><td><div><c:if test="${retrieve.board_image != '1234' }"><img src="images/${retrieve.board_image }" width="50" height="50"></c:if><br>${retrieve.content}</div></td>
+<td bgcolor="silver">내용</td><td><div name="title"><c:if test="${retrieve.board_image != '1234' }"><img src="images/${retrieve.board_image }" width="50" height="50"></c:if><br>${retrieve.content}</div></td>
 </tr>
 </table>
 <hr>
-<input type="submit" value="수정">
-</form>
+<a href="board/boardUpdateForm.jsp?title=${retrieve.title}&content=${retrieve.content}&board_image=${retrieve.board_image}&num=${retrieve.num}">수정</a>
+
 
 <br>
 댓글 ${comment.size()}

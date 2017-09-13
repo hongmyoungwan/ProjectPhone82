@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -15,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -23,18 +21,21 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.dto.board.BoardDTO;
-import com.dto.member.MemberDTO;
 import com.exception.MyException;
 import com.service.board.BoardService;
 
-@WebServlet("/BoardWriteServlet")
-public class BoardWriteServlet extends HttpServlet {
+@WebServlet("/BoardUpdateServlet2")
+public class BoardUpdateServlet2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-
-		HashMap<String, String> map = new HashMap<>();
+		
+		
+		
+		
+		
+HashMap<String, String> map = new HashMap<>();
 		
 		// Create a factory for disk-based file items
 				DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -87,9 +88,7 @@ public class BoardWriteServlet extends HttpServlet {
 					
 					request.setCharacterEncoding("UTF-8");
 					
-					HttpSession session=request.getSession();
-					MemberDTO mdto=(MemberDTO)session.getAttribute("login");
-					String userid=mdto.getUserid();
+					String num=map.get("num");
 					
 					String title=map.get("title");
 					String author=map.get("author");
@@ -104,7 +103,7 @@ public class BoardWriteServlet extends HttpServlet {
 					dto.setAuthor(author);
 					dto.setTitle(title);
 					dto.setContent(content);
-					dto.setUserid(userid);
+					dto.setNum(Integer.parseInt(num));
 					dto.setBoard_image(board_image);
 					BoardService service=new BoardService();
 					String target="BoardListServlet";
@@ -121,7 +120,7 @@ public class BoardWriteServlet extends HttpServlet {
 									request.setAttribute("dto", dto);
 									target="boardWriteForm.jsp";
 								}else {
-									service.insertBoard(dto);
+									service.updateByNum2(dto);
 									break;
 								}
 							}
@@ -149,26 +148,21 @@ public class BoardWriteServlet extends HttpServlet {
 //					e.printStackTrace();
 					request.setCharacterEncoding("UTF-8");
 					
-					HttpSession session=request.getSession();
-					MemberDTO mdto=(MemberDTO)session.getAttribute("login");
-					String userid=mdto.getUserid();
+					String num=map.get("num");
 					
-					String title= map.get("title");
+					String title=map.get("title");
 					String author=map.get("author");
 					String content=map.get("content");
 					content = content.replace("\r\n","<br>");
-					String board_image = map.get("board_image");
-					if(board_image=="") {
-						board_image="1234";
-					}
-					System.out.println(">>>>>>>>"+title+"\t"+author+"\t"+content+"\t"+board_image);
+					
+					System.out.println(">>>>>>>>"+title+"\t"+author+"\t"+content);
 					
 					BoardDTO dto=new BoardDTO();
 					dto.setAuthor(author);
 					dto.setTitle(title);
 					dto.setContent(content);
-					dto.setUserid(userid);
-					dto.setBoard_image(board_image);
+					dto.setNum(Integer.parseInt(num));
+
 					BoardService service=new BoardService();
 					String target="BoardListServlet";
 					
@@ -185,7 +179,7 @@ public class BoardWriteServlet extends HttpServlet {
 									target="boardWriteForm.jsp";
 								}else {
 									
-									service.insertBoard(dto);
+									service.updateByNum(dto);
 									
 									break;
 								}
@@ -206,9 +200,6 @@ public class BoardWriteServlet extends HttpServlet {
 					RequestDispatcher dis=request.getRequestDispatcher(target);
 					dis.forward(request, response);
 				}
-		
-		
-		
 	}
 
 	
