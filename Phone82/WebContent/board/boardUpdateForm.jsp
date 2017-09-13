@@ -31,7 +31,7 @@
 %>
 <hr>
 <div align="center">
-<form action="../BoardUpdateServlet" method="get">
+<form action="../BoardUpdateServlet2" method="post" enctype="multipart/form-data">
 <input type="hidden" name="author" value="${sessionScope.login.username}">
 <input type="hidden" name="num" value="<%=num %>">
 <table>
@@ -45,7 +45,15 @@
 <tr>
 <td bgcolor="silver">내용</td><td><textarea rows="30" cols="100" name="content"><%=content %></textarea></td>
 </tr>
-
+<tr>
+	<td bgcolor="silver">이미지 등록</td><td><input type="file" name="image" id="image" />
+		<div id="image_preview">
+        <img src="#" />
+        <br />
+        <a href="#">Remove</a>
+    </div>
+    </td>
+</tr>
 </table>
 <input type="submit" value="수정하기">
 <input type="reset" value="취소">
