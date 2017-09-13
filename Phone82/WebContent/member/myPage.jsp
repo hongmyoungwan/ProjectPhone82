@@ -206,9 +206,15 @@ $("#passwd2").on("keyup",function(event){
 </form>
 <script>
 
-  function memberDelete(f){
-	 f.action="MemberDeleteServlet"; 	
- }
+function memberDelete(f){
+	  if($("#passwd").val() != $("#passwd2").val()){
+	 		alert("비밀번호가 일치하지 않습니다.");
+	 		$("#passwd2").focus();
+	 		event.preventDefault();
+	 } else{
+	 f.action="MemberDeleteServlet"; 
+	 }
+}
   </script>
   
  
