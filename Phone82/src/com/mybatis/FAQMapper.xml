@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select num, title,content
 	from faq
 	where title like '%'||#{searchValue}||'%'
+	and category=#{category}
 	order by num desc
 </select>
 
@@ -19,10 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="faqtotalCount1" resultType="int" parameterType="map">
 	select count(*) from faq
 	where title like '%'||#{searchValue}||'%'
+	and category=#{category}
 </select>
 
 <insert id="faqinsert" parameterType="FAQDTO">
-	insert into FAQ(num,title,content)
+	insert into FAQ(num,catitle,content)
 	values(faq_seq.nextval,#{title},#{content})
 </insert>
 

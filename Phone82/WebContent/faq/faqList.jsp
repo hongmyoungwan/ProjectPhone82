@@ -32,7 +32,13 @@
 		};
 		
 </script>
-
+		<div class="nav">
+		<ul class="nav-list">
+			<li class="nav-item"><a href="FAQListServlet?category=member">회원정보</a></li>
+			<li class="nav-item"><a href="FAQListServlet?category=order">주문/결제</a></li>
+			<li class="nav-item"><a href="FAQListServlet?category=cancel">취소/반품</a></li>
+		</ul>
+		</div>
 
 게시물수: ${page.totalCount}<br>
 <div align="center">

@@ -26,6 +26,11 @@ public class FAQListServlet extends HttpServlet {
 		String searchValue=request.getParameter("searchValue");
 		String curPage=request.getParameter("curPage");
 		String perPage=request.getParameter("perPage");
+		String category=request.getParameter("category");
+		
+		if(category==null) {
+			category="member";
+		}
 		if(curPage==null) {
 			curPage="1";
 		}
@@ -38,6 +43,8 @@ public class FAQListServlet extends HttpServlet {
 		}
 		HashMap<String,String> map=new HashMap<>();
 		map.put("searchValue", searchValue);
+		map.put("category", category);
+		
 		String target="faqList.jsp";
 		try {
 			System.out.println(">>"+searchValue);
