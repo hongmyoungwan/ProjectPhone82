@@ -5,35 +5,60 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(()=>{
 		$("#perPage").on("change",function(){
 			var x=$("#perPage").val();
 			location.href="QNAResponseServlet?perPage="+x;
 			
 		});
-		/* $("[id^='a']").on("click",function(){
-			var x=$(this).children("td").eq(0).text();
-					location.href="BoardRetrieveServlet?num="+x; 
+	
+	
+	});
+	$(document).ready(()=>{
+		
+		$("[id^='a']").on("click",()=>{
+				
+				var x=$(this).children("td").eq(0).text();
+				console.log(x);
+				$("#resultarea"+x).toggle(0,()=>{
+					console.log("check");
+				});
+				/* $("#reply").on("click",()=>{
+					$('#result').val().replace(/\n/g, "<br>");
+					var text_area = $('#result').val();
+					$.ajax({
+						type:"get",
+						url:"QNAReqeustServlet",
+						dataType:"text",
+						data:{
+							textValue:text_area
+						},
+						success:function(responseData,status,xhr){
+							console.log(responseData);
+							$("#retrieve"+x).text(responseData).toggle();
+						},
+						error:function(xhr,status,e){
+							console.log(status,e);
+						}
+					});
+				}); */
+				/* 
+				$.ajax({
+					type:"get",
+					url:"QNAReqeustServlet",
+					dataType:"text",
+					data:{
+						num:x
+					},
+					success:function(responseData,status,xhr){
+						console.log(responseData);
+						$("#retrieve"+x).text(responseData).toggle();
+					},
+					error:function(xhr,status,e){
+						console.log(status,e);
+					}
+				}); */
 			});
-		 */
-		$("[id^='a']").on("click",(event)=>{
-			var x=$(this).children("td").eq(0).text();
-			$.ajax({
-				type:"get",
-				url:"QNAReqeustServlet",
-				dataType:"text",
-				data:{
-					num:x
-				},
-				success:function(responseData,status,xhr){
-					console.log(responseData);
-					$("#retrieve"+x).text(responseData).toggle();
-				},
-				error:function(xhr,status,e){
-					console.log(status,e);
-				}
-			});
-		});
 	});
 		
 		function boardSearch(f){
@@ -89,7 +114,13 @@
 				<td>${dto.writeday}</td>
 				<td>${dto.readCnt}</td>
 			</tr>
-			<tr style="display:none;" id="retrieve${dto.num}">
+			<tr>
+				<td id="resultarea${dto.num}" style="display:none;"
+				colspan="5" align="center"><textarea id="result" style="resize:none;"
+				 cols="50" rows="5" ></textarea>
+				<button id="reply">답글달기</button>
+				</td>
+				
 			</tr>
 			</c:forEach>
 		</c:if>
