@@ -6,6 +6,13 @@ public class QNAPageDTO {
 	private List<QNADTO> list;
 	private int curPage;
 	private int perPage;
+	private int curIdx;
+	public int getCurIdx() {
+		return curIdx;
+	}
+	public void setCurIdx(int curIdx) {
+		this.curIdx = curIdx;
+	}
 	private int totalCount;
 	private String searchName;
 	private String searchValue;

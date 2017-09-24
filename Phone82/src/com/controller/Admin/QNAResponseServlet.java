@@ -32,17 +32,23 @@ public class QNAResponseServlet extends HttpServlet {
 		String searchValue=request.getParameter("searchValue");
 		String curPage=request.getParameter("curPage");
 		String perPage=request.getParameter("perPage");
+		String curIdx="";
+		if(request.getParameter("curIdx")!=null)
+			curIdx =request.getParameter("curIdx");
+		else 
+			curIdx="1";
 		if(curPage==null) {
 			curPage="1";
 		}
 		
 		if(perPage==null) {
-			perPage="10";
+			perPage="3";
 		}
 		QNAResponseService service=new QNAResponseService();
 		HashMap<String,String> map=new HashMap<>();
 		map.put("searchName", searchName);
 		map.put("searchValue", searchValue);
+		map.put("curIdx", curIdx);
 		String target="qnaResponse.jsp";
 		try {
 			QNAPageDTO dto=service.page(Integer.parseInt(curPage), Integer.parseInt(perPage), map);

@@ -17,7 +17,8 @@ public class QNAResponseDAO {
 	
 	public QNAPageDTO qnapage(SqlSession session, int curPage, int perPage, HashMap<String,String> map) {
 		QNAPageDTO dto=new QNAPageDTO();
-		int index=(curPage-1)*perPage;
+		int curIdx = Integer.parseInt(map.get("curIdx"));
+		int index=(curIdx*(curPage-1))*perPage;
 		List<QNADTO> list=session.selectList("AdminQNAboardList",map, new RowBounds(index, perPage));
 		int totalCount=0;
 		if(map.get("searchValue")==null) {
@@ -30,6 +31,7 @@ public class QNAResponseDAO {
 		dto.setList(list);
 		dto.setCurPage(curPage);
 		dto.setPerPage(perPage);
+		dto.setCurIdx(curIdx);
 		dto.setTotalCount(totalCount);
 		dto.setSearchName(map.get("searchName"));
 		dto.setSearchValue(map.get("searchValue"));
