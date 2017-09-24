@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.dto.admin.AdminDTO;
 import com.dto.faq.FAQDTO;
 import com.dto.qna.QNADTO;
 import com.exception.MyException;
@@ -19,25 +21,38 @@ import com.service.qna.QNAService;
 /**
  * Servlet implementation class QNAReqeustServlet
  */
-@WebServlet("/QNAReqeustServlet")
-public class QNAReqeustServlet extends HttpServlet {
+@WebServlet("/QNAReqeustMngServlet")
+public class QNAReqeustMngServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		String num=request.getParameter("num");
+		String textValue= request.getParameter("textValue");
 		String target="admin/qnaRetrieve.jsp";
+		System.out.println("textValue \t"+textValue);
 		if(num.equals(""))
 		{
 			System.err.println("num is null FAQRetrieveServlet 26 line");
 			
 		}
 		QNAResponseService service=new QNAResponseService();
+		QNADTO dto= new QNADTO();
+		HttpSession session =request.getSession();
+		if(session.getAttribute("login")==null)
+		{
+			request.setAttribute("mesg","로그인이 필요한 작업입니다.");
+			RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
+			dis.forward(request,response);
+			return;
+		}
+		dto.setContent(textValue);
+		dto.setNum(Integer.parseInt(num));
+		dto.setUserid(((AdminDTO)session.getAttribute("login")).getAdminid());
 		try {
-			QNADTO dto=service.qnaretrieve(Integer.parseInt(num));
+			QNADTO _dto=service.qnaMngretrieve(dto);
 			
-			System.out.println(dto);
-			
-			request.setAttribute("retrieve", dto);
+			System.out.println(_dto);
+			request.setAttribute("retrieve", _dto);
 			
 		} catch (MyException e) {
 			// TODO Auto-generated catch block

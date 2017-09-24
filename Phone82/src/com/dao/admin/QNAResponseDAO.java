@@ -50,6 +50,9 @@ public class QNAResponseDAO {
 	}
 	
 	public QNADTO qnaselectByNum(SqlSession session,int num) {
+		/*int n=session.selectOne("AdminQNAselectCounter",num);
+		if(n<=1)
+			session.update("updateAnswer",num);*/
 		QNADTO dto=session.selectOne("AdminQNAselectByNum",num);
 		return dto;
 	}
@@ -58,7 +61,11 @@ public class QNAResponseDAO {
 		int n=session.update("qnareadCnt",num);
 		return n;
 	}
-	
+	public int qnaAnswer(SqlSession session,QNADTO dto) {
+		System.out.println("test");
+		int n=session.insert("AdminQNAinsertBoard",dto);
+		return n;
+	}
 	public int qnaupdateByNum(SqlSession session,QNADTO dto) {
 		int n=session.update("qnaupdateByNum",dto);
 		return n;

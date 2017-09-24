@@ -6,8 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getAdminData" resultType="AdminDTO" parameterType="hashmap">
 
-		select adminid,adminpw from admin where adminid=#{adminid} and adminpw
-		=#{adminpw}
+		select userid,passwd from admin where userid=#{userid} and passwd=#{passwd}
 
 	</select>
 

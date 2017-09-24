@@ -20,7 +20,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="AdminQNAtotalCount" resultType="int">
 	select count(*) from QNA
 </select>
+<select id="AdminQNAselectCounter" resultType="int" parameterType="int">
 
+select count(*) from QNARESPONSE where num=#{num}
+</select>
 <select id="AdminQNAtotalCount1" resultType="int" parameterType="hashmap">
 	select count(*) from QNA
 	<if test="searchName=='title'">
@@ -32,9 +35,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <insert id="AdminQNAinsertBoard" parameterType="QNADTO">
-	insert into QNA(num,userid,title,author,content)
-	values(board_seq.nextval,#{userid},#{title},#{author},#{content})
+	insert into qnaresponse(num,userid,content)
+	values(#{num},#{userid},#{content})
 </insert>
+
 <insert id="AdminQNAinsertBoard2" parameterType="QNADTO">
 	insert into QNA(num,userid,title,author,content)
 	values(board_seq.nextval,#{userid},#{title},#{author},#{content})
@@ -54,6 +58,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <delete id="AdminQNAdeleteBoard" parameterType="hashmap">
 	delete from QNA
 	where num=#{num} and userid=#{userid}
+</delete>
+<delete id="deleteAnswer" parameterType="hashmap">
+	delete from qnaresponse
+	where num=#{num}
 </delete>
 
 <update id="AdminQNAupdateByNum" parameterType="QNADTO">

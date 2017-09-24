@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dto.admin.AdminDTO;
 import com.service.admin.AdminService;
@@ -21,27 +22,29 @@ public class AdminFormMainServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String adminid = request.getParameter("userid");
-		String adminpw= request.getParameter("passwd");
+		String userid = request.getParameter("userid");
+		String passwd= request.getParameter("passwd");
 		
 		//testversion admin;
 		
 		
 		String target ="adminForm.jsp";
 		HashMap<String,String>map = new HashMap<>();
-		map.put("adminid", adminid);
-		map.put("adminpw", adminpw);
+		map.put("userid", userid);
+		map.put("passwd", passwd);
 		AdminService service =new AdminService();
 		System.out.println("admin 통과");
+		HttpSession session = request.getSession();
 		try {
 			AdminDTO dto = service.getAdmin(map);
+			
 			if(dto==null) {
 				target="LoginServlet";
 				request.setAttribute("admin", false);
 			}else
 			{
 				target="adminForm.jsp";
-				request.setAttribute("admin", true);
+				session.setAttribute("login", dto);
 			
 			}
 		}catch (Exception e) {

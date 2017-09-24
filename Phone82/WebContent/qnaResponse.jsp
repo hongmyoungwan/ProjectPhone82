@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style type="text/css">
+<!-- <style type="text/css">
  body{
  	font:14px/1.8 Arial,Helvetica, sans-serif;
  }
@@ -80,25 +80,25 @@
  a:visited { color: black; text-decoration: none;}
  a:hover { color: blue; text-decoration: underline;}
  
-</style>
+</style> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+
 </head>
 <body>
-
+<h1>관리자페이지</h1>
+<jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <c:if test="${!empty requestScope.result}">
 	<script>
 	alert("${requestScope.result}");
 	</script>
 </c:if>
-<div class="frame"><jsp:include page="menu/top.jsp" flush="true"/>
-<div class="header">
-<div class="logo"><a href="home.jsp"><img src="images/ddd.png"></a> </div>
-</div>
+
 <jsp:include page="admin/qnaResponse.jsp"></jsp:include>
 <div class="footer">
 		<p class="copyright">&copy;copy</p>
 	</div>
-</div>
+
 </body>
 </html>

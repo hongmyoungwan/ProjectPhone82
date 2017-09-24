@@ -16,49 +16,42 @@
 	});
 	$(document).ready(()=>{
 		
-		$("[id^='a']").on("click",()=>{
+		$("[id^='a']").on("click",function(){
+		
+			/* var x=$(this).children("td").eq(0).text(); */
+			var x=$(this).children("td").eq(0).text();
+
 				
-				var x=$(this).children("td").eq(0).text();
-				console.log(x);
-				$("#resultarea"+x).toggle(0,()=>{
-					console.log("check");
-				});
-				/* $("#reply").on("click",()=>{
-					$('#result').val().replace(/\n/g, "<br>");
-					var text_area = $('#result').val();
-					$.ajax({
-						type:"get",
-						url:"QNAReqeustServlet",
-						dataType:"text",
-						data:{
-							textValue:text_area
-						},
-						success:function(responseData,status,xhr){
-							console.log(responseData);
-							$("#retrieve"+x).text(responseData).toggle();
-						},
-						error:function(xhr,status,e){
-							console.log(status,e);
-						}
+				 $("#resultarea"+x).toggle();
+					$("#reply"+x).on("click",function(){
+						
+						var text_area = $("#result"+x).val();
+						console.log(text_area);
+						$(location).attr('href','QNAReqeustMngServlet?textValue=text_area&num=x');
+						
+					 
+						 $.ajax({
+							type:"get",
+							url:"QNAReqeustMngServlet",
+							dataType:"text",
+							data:{
+								textValue:text_area,
+								num:x
+							},
+							success:function(responseData,status,xhr){
+								console.log(responseData);
+								alert("답변을 완료하였습니다.");
+								$("#retrieve"+x).text(responseData).toggle();
+							},
+							error:function(xhr,status,e){
+								console.log(status,e);
+							}
+						});  
 					});
-				}); */
-				/* 
-				$.ajax({
-					type:"get",
-					url:"QNAReqeustServlet",
-					dataType:"text",
-					data:{
-						num:x
-					},
-					success:function(responseData,status,xhr){
-						console.log(responseData);
-						$("#retrieve"+x).text(responseData).toggle();
-					},
-					error:function(xhr,status,e){
-						console.log(status,e);
-					}
-				}); */
+			
 			});
+	
+		/*  */
 	});
 		
 		function boardSearch(f){
@@ -115,10 +108,10 @@
 				<td>${dto.readCnt}</td>
 			</tr>
 			<tr>
-				<td id="resultarea${dto.num}" style="display:none;"
-				colspan="5" align="center"><textarea id="result" style="resize:none;"
+				<td id="resultarea${dto.num}" style="display:none" 
+				colspan="5" align="center"><textarea id="result${dto.num}" style="resize:none;"
 				 cols="50" rows="5" ></textarea>
-				<button id="reply">답글달기</button>
+				<button id="reply${dto.num}">답글달기</button>
 				</td>
 				
 			</tr>

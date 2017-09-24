@@ -142,4 +142,32 @@ public class QNAResponseService {
 		}
 		return dto;
 	}
+	public QNADTO qnaMngretrieve(QNADTO dto) throws MyException {
+		SqlSession session=MybatisTemplate.openSession();
+		QNAResponseDAO dao=new QNAResponseDAO();
+		QNADTO _dto=null;
+		try {
+			int n=dao.qnaAnswer(session, dto);
+			if(n==1) {
+				session.commit();	
+				System.out.println("commit성공");
+			}
+			else {
+				session.rollback();
+				System.out.println("commit실패");
+			}
+			
+			_dto=dao.qnaselectByNum(session, dto.getNum());
+			
+		}
+		catch(Exception e){
+			session.rollback();
+			e.printStackTrace();
+			throw new MyException("retrieve예외");
+		}finally {
+			session.close();
+		}
+		
+		return _dto;
+	}
 }

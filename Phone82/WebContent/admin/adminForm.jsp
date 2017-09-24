@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-   안녕하세요 ${sessionScope.login.username}<br>
+   안녕하세요 ${sessionScope.login.getAdminid()}<br>
   <a href="ChartFormServlet">판매현황</a>
   <a href="MemberManagementServlet">회원 관리</a>
   <a href="QNAResponseServlet">질의응답</a>

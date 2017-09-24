@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 			dis.forward(request, response);
 			return;
 		}
-		
+		System.out.println("member login");
 		HashMap<String, String> map = new HashMap<>();
 		map.put("userid", userid);
 		map.put("passwd", passwd);
