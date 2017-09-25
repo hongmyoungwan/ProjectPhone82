@@ -36,7 +36,7 @@ public class QNAResponseServlet extends HttpServlet {
 		if(request.getParameter("curIdx")!=null)
 			curIdx =request.getParameter("curIdx");
 		else 
-			curIdx="1";
+			curIdx="0";
 		if(curPage==null) {
 			curPage="1";
 		}

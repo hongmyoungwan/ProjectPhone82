@@ -122,7 +122,7 @@
 		<hr>
 		<table>
 		<tr>
-		<td colspan="5" align="center"><jsp:include page="/qnapage.jsp"></jsp:include></td>
+		<td colspan="5" align="center"><jsp:include page="/qnaMnaPage.jsp"></jsp:include></td>
 		</tr>
 	</table>
 <br>
