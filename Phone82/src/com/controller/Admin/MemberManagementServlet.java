@@ -1,6 +1,7 @@
 package com.controller.Admin;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,10 +24,28 @@ public class MemberManagementServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		MemberManagementService service =new MemberManagementService();
-		
-		String target ="membermanagepage.jsp";
+		String curPage= request.getParameter("curPage"); 
+	    String curIdx= request.getParameter("curIdx");
+		String perPage=request.getParameter("perPage");
+	    String target ="membermanagepage.jsp";
+		if(curPage.equals(""))
+		{
+			curPage="1";
+		}
+		if(perPage.equals(""))
+		{
+			perPage="3";
+		}
+		if(curIdx.equals(""))
+		{
+			curIdx="0";
+		}
+		HashMap<String,String> map = new HashMap<>();
+		map.put("curPage", curPage);
+		map.put("perPage", perPage);
+		map.put("curIdx", curIdx);
 		try {
-			List<MemberDTO> dto = service.getAllMemberData();
+			List<MemberDTO> dto = service.getMemberData(map);
 			for (MemberDTO memberDTO : dto) {
 				System.out.println(dto.toString());
 			}

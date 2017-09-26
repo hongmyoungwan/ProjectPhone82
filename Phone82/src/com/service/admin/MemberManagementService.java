@@ -1,12 +1,14 @@
 package com.service.admin;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.dao.admin.AdminDAO;
 import com.dao.cart.MemberDAO;
+import com.dto.admin.MemberMngPageDTO;
 import com.dto.member.MemberDTO;
 import com.exception.list.MyException;
 import com.mybatis.MybatisTemplate;
@@ -21,6 +23,26 @@ public class MemberManagementService {
 		
 		try {
 			 dtolist = dao.getAllMemberData(session);
+			 
+		}catch(Exception e) {
+			
+			throw new MyException("getAllMemberData error");
+		}
+		finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+		return dtolist;
+		
+	}
+	public List<MemberDTO> getMemberData(HashMap<String,String> map) throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		AdminDAO dao = new AdminDAO();
+		List<MemberDTO> dtolist =null;
+		MemberMngPageDTO mmpDTO = new MemberMngPageDTO();
+		try {
+			 dtolist = dao.getMemberData(session,map);
 			 
 		}catch(Exception e) {
 			

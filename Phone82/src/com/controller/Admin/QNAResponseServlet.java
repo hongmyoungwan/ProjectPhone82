@@ -44,6 +44,7 @@ public class QNAResponseServlet extends HttpServlet {
 		if(perPage==null) {
 			perPage="3";
 		}
+		System.out.println("curPage \t"+curPage);
 		QNAResponseService service=new QNAResponseService();
 		HashMap<String,String> map=new HashMap<>();
 		map.put("searchName", searchName);

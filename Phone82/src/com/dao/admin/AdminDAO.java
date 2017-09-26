@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.admin.AdminDTO;
@@ -25,9 +26,22 @@ public class AdminDAO {
 
 	public List<MemberDTO> getAllMemberData(SqlSession session) {
 		// TODO Auto-generated method stub
-		return session.selectList("getAllMemberData");
+		
+		List<MemberDTO> list=session.selectList("getAllMemberData");
+		
+		return list;
 	}
 
+	public List<MemberDTO> getMemberData(SqlSession session, HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		int curPage= Integer.parseInt(map.get("curPage"));
+		int curIdx= Integer.parseInt(map.get("curIdx"));
+		int perPage= Integer.parseInt(map.get("perPage"));
+		
+		List<MemberDTO> list=session.selectList("getAllMemberData",null, new RowBounds(1,3));
+		
+		return list;
+	}
 	public int membersDelete(SqlSession session, ArrayList<String> num) {
 		int n = 0;
 		try {

@@ -9,15 +9,17 @@ public class MemberMngPageDTO {
 	private List<MemberDTO> m_list;
 	private int perPage;
 	private int curPage;
+	private int textCount;
 	public MemberMngPageDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MemberMngPageDTO(List<MemberDTO> m_list, int perPage, int curPage) {
+	public MemberMngPageDTO(List<MemberDTO> m_list, int perPage, int curPage, int textCount) {
 		super();
 		this.m_list = m_list;
 		this.perPage = perPage;
 		this.curPage = curPage;
+		this.textCount = textCount;
 	}
 	public List<MemberDTO> getM_list() {
 		return m_list;
@@ -37,11 +39,12 @@ public class MemberMngPageDTO {
 	public void setCurPage(int curPage) {
 		this.curPage = curPage;
 	}
-	@Override
-	public String toString() {
-		return "MemberMngPageDTO [" + (m_list != null ? "m_list=" + m_list + ", " : "") + "perPage=" + perPage
-				+ ", curPage=" + curPage + "]";
+	public int getTextCount() {
+		return textCount;
 	}
-	
+	public void setTextCount(int textCount) {
+		this.textCount = textCount;
+	}
+
 	
 }

@@ -17,11 +17,17 @@
    	</c:if>
    	
    	<c:set var="paggingIdx" value="${curIdx*perPage}"/>
+   	<a href="QNAResponseServlet?curPage=${paggingIdx}&curIdx=${curIdx}"> &lt; </a>
    	<c:forEach begin="${paggingIdx+1}" end="${totalNum+1}" varStatus="status"> 
    			
    			<c:if test="${curPage==status.index}">
    			
-   				<c:out value="${status.index}"/>&nbsp;
+   				${status.index}&nbsp;
+   			</c:if>
+   				<c:if test="${curPage!=status.index}">
+   			
+   				  <a href="QNAResponseServlet?curPage=${status.index}&curIdx=${curIdx}">${status.index}</a>&nbsp;
    			</c:if>
    		
    	</c:forEach>
+   		<a href="QNAResponseServlet?curPage=${1+(pageIndex+1)*totalNum}&curIdx=${curIdx}"> &gt; </a>
