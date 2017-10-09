@@ -109,6 +109,10 @@ public class MemberDTO {
 				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
 				+ phone2 + ", phone3=" + phone3 + ", email=" + email + ", member_num=" + member_num + "]";
 	}
+	public void setMember_Num(int member_num) {
+		// TODO Auto-generated method stub
+		this.member_num=member_num;
+	}
 	
 	
 	

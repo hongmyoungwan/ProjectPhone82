@@ -8,11 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="AdminQNAboardList" resultType="QNADTO" parameterType="hashmap">
 	select num, userid, title, author, content, to_char(writeday,'YYYY/MM/DD') writeday, readcnt
 	from QNA
-	<if test="searchName=='title'">
+<if test='searchName != null and searchName.equals("title")'>
 	where title like '%'||#{searchValue}||'%'
 	</if>
-	<if test="searchName=='author'">
-	where title like '%'||#{searchValue}||'%'
+<if test='searchName != null and searchName.equals("author")'>
+	where author like '%'||#{searchValue}||'%'
 	</if>
 	order by num desc
 </select>
@@ -26,11 +26,11 @@ select count(*) from QNARESPONSE where num=#{num}
 </select>
 <select id="AdminQNAtotalCount1" resultType="int" parameterType="hashmap">
 	select count(*) from QNA
-	<if test="searchName=='title'">
+	<if test='searchName.equals("title")'>
 	where title like '%'||#{searchValue}||'%'
 	</if>
-	<if test="searchName=='author'">
-	where title like '%'||#{searchValue}||'%'
+<if test='searchName.equals("author")'>
+	where author like '%'||#{searchValue}||'%'
 	</if>
 </select>
 

@@ -58,9 +58,7 @@
 			f.action="QNAResponseServlet";
 		};
 		
-		function boardWrite(){
-			location.href="BoardWriteFormServlet";
-		}
+	
 </script>
 
 <c:if test="${!empty requestScope.write}">

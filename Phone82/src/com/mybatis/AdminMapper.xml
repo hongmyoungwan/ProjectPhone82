@@ -6,35 +6,74 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getAdminData" resultType="AdminDTO" parameterType="hashmap">
 
-		select userid,passwd from admin where userid=#{userid} and passwd=#{passwd}
+		select userid,passwd from admin where userid=#{userid} and
+		passwd=#{passwd}
 
 	</select>
 
-	<select id="getSalesChartDatas" resultType="SalesDTO" parameterType="hashmap">
-		select telecom_num , sum(phone_price)as "phone_price",sum(phone_amount)as "phone_amount", 
+	<select id="getSalesChartDatas" resultType="SalesDTO"
+		parameterType="hashmap">
+		select telecom_num , sum(phone_price)as
+		"phone_price",sum(phone_amount)as "phone_amount",
 		to_char(orderdate,'MM')as "orderdate"
 		from sales_status
 		where
-		orderdate between #{start} and #{finish}
-		group by telecom_num,to_char(orderdate,'MM')
+		orderdate
+		between #{start} and #{finish}
+		group by
+		telecom_num,to_char(orderdate,'MM')
 		order by to_char(orderdate,'MM')
-		
+
 	</select>
 	<select id="getAllMemberData" resultType="MemberDTO">
-		select userid, passwd, username, phone1,phone2,phone3, post1,post2, addr1, addr2, email,member_num
+		select userid, passwd, username, phone1,phone2,phone3, post1,post2,
+		addr1, addr2, email,member_num
 		from member
+	
 	</select>
 	<delete id="membersDelete" parameterType="arraylist">
 		delete from member
-		<where> 
-		member_num in
-		<foreach collection="list"  index="index" item="item" open="("
-			separator="," close=")">
+		<where>
+			member_num in
+			<foreach collection="list" index="index" item="item" open="("
+				separator="," close=")">
 				#{item}
-		</foreach>
+			</foreach>
 		</where>
-		
+
 	</delete>
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update member
+
+		set
+		userid=#{userid},
+		username=#{username},
+		email=#{email},
+		phone1=#{phone1},
+		phone2=#{phone2},
+		post1=#{post1},
+		post2=#{post2},
+		addr1=#{addr1},
+		addr2=#{addr2}
+		where
+		member_num=#{member_num}
+
+	</update>
+
+
+	<!-- <select id="MembertotalCount" resultType="int" parameterType="int">
+
+		select count(*) from member where member_num=#{member_num}
+	</select>
+	<select id="MembertotalCount1" resultType="int" parameterType="hashmap">
+		select count(*) from member
+		<if test='searchName.equals("member_num")'>
+			where member_num like '%'||#{searchValue}||'%'
+		</if>
+		<if test='searchName.equals("userid")'>
+			where userid like '%'||#{searchValue}||'%'
+		</if>
+	</select> -->
 </mapper>
 
 

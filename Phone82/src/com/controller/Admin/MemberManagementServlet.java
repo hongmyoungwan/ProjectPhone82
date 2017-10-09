@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dto.admin.AdminDTO;
+import com.dto.admin.MemberMngPageDTO;
 import com.dto.member.MemberDTO;
 import com.service.admin.MemberManagementService;
 
@@ -28,15 +29,17 @@ public class MemberManagementServlet extends HttpServlet {
 	    String curIdx= request.getParameter("curIdx");
 		String perPage=request.getParameter("perPage");
 	    String target ="membermanagepage.jsp";
-		if(curPage.equals(""))
+	    String searchName=request.getParameter("searchName"); 
+	    String searchValue=request.getParameter("searchValue"); 
+		if(curPage==null||curPage.equals(""))
 		{
 			curPage="1";
 		}
-		if(perPage.equals(""))
+		if(perPage==null||curPage.equals(""))
 		{
 			perPage="3";
 		}
-		if(curIdx.equals(""))
+		if(curIdx==null||curIdx.equals(""))
 		{
 			curIdx="0";
 		}
@@ -44,11 +47,11 @@ public class MemberManagementServlet extends HttpServlet {
 		map.put("curPage", curPage);
 		map.put("perPage", perPage);
 		map.put("curIdx", curIdx);
+		map.put("searchName", searchName);
+		map.put("searchValue", searchValue);
 		try {
-			List<MemberDTO> dto = service.getMemberData(map);
-			for (MemberDTO memberDTO : dto) {
-				System.out.println(dto.toString());
-			}
+			MemberMngPageDTO dto = service.page(map);
+		
 			request.setAttribute("membermanagepage", dto);
 		}catch (Exception e) {
 			// TODO: handle exception

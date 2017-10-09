@@ -24,20 +24,32 @@ public class MembersUpdateServlet extends HttpServlet {
 	MemberManagementService service =new MemberManagementService();
 		
 		String target ="admin/membermanagepage.jsp";
-		String num =request.getParameter("num");
-		String[] nums=num.split("/");
+		String userid =request.getParameter("userid");
+		String member_num =request.getParameter("member_num");
+		String username =request.getParameter("username");
+		String email =request.getParameter("email");
+		String phone1 =request.getParameter("phone1");
+		String phone2 =request.getParameter("phone2");
+		String phone3 =request.getParameter("phone3");
+		String post1 =request.getParameter("post1");
+		String post2 =request.getParameter("post2");
+		String addr1 =request.getParameter("addr1");
+		String addr2 =request.getParameter("addr2");
 		
-		if(num!=null) {
-			
-			for (String string : nums) {
-
-				System.out.println(string);
-			}
-				
-		}
-		
+		MemberDTO dto = new MemberDTO();
+		dto.setUserid(userid);
+		dto.setUsername(username);
+		dto.setEmail(email);
+		dto.setPhone1(phone1);
+		dto.setPhone2(phone2);
+		dto.setPhone3(phone3);
+		dto.setPost1(post1);
+		dto.setPost2(post2);
+		dto.setAddr1(addr1);
+		dto.setAddr2(addr2);
+		dto.setMember_Num(Integer.parseInt(member_num));
 		try {
-			List<MemberDTO> list= service.membersDelete(nums);
+			List<MemberDTO> list= service.memberUpdate(dto);
 			
 			for (MemberDTO memberDTO : list) {
 				System.out.println(memberDTO.toString());

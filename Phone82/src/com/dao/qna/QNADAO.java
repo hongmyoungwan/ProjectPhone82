@@ -19,7 +19,7 @@ public class QNADAO {
 	public QNAPageDTO qnapage(SqlSession session, int curPage, int perPage, HashMap<String,String> map) {
 		QNAPageDTO dto=new QNAPageDTO();
 		int index=(curPage-1)*perPage;
-		List<QNADTO> list=session.selectList("qnaList",map, new RowBounds(index, perPage));
+		
 		int totalCount=0;
 		if(map.get("searchValue")==null) {
 			totalCount=session.selectOne("qnatotalCount");
@@ -28,7 +28,7 @@ public class QNADAO {
 		else {
 			totalCount=session.selectOne("qnatotalCount1",map);
 		}
-		
+		List<QNADTO> list=session.selectList("qnaList",map, new RowBounds(index, perPage));	
 		dto.setList(list);
 		dto.setCurPage(curPage);
 		dto.setPerPage(perPage);

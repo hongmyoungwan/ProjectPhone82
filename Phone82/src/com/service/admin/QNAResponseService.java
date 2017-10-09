@@ -15,20 +15,6 @@ import com.exception.MyException;
 import com.mybatis.MybatisTemplate;
 
 public class QNAResponseService {
-	public List<QNADTO> boardList(HashMap<String,String> map) throws MyException{
-		SqlSession session=MybatisTemplate.openSession();
-		QNAResponseDAO dao=new QNAResponseDAO();
-		List<QNADTO> list=null;
-		try {
-			list=dao.qnaList(session,map);
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new MyException("boardList 실패"); 
-		}finally {
-			session.close();
-		}
-		return list;
-	}
 	
 	public QNAPageDTO page(int curPage, int perPage, HashMap<String, String> map) throws MyException{
 		SqlSession session=MybatisTemplate.openSession();

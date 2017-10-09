@@ -35,7 +35,7 @@
 }
 
 table {
-	width: 80%;
+	width: 90%;
 	border-collapse: collapse;
 	border-right: none;
 	border-left: none;
@@ -86,33 +86,24 @@ th, td {
 		 	  });
 		});
 
-		/* 
-		$("#updateMember").on("click",()=>{
-			var checkbox= document.querySelectorAll(".box");
-			var checkboxList="";
-		 	   for(i=0;i<checkbox.length;i++){
-		 		
-		 		   if(checkbox[i].checked){
-		 			  checkboxList+=checkbox[i].value+"/";
-		 			  
-		 		   }
-		 			  
-		 	   }
-		 	  console.log(checkboxList);
 	
-		 	
-		 	  $.ajax({
+	$("#searchButton").on("click",function(){
+		var searchName = $("#searchName").val();
+		var searchValue = $("#searchValue").val();
+		var perPage = $("#perPage").val();
+		  $.ajax({
 		 		 type:"get",
-					url:"MembersUpdateServlet",
+					url:"MemberManagementServlet",
 					dataType:"text",
 					data:{
-						num:checkboxList
+						searchName:searchName,
+						searchValue:searchValue,
+						perPage:perPage
 					},
 					success:(responseData,status,xhr)=>{
 						
 						console.log(responseData);
-						$("#result").append(responseData);
-						$("#initView").empty();
+					
 					},
 					error:(xhr,status,e)=>{
 						
@@ -120,7 +111,54 @@ th, td {
 						
 					}
 		 	  });
-		}); */
+	});
+			
+	$("[id^='z']").on("click",function(){
+		var x=$(this).children("td").eq(1).text();
+		$("#updateMember"+x).on("click",()=>{
+				
+			 		var userid= $("#userid"+x).val();
+			 		var member_num= x;
+			 		var username= $("#username"+x).val();
+			 		var email= $("#email"+x).val();
+			 		var phone1= $("#phone1"+x).val();
+					var phone2= $("#phone2"+x).val();
+					var phone3= $("#phone3"+x).val();
+					var post1= $("#post1"+x).val();
+					var post2= $("#post2"+x).val();
+					var addr1= $("#addr1"+x).val();
+					var addr2= $("#addr2"+x).val();
+			 		  $.ajax({
+					 		 type:"get",
+								url:"MembersUpdateServlet",
+								dataType:"text",
+								data:{
+									userid:userid,
+									member_num:member_num,
+									username:username,
+									email:email,
+									phone1:phone1,
+									phone2:phone2,
+									phone3:phone3,
+									post1:post1,
+									post2:post2,
+									addr1:addr1,
+									addr2:addr2,
+								},
+								success:(responseData,status,xhr)=>{
+									
+									console.log(responseData);
+								
+								},
+								error:(xhr,status,e)=>{
+									
+									console.log(e);
+									
+								}
+					 	  });
+			 	 });
+		 
+		}); 
 		
 		
 	});
