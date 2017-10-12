@@ -13,11 +13,11 @@
 <body>
 <jsp:include page="login/findIDResult.jsp"/>
 
-<c:if test="${! empty requestScope.mesg}">
+<%-- <c:if test="${! empty requestScope.mesg}">
  <script>
   alert('${requestScope.mesg}');
  </script>
-</c:if>
+</c:if> --%>
 
 </body>
 </html>
