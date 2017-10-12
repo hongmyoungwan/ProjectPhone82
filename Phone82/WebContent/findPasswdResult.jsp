@@ -13,11 +13,11 @@
 <body>
 <jsp:include page="login/findPasswdResult.jsp"/>
 
-<c:if test="${! empty requestScope.mesg2}">
+<%-- <c:if test="${! empty requestScope.mesg2}">
  <script>
   alert('${requestScope.mesg2}');
  </script>
-</c:if>
+</c:if> --%>
 
 </body>
 </html>
