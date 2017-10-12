@@ -24,6 +24,8 @@ ${sessionScope.login.username}님 &nbsp;
 <a href="BoardListServlet"> 게시판 </a>
 <a href="QNAListServlet"> Q&A </a>
 <a href="FAQListServlet"> FAQ </a>
+<a href="CartListView">장바구니</a>
+<a href="OrderHistoryListServlet">주문내역</a>
 </c:if>
 
 <hr style="color=#cecece">

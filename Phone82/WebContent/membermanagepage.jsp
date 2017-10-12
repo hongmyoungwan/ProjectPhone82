@@ -74,9 +74,9 @@ th, td {
 					},
 					success:(responseData,status,xhr)=>{
 						
-						console.log(responseData);
-						$("#result").append(responseData);
+						
 						$("#initView").empty();
+						$("#initView").wrapInner(responseData);
 					},
 					error:(xhr,status,e)=>{
 						
@@ -91,9 +91,10 @@ th, td {
 		var searchName = $("#searchName").val();
 		var searchValue = $("#searchValue").val();
 		var perPage = $("#perPage").val();
+		console.log(searchName+":"+searchValue);
 		  $.ajax({
 		 		 type:"get",
-					url:"MemberManagementServlet",
+					url:"MemberSearchServlet",
 					dataType:"text",
 					data:{
 						searchName:searchName,
@@ -102,7 +103,9 @@ th, td {
 					},
 					success:(responseData,status,xhr)=>{
 						
-						console.log(responseData);
+					
+						$("#initView").empty();
+						$("#initView").wrapInner(responseData);
 					
 					},
 					error:(xhr,status,e)=>{
@@ -168,9 +171,7 @@ th, td {
 <h1>관리자페이지</h1>
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
-<div id="result">
 
-</div>
 <div id="initView">
 <jsp:include page="admin/membermanagepage.jsp" flush="true" /><br>
 </div>

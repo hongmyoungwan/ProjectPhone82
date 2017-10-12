@@ -4,34 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<style>
-#head {
-	background-color: gray;
-}
-
-#left_side_menu{
-width:20%;
-height:100px;
-float:left;
-background-color: #ff5a1e;
-text-align: left;
-}
-.main_content{
-width:60%;
-height:300px;
-float:center;
-background-color: white;
-text-align: right;
-}
-</style>
-
-<span id="left_side_menu" >
-<a href="">MyPage</a><br>
-<a href="">후기게시판</a><br>
-<a href="">고객센터</a><br>
-</span>
-
-<table border="0" class="main_content">
+<table border="0" class="main_content" style="margin:auto;">
 
 	<tr>
 		<td height="30">
@@ -126,7 +99,8 @@ text-align: right;
 								value="${xxx.phone_price * xxx.phone_amount}" type="currency" />
 					</span></td>
 					<td><input type="button" value="주문"
-						onclick="order('${xxx.num}','${xxx.userid}')"><br>
+						onclick="order('${xxx.num}','${xxx.userid}','${xxx.phone_name}','${xxx.phone_model_num}',
+						'${xxx.phone_price}','${xxx.phone_image}','${xxx.telecom_num}','${xxx.phone_amount}')"><br>
 					
 						</td>
 					<td class="td_default" align="center" width="30"
@@ -147,10 +121,7 @@ text-align: right;
 			<td height="30">
 		</tr>
 
-		<tr>
-			 <a class="a_black" href="#"> 계속
-					쇼핑하기 </a></td>
-		</tr>
+		
 		<tr>
 			<td height="20">
 		</tr>
@@ -170,9 +141,10 @@ text-align: right;
 	}
 
 
-	function order(num, userid) {
-		console.log(userid);
-		location.href = "PaymentViewServlet?num=" + num + "&userid=" + userid;
+	function order(num, userid,phone_name,phone_model_num,phone_price,phone_image,telecom_num,phone_amount) {
+	
+		location.href = "PaymentViewServlet?num=" + num + "&userid=" + userid+"&phone_model_num=" + phone_model_num+"&phone_name=" +
+		phone_name+"&phone_price=" + phone_price+"&phone_image=" + phone_image+"&telecom_num=" + telecom_num+"&phone_amount=" + phone_amount;
 
 	}
 </script>

@@ -11,10 +11,6 @@ import com.dto.admin.AdminDTO;
 import com.dto.admin.MemberMngPageDTO;
 import com.dto.cart.SalesDTO;
 import com.dto.member.MemberDTO;
-import com.dto.qna.QNADTO;
-import com.dto.qna.QNAPageDTO;
-import com.exception.MyException;
-import com.mybatis.MybatisTemplate;
 
 public class AdminDAO {
 
@@ -77,16 +73,16 @@ public class AdminDAO {
 		System.out.println("index"+index);
 		index*=(1+curIdx);
 	
-		int totalCount=0;
-		/*if(map.get("searchValue")==null) {
+		int totalCount=0;System.out.println(map.get("searchValue"));
+		if(map.get("searchValue")==null) {
 			totalCount=session.selectOne("MembertotalCount");
 		}
 		else {
 			totalCount=session.selectOne("MembertotalCount1",map);
-		}*/
+		}
 		
 		MemberMngPageDTO dto = new MemberMngPageDTO();
-		List<MemberDTO> list=session.selectList("getAllMemberData",null, new RowBounds(index,perPage));
+		List<MemberDTO> list=session.selectList("getAllMemberData",map, new RowBounds(index,perPage));
 		dto.setM_list(list);
 		dto.setCurIdx(curIdx);
 		dto.setCurPage(curPage);

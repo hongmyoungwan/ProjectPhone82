@@ -59,12 +59,12 @@ public class CartService {
 		}
 	}
 
-	public CartDTO orderConfirm(int num) throws MyException {
+	public CartDTO orderConfirm(CartDTO dto2) throws MyException {
 		SqlSession session = MybatisTemplate.openSession();
 		CartDAO dao = new CartDAO();
 		CartDTO dto = null;
 		try {
-			dto = dao.orderConfirm(session, num);
+			dto = dao.orderConfirm(session, dto2);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new MyException("orderConfirm error");
@@ -90,6 +90,20 @@ public class CartService {
 			session.close();
 		}
 		
+	}
+
+	public String createOrderNum() throws MyException{
+		SqlSession session = MybatisTemplate.openSession();
+		CartDAO dao = new CartDAO();
+		String number;
+		try {
+			number = String.valueOf(dao.createOrderNum(session));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new MyException("amountUpdate error");
+		} 
+		return number;
 	}
 
 }

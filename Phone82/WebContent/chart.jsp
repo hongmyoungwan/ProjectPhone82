@@ -11,9 +11,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CartList</title>
 <script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="chart/highcharts.js"></script>
+<script src="chart/highcharts-3d.js"></script>
 <script type="text/javascript" >
 	$(document).ready(()=>{
-		$("#start,#finish").on("keyup",(event)=>{
+		$("#dateSearch").on("click",function(){
 			console.log($("#start").val());
 			var dataa ={
 				/* 	start:encodeURI($("#start").val()),
@@ -46,6 +49,7 @@
 <jsp:include page="admin/adminForm.jsp" flush="true" /><br>
 <hr>
 <input type="text" name="start" id="start" value="2017/01/01">~<input type="text" name="finish" id="finish" value="2017/12/31">
+<input type="button" id="dateSearch" value="검색"/>
 <div id="result">
 
 </div>

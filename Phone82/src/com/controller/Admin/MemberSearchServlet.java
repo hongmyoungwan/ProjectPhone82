@@ -19,8 +19,8 @@ import com.service.admin.MemberManagementService;
 /**
  * Servlet implementation class MemberManagementServlet
  */
-@WebServlet("/MemberManagementServlet")
-public class MemberManagementServlet extends HttpServlet {
+@WebServlet("/MemberSearchServlet")
+public class MemberSearchServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -28,7 +28,7 @@ public class MemberManagementServlet extends HttpServlet {
 		String curPage= request.getParameter("curPage"); 
 	    String curIdx= request.getParameter("curIdx");
 		String perPage=request.getParameter("perPage");
-	    String target ="membermanagepage.jsp";
+	    String target ="admin/membermanagepage.jsp";
 	    String searchName=request.getParameter("searchName"); 
 	    String searchValue=request.getParameter("searchValue"); 
 		if(curPage==null||curPage.equals(""))
@@ -51,7 +51,7 @@ public class MemberManagementServlet extends HttpServlet {
 		map.put("searchValue", searchValue);
 		try {
 			MemberMngPageDTO dto = service.page(map);
-			System.out.println("totalcount"+dto.getTotalCount());
+		
 			request.setAttribute("membermanagepage", dto);
 		}catch (Exception e) {
 			// TODO: handle exception

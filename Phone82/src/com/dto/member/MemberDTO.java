@@ -13,7 +13,7 @@ public class MemberDTO {
 	private String phone2;
 	private String phone3;
 	private String email;
-	private int member_num;
+	private String member_num;
 	public MemberDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -99,7 +99,7 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getMember_num() {
+	public String getMember_num() {
 		return member_num;
 	}
 
@@ -109,7 +109,7 @@ public class MemberDTO {
 				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
 				+ phone2 + ", phone3=" + phone3 + ", email=" + email + ", member_num=" + member_num + "]";
 	}
-	public void setMember_Num(int member_num) {
+	public void setMember_Num(String member_num) {
 		// TODO Auto-generated method stub
 		this.member_num=member_num;
 	}

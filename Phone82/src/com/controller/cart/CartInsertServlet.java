@@ -28,6 +28,7 @@ public class CartInsertServlet extends HttpServlet {
 		String phone_name=request.getParameter("phone_name");
 		String phone_price=request.getParameter("phone_price");
 		String phone_image=request.getParameter("phone_image");
+		String telecom_num=request.getParameter("telecom_num");
 		int phone_amount=1;
 		String target="CartListView";
 		CartService service = new CartService();
@@ -45,7 +46,7 @@ public class CartInsertServlet extends HttpServlet {
 		dto.setPhone_name(phone_name);
 		dto.setPhone_price(Integer.parseInt(phone_price));
 		dto.setUserid(userid);
-		
+		dto.setTelecom_num(telecom_num);
 		try {
 			service.insertItem(dto);
 			request.setAttribute("dto", dto);

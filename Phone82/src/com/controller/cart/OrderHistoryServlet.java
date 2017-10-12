@@ -23,10 +23,10 @@ public class OrderHistoryServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		
 		String phone_name = request.getParameter("phone_name");
-		String sprice = request.getParameter("phone_price");
-		String samount = request.getParameter("phone_amount");
+		String phone_price = request.getParameter("phone_price");
+		String phone_amount = request.getParameter("phone_amount");
 		String phone_model_num = request.getParameter("phone_model_num");
-		String sImage = request.getParameter("phone_image");
+		String phone_image = request.getParameter("phone_image");
 
 		String orderName = request.getParameter("orderName");
 		String post1 = request.getParameter("post1");
@@ -39,10 +39,10 @@ public class OrderHistoryServlet extends HttpServlet {
 		OrderDTO dto = new OrderDTO();
 		dto.setAddr1(addr1);
 		dto.setAddr2(addr2);
-		dto.setPhone_amount(Integer.parseInt(samount));
+		dto.setPhone_amount(Integer.parseInt(phone_amount));
 		dto.setPhone_model_num(phone_model_num);
-		dto.setPhone_image(sImage);
-		dto.setPhone_price(Integer.parseInt(sprice));
+		dto.setPhone_image(phone_image);
+		dto.setPhone_price(Integer.parseInt(phone_price));
 		dto.setPhone_name(phone_name);
 		dto.setPhone(phone);
 		dto.setUserid(userid);

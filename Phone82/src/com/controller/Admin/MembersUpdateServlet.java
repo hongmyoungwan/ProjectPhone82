@@ -47,7 +47,7 @@ public class MembersUpdateServlet extends HttpServlet {
 		dto.setPost2(post2);
 		dto.setAddr1(addr1);
 		dto.setAddr2(addr2);
-		dto.setMember_Num(Integer.parseInt(member_num));
+		dto.setMember_Num(member_num);
 		try {
 			List<MemberDTO> list= service.memberUpdate(dto);
 			

@@ -33,7 +33,7 @@ public class CartListViewServlet extends HttpServlet {
 		CartService service = new CartService();
 		String target ="cartList.jsp";
 		try {
-			System.out.println("cartlistvier 36 :"+mem.getUserid());
+		
 			List<CartDTO> list = service.cartAllList(mem.getUserid());
 			request.setAttribute("cartList", list);
 			

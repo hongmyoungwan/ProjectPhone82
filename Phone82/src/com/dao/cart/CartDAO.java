@@ -13,7 +13,7 @@ public class CartDAO {
 	
 	
 	public List<CartDTO> cartAllList(SqlSession session , String userid) {
-		
+	
 		return session.selectList("cartAllList",userid);
 	}
 
@@ -24,13 +24,14 @@ public class CartDAO {
 
 	public int delItem(SqlSession session, int num) {	//������ ����
 		// TODO Auto-generated method stub
-		
-		return session.delete("deleteItem", num);
+		int n =session.delete("deleteItem", num);
+		System.out.println("CartDAO"+ n);
+		return n;
 	}
 
-	public CartDTO orderConfirm(SqlSession session, int num) { //�ֹ� Ȯ��â
+	public CartDTO orderConfirm(SqlSession session, CartDTO dto) { //�ֹ� Ȯ��â
 
-		return session.selectOne("orderConfirm",num);
+		return session.selectOne("orderConfirm",dto);
 	}
 
 	public int insertItem(SqlSession session, CartDTO dto) {
@@ -45,4 +46,12 @@ public class CartDAO {
 		}
 		 return n;
 	}
+
+	public int createOrderNum(SqlSession session) {
+		session.insert("createOrderNum");
+		int num =session.selectOne("getOrderNum");
+		return num;
+	}
+
+	
 }

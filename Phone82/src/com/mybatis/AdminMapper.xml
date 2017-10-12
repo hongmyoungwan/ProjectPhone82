@@ -25,11 +25,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by to_char(orderdate,'MM')
 
 	</select>
-	<select id="getAllMemberData" resultType="MemberDTO">
+	<select id="getAllMemberData" resultType="MemberDTO" parameterType="hashmap">
 		select userid, passwd, username, phone1,phone2,phone3, post1,post2,
 		addr1, addr2, email,member_num
 		from member
-	
+	<if test='searchName=="member_num"'>
+			where member_num like '%'||#{searchValue}||'%'
+		</if>
+		<if test='searchName=="userid"'>
+			where userid like '%'||#{searchValue}||'%'
+		</if>
 	</select>
 	<delete id="membersDelete" parameterType="arraylist">
 		delete from member
@@ -61,19 +66,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 
-	<!-- <select id="MembertotalCount" resultType="int" parameterType="int">
+	<select id="MembertotalCount" resultType="int" >
 
-		select count(*) from member where member_num=#{member_num}
+		select count(*) from member
 	</select>
 	<select id="MembertotalCount1" resultType="int" parameterType="hashmap">
 		select count(*) from member
-		<if test='searchName.equals("member_num")'>
+		<if test='searchName=="member_num"'>
 			where member_num like '%'||#{searchValue}||'%'
 		</if>
-		<if test='searchName.equals("userid")'>
+		<if test='searchName=="userid"'>
 			where userid like '%'||#{searchValue}||'%'
 		</if>
-	</select> -->
+	</select>
 </mapper>
 
 
