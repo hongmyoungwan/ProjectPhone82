@@ -81,7 +81,7 @@
 					</td>
 					<td class="td_default" width="80">${xxx.num}</td>
 					<td class="td_default" width="80"><img
-						src="images/${xxx.phone_image}.jpg" border="0" align="center"
+						src="images/${xxx.phone_image}" border="0" align="center"
 						width="80" /></td>
 					<td class="td_default" width="300" >${xxx.phone_name}
 						<br>

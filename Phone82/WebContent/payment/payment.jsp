@@ -59,7 +59,7 @@
 					<tr>
 						<td class="td_default" width="80">${cDTO.num}</td>
 						<td class="td_default" width="80"><img
-							src="images/${cDTO.phone_image}.jpg" border="0" align="center"
+							src="images/${cDTO.phone_image}" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.phone_name}
 						</td>

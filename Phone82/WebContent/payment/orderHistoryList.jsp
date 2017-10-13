@@ -18,7 +18,7 @@
 	<c:forEach items="${list}" var="item">
 	<tr>
 		<td>${item.num}</td>
-		<td><img src="images/${item.phone_image}.jpg" width="50" height="50"/></td>
+		<td><img src="images/${item.phone_image}" width="50" height="50"/></td>
 		<td>${item.userid}</td>
 		<td>${item.phone_name}</td>
 		<td>${item.phone_price}</td>
