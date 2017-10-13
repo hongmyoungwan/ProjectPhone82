@@ -132,7 +132,7 @@
 	<div class="container">
 		<div class="nav">
 		<ul class="nav-list">
-			<li class="nav-item"><a href="PhoneListServlet" style="color:red">휴대폰 리스트</a></li>
+			<li class="nav-item"><a href="PhoneListServlet" >휴대폰 리스트</a></li>
 			<li class="nav-item"><a href="ListServlet?phone_model_num=galaxy">갤럭시 제품만 보기</a></li>
 			<li class="nav-item"><a href="ListServlet?phone_model_num=iphone">아이폰만 보기</a></li>
 		</ul>
