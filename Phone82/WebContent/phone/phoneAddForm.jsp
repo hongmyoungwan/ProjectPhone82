@@ -27,4 +27,5 @@
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="등록"><input type="reset" value="취소"></td>
 			</tr>
 		</table>
+		<a href="home.jsp">홈으로 가기</a>
 	</form>

@@ -26,7 +26,7 @@
  .logo{
  	font-size : 2em;
  	font-weight : bold;
- 	background:#5457de;
+ 	background:#eee;
  	color: #fff;
  	display : inline-block;
  	padding : 0 8px;
@@ -86,9 +86,9 @@
 
 </head>
 <body>
-<div class="frame"><a href="">회원가입</a> &nbsp;&nbsp;&nbsp;<a href="">로그인</a>
+<div class="frame"><jsp:include page="menu/top.jsp" flush="true"/>
 <div class="header">
-<div class="logo"><a href="home.html">Phone82</a> </div>
+<div class="logo"><a href="home.jsp"><img src="images/ddd.png"></a> </div>
 </div>
 	<div class="container">
 		<div class="nav">
