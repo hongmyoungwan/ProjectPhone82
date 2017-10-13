@@ -1,6 +1,7 @@
 package com.controller.cart;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -35,7 +36,10 @@ public class OrderHistoryListServlet extends HttpServlet {
 		 String target="orderHistoryList.jsp";
 		 try {
 		 List<OrderDTO> list= service.orderList(userid);
-	
+		 
+		 for (OrderDTO orderDTO : list) {
+			System.out.println("Orderdate :"+orderDTO.getOrderdate());
+		}
 		 request.setAttribute("list",list);
 	
 		 // request.setAttribute("cart", "��ٱ��Ͽ�"+gName+" ��ǰ�� �� �����ϴ�.");
