@@ -75,9 +75,7 @@
 .content{
 	background:#fff;
 }
- a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
- a:hover { color: blue; text-decoration: underline;}
+
  
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
